@@ -1,59 +1,107 @@
-# HS Transformer Quechua
+# HS Transformer Quechua (UNI MIA-402)
 
-Optimización de un Transformer de traducción español→quechua usando Harmony Search. Se incluye entrenamiento con checkpoints/reanudación, manejo de OOM en el orquestador y un dashboard HTML para explorar los trials.
+Proyecto de la asignatura UNI MIA-402: optimizacion de un Transformer de traduccion espanol-quechua usando Harmony Search (y variante GA). Incluye reanudacion por checkpoints, manejo de OOM en el orquestador y dashboards HTML para explorar los trials.
 
-## Requisitos rápidos
-- Python 3.10 (sugerido conda: `conda create -n hs_transformer_quechua python=3.10 -y; conda activate hs_transformer_quechua`).
-- `pip install -r requirements.txt` (pandas, openpyxl, torch, numpy, nltk, rouge-score).
-- GPU opcional; si no hay GPU, el entrenamiento usará CPU (más lento).
+## Requisitos rapidos
+- Python 3.10 (sugerido conda): `conda create -n hs_transformer_quechua python=3.10 -y; conda activate hs_transformer_quechua`
+- Instalar dependencias: `pip install -r requirements.txt`
+- GPU opcional; sin GPU el entrenamiento usa CPU (mas lento).
 
 ## Estructura clave
-- `main.py`: arranca la búsqueda de hiperparámetros (Harmony Search) y usa el orquestador.
-- `search_orchestrator.py`: define `SEARCH_SPACE`, `fitness_fn` y lanza `HarmonySearch`; guarda trials en `hs_runs/` y maneja OOM penalizando el fitness.
-- `utils/harmony_search.py`: implementación HS con reanudación; guarda estado en `hs_runs/state_hs.json` tras cada iteración.
-- `model/training.py`: carga/preprocesa datos, entrena el Transformer y soporta checkpoints (`resume_from`, `checkpoint_every`).
-- `hs_runs/`: se guardan `trial_*.json`, `hs_best.json`, `state_hs.json` y el `dashboard.html`.
-- `utils/reporting.py`: utilidades para leer trials y graficar métricas.
-- `scripts/gen_dashboard.py`: genera un dashboard interactivo (Bootstrap + Chart.js) para filtrar/ordenar trials y ver métricas.
-- `ga_orchestrator.py`: búsqueda con Algoritmo Genético (GA) como alternativa a HS, con reanudación (`state_ga.json`).
-- `utils/search_space.py`: define los espacios de búsqueda HS/GA centralizados.
-- `config.py`: rutas comunes (dataset, salidas, checkpoints).
+- `main.py`: lanza la busqueda Harmony Search.
+- `ga_orchestrator.py`: busqueda alternativa con Algoritmo Genetico (GA) con reanudacion.
+- `search_orchestrator.py`: define `SEARCH_SPACE`, `fitness_fn` y orquestacion HS.
+- `utils/harmony_search.py`: implementacion HS con estado en `hs_runs/state_hs.json`.
+- `model/training.py`: prepara datos y entrena el Transformer con checkpoints.
+- `utils/reporting.py`: helpers para leer trials y graficar metricas.
+- `scripts/tablero_trials_hs.py`: dashboard HTML (Bootstrap + Chart.js) para `trial_*.json`.
+- `scripts/reporte_traza_hs.py`: dashboard HTML (Plotly + Tabulator) para `trace_*.json`.
 
-## Uso básico
+## Uso basico
 1) Activar entorno e instalar dependencias.
-2) Asegurar dataset en `data/` (ruta configurada en `search_orchestrator.py` → `DATASET_QUECHUA_PATH`).
-3) Ejecutar búsqueda HS:  
+2) Colocar el dataset en `data/` (ruta en `config.py` como `DATASET_QUECHUA_PATH`).
+3) Ejecutar busqueda HS:
    ```bash
    python main.py
    ```
-   - Se generan `trial_*.json` y `hs_best.json` en `hs_runs/`.
-   - Si hay OOM, el trial se marca con `oom: true`, BLEU=0 y la búsqueda continúa.
-4) Ejecutar búsqueda GA:  
+   Genera `trial_*.json` y `hs_best.json` en `hs_runs/`.
+4) Ejecutar busqueda GA:
    ```bash
    python ga_orchestrator.py
    ```
-   - Se generan `trial_ga_*.json` y `ga_best.json` en `hs_runs/`.
-   - Reanuda desde `hs_runs/state_ga.json` si existe.
-5) Dashboard de resultados:  
+   Genera `trial_ga_*.json` y `ga_best.json`; reanuda desde `hs_runs/state_ga.json` si existe.
+5) Dashboard de resultados (trials):
    ```bash
-   python scripts/gen_dashboard.py
+   python scripts/tablero_trials_hs.py
    # abrir hs_runs/dashboard.html en el navegador
    ```
-   Permite filtrar por hiperparámetro y ordenar por métricas; cada trial abre un modal con gráficas de loss/BLEU/ROUGE.
+6) Dashboard de trazas HS:
+   ```bash
+   python scripts/reporte_traza_hs.py
+   # abre el HTML generado en hs_runs/
+   ```
 
-## Checkpoints y reanudación
-- Entrenamiento: `train_single_run` guarda un checkpoint cada `checkpoint_every` épocas en `checkpoints/ckpt_<timestamp>.pt`. Para reanudar:
+## Checkpoints y reanudacion
+- Entrenamiento: `train_single_run` guarda checkpoints en `checkpoints/ckpt_<timestamp>.pt` cada `checkpoint_every` epocas. Para reanudar:
   ```python
   train_single_run(hp, artifacts, resume_from="checkpoints/ckpt_XXXX.pt")
   ```
-- Harmony Search: guarda estado en `hs_runs/state_hs.json` al final de cada iteración. Si el proceso se interrumpe (Ctrl+C o apagado), al relanzar `main.py` reanudará desde ese estado.
+- Harmony Search: guarda estado en `hs_runs/state_hs.json` al final de cada iteracion. Si se interrumpe, relanza `main.py` para reanudar.
 
-## Notas de espacio de búsqueda
-- Ajusta `SEARCH_SPACE` a los límites de tu GPU/CPU. Para evitar OOM, usa batch_size ≤16, d_model ≤256, ffn_hidden ≤1024, num_layers 2–3, num_heads 4.
+## Notas de espacio de busqueda
+Ajusta `SEARCH_SPACE` segun recursos (GPU/CPU). Para evitar OOM: `batch_size <= 16`, `d_model <= 256`, `ffn_hidden <= 1024`, `num_layers 2-3`, `num_heads 4`.
 
 ## Logs
-- `utils/logger.py` escribe logs diarios en `logs/log_YYYYMMDD.txt` y también imprime por consola.
+`utils/logger.py` escribe en `logs/log_YYYYMMDD.txt` y por consola.
 
-## Scripts útiles
-- `scripts/gen_dashboard.py`: genera dashboard HTML con filtros/orden.  
-- `utils/reporting.py`: carga trials y genera plots de loss/BLEU/ROUGE programáticamente.
+## Diagramas
+- Arquitectura: `docs/aquitectura.png`
+  ![Diagrama de arquitectura](docs/aquitectura.png)
+- Flujo Harmony Search: `docs/diagrama_flujo_hs.png`
+  ![Diagrama de flujo HS](docs/diagrama_flujo_hs.png)
+
+## Algoritmo Harmony Search (resumen)
+1) Inicializar Harmonic Memory (HM) con armonias aleatorias dentro del `SEARCH_SPACE`.
+2) Repetir hasta `NI` iteraciones:
+   - Para cada parametro: con probabilidad `HMCR` tomar valor de HM; si no, muestrear aleatorio. Con probabilidad `PAR` hacer pitch adjustment (ruido controlado por `BW`).
+   - Evaluar fitness (BLEU); manejar OOM penalizando con fitness bajo.
+   - Si la nueva armonia mejora la peor de HM, reemplazarla.
+3) Guardar en `hs_runs/` el mejor trial (`hs_best.json`) y estado (`state_hs.json`) para reanudar.
+
+## Scripts y uso
+- `scripts/resumen_entorno.py`: imprime info de entorno, rutas de dataset/salidas y espacios de busqueda HS/GA.
+  ```bash
+  python scripts/resumen_entorno.py
+  ```
+- `scripts/dividir_excel_incremental.py`: divide un Excel en partes crecientes (10k, 20k, 30k, ...).
+  ```bash
+  python scripts/dividir_excel_incremental.py
+  ```
+- `scripts/particionar_dataset_aleatorio.py`: crea particiones aleatorias del dataset y guarda estadisticas y promedios de longitud.
+  ```bash
+  python scripts/particionar_dataset_aleatorio.py
+  ```
+- `scripts/entrenar_modelo_manual.py`: ejecuta un entrenamiento manual con hiperparametros definidos en el archivo (edita `DEFAULT_HP` o `USER_HP_OVERRIDE`).
+  ```bash
+  python scripts/entrenar_modelo_manual.py
+  ```
+- `scripts/graficar_entrenos_manual.py`: genera PNG y HTML de metricas (loss/BLEU/ROUGE) para `hs_runs/manual_train_*.json`.
+  ```bash
+  python scripts/graficar_entrenos_manual.py
+  python scripts/graficar_entrenos_manual.py --file hs_runs/manual_train_123.json
+  ```
+- `scripts/tablero_trials_hs.py`: dashboard para trials HS/GA (`trial_*.json`).
+  ```bash
+  python scripts/tablero_trials_hs.py
+  # abre hs_runs/dashboard.html
+  ```
+- `scripts/reporte_traza_hs.py`: dashboard avanzado para trazas HS (`trace_*.json`) con Plotly/Tabulator.
+  ```bash
+  python scripts/reporte_traza_hs.py
+  python scripts/reporte_traza_hs.py --trace hs_runs/trace_20250101_120000.json
+  ```
+- `scripts/traza_hs_a_csv.py`: convierte `trace_*.json` a CSV (mejor armonia por iteracion).
+  ```bash
+  python scripts/traza_hs_a_csv.py
+  python scripts/traza_hs_a_csv.py --file hs_runs/trace_20250101_120000.json
+  ```
