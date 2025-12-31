@@ -1,0 +1,2 @@
+conda create -n hs_transformer_quechua python=3.10 -y
+conda activate hs_transformer_quechua

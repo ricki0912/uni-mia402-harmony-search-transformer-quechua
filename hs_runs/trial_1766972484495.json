@@ -1,0 +1,62 @@
+{
+  "algo": "HS",
+  "trial_id": 1766972484495,
+  "status": "ok",
+  "start_ts": 1766972484.495594,
+  "end_ts": 1766973170.322289,
+  "duration_seconds": 685.8266949653625,
+  "hp": {
+    "d_model": 512,
+    "ffn_hidden": 512,
+    "num_heads": 8,
+    "drop_prob": 0.06124915251432203,
+    "num_layers": 3,
+    "lr": 0.0001,
+    "batch_size": 2,
+    "max_sequence_length": 300,
+    "epochs": 2
+  },
+  "metrics": {
+    "loss_history": [
+      2.188715594027288,
+      1.656592443136836
+    ],
+    "bleu_history": [
+      0.000744725814287577,
+      0.0031378992958354937
+    ],
+    "rouge": {
+      "rouge1_history": [
+        0.007797391993804407,
+        0.02150613162521406
+      ],
+      "rouge2_history": [
+        0.0,
+        0.00013181179647163993
+      ],
+      "rougeL_history": [
+        0.007797391993804407,
+        0.021455421205152692
+      ]
+    },
+    "final_metrics": {
+      "loss": 1.656592443136836,
+      "bleu": 0.0031378992958354937,
+      "rouge1": 0.02150613162521406,
+      "rouge2": 0.00013181179647163993,
+      "rougeL": 0.021455421205152692
+    },
+    "epochs_run": 2,
+    "stats": {
+      "min_loss": 1.656592443136836,
+      "max_bleu": 0.0031378992958354937,
+      "best_epoch_loss": 1,
+      "best_epoch_bleu": 1,
+      "training_time_seconds": 684.6487061977386,
+      "training_time_minutes": 11.410811769962312,
+      "training_time_hours": 0.1901801961660385,
+      "avg_time_per_epoch": 342.3243530988693
+    },
+    "bleu": 0.0031378992958354937
+  }
+}

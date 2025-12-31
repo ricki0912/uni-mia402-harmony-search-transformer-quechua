@@ -1,0 +1,28 @@
+[2025-12-31 12:41:11] INFO: Usando DEFAULT_HP: {'d_model': 512, 'ffn_hidden': 512, 'num_heads': 8, 'drop_prob': 0.07753112550551966, 'num_layers': 3, 'lr': 0.0001, 'batch_size': 2, 'max_sequence_length': 250, 'epochs': 50}
+[2025-12-31 12:41:11] INFO: =====================================================
+[2025-12-31 12:41:11] INFO: [ManualTrain] Iniciando entrenamiento con HP: {'d_model': 512, 'ffn_hidden': 512, 'num_heads': 8, 'drop_prob': 0.07753112550551966, 'num_layers': 3, 'lr': 0.0001, 'batch_size': 2, 'max_sequence_length': 250, 'epochs': 50}
+[2025-12-31 12:41:11] 2.5.1: Versión Torch:
+[2025-12-31 12:41:11] 12.1: Versión CUDA en Torch:
+[2025-12-31 12:41:13] True: CUDA disponible:
+[2025-12-31 12:41:13] NVIDIA GeForce RTX 3050 6GB Laptop GPU: GPU detectada:
+[2025-12-31 12:41:13] INFO: load_dataframeFromXLSX()=> Cargando archivo Excel desde data\data_preprocesada_sin_outliers_v4_biblia.xlsx
+[2025-12-31 12:41:25] INFO: Traducción de Spanish a Quechua
+[2025-12-31 12:41:28] INFO: Numero de oraciones antes de filtrar por longitud y vocabulario: 126095
+[2025-12-31 12:41:28] INFO: Numero de oraciones válidas después de filtrar por longitud y vocabulario: 124849
+[2025-12-31 12:41:28] INFO: Iniciando entrenamiento con los siguientes hiperparámetros:
+[2025-12-31 12:41:28] INFO: {'d_model': 512, 'ffn_hidden': 512, 'num_heads': 8, 'drop_prob': 0.07753112550551966, 'num_layers': 3, 'lr': 0.0001, 'batch_size': 2, 'max_sequence_length': 250, 'epochs': 50}
+[2025-12-31 13:04:02] INFO: Usando DEFAULT_HP: {'d_model': 512, 'ffn_hidden': 512, 'num_heads': 8, 'drop_prob': 0.07753112550551966, 'num_layers': 3, 'lr': 0.0001, 'batch_size': 2, 'max_sequence_length': 250, 'epochs': 50}
+[2025-12-31 13:04:02] INFO: =====================================================
+[2025-12-31 13:04:02] INFO: [ManualTrain] Iniciando entrenamiento con HP: {'d_model': 512, 'ffn_hidden': 512, 'num_heads': 8, 'drop_prob': 0.07753112550551966, 'num_layers': 3, 'lr': 0.0001, 'batch_size': 2, 'max_sequence_length': 250, 'epochs': 50}
+[2025-12-31 13:04:02] 2.5.1: Versión Torch:
+[2025-12-31 13:04:02] 12.1: Versión CUDA en Torch:
+[2025-12-31 13:04:04] True: CUDA disponible:
+[2025-12-31 13:04:04] NVIDIA GeForce RTX 3050 6GB Laptop GPU: GPU detectada:
+[2025-12-31 13:04:04] INFO: load_dataframeFromXLSX()=> Cargando archivo Excel desde data\data_preprocesada_sin_outliers_v4_biblia_part_0_1-1000.xlsx
+[2025-12-31 13:04:05] INFO: Traducción de Spanish a Quechua
+[2025-12-31 13:04:05] INFO: Numero de oraciones antes de filtrar por longitud y vocabulario: 10000
+[2025-12-31 13:04:05] INFO: Numero de oraciones válidas después de filtrar por longitud y vocabulario: 9881
+[2025-12-31 13:04:05] INFO: Iniciando entrenamiento con los siguientes hiperparámetros:
+[2025-12-31 13:04:05] INFO: {'d_model': 512, 'ffn_hidden': 512, 'num_heads': 8, 'drop_prob': 0.07753112550551966, 'num_layers': 3, 'lr': 0.0001, 'batch_size': 2, 'max_sequence_length': 250, 'epochs': 50}
+[2025-12-31 13:07:53] INFO: [Train] Epoch 1/50 | Loss: 2.1859, BLEU: 0.000610 | t_epoch=226.7s, t_total=228.6s
+[2025-12-31 13:07:53] INFO: [Train] ROUGE-1: 0.007109, ROUGE-2: 0.000000, ROUGE-L: 0.007074

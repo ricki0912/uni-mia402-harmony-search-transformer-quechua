@@ -1,0 +1,1208 @@
+[2025-11-29 20:39:09] INFO: load_dataframeFromXLSX()=> Cargando archivo Excel desde data/data_preprocesada_sin_outliers_v4_biblia_part_0_1-1000.xlsx
+[2025-11-29 20:39:10] INFO: Traducción de Spanish a Quechua
+[2025-11-29 20:39:10] INFO: Numero de oraciones antes de filtrar por longitud y vocabulario: 10000
+[2025-11-29 20:39:10] INFO: Numero de oraciones válidas después de filtrar por longitud y vocabulario: 9633
+[2025-11-29 20:39:10] INFO: Iniciando programa...
+[2025-11-29 20:39:10] INFO: =====================================================
+[2025-11-29 20:39:10] INFO: [HS][trial=1764466750429] Iniciando evaluación HP: {'d_model': 64, 'ffn_hidden': 512, 'num_heads': 4, 'drop_prob': 0.1153434582880606, 'num_layers': 3, 'lr': 0.0001, 'batch_size': 2, 'max_sequence_length': 200, 'epochs': 5}
+[2025-11-29 20:39:10] INFO: Iniciando entrenamiento con los siguientes hiperparámetros:
+[2025-11-29 20:39:10] INFO: {'d_model': 64, 'ffn_hidden': 512, 'num_heads': 4, 'drop_prob': 0.1153434582880606, 'num_layers': 3, 'lr': 0.0001, 'batch_size': 2, 'max_sequence_length': 200, 'epochs': 5}
+[2025-11-29 20:43:06] INFO: [Train] Epoch 1/5 | Loss: 2.3735, BLEU: 0.000076 | t_epoch=232.5s, t_total=236.5s
+[2025-11-29 20:43:06] INFO: [Train] ROUGE-1: 0.003843, ROUGE-2: 0.000000, ROUGE-L: 0.003843
+[2025-11-29 20:46:38] INFO: [Train] Epoch 2/5 | Loss: 2.1008, BLEU: 0.000190 | t_epoch=211.3s, t_total=447.7s
+[2025-11-29 20:46:38] INFO: [Train] ROUGE-1: 0.006653, ROUGE-2: 0.000000, ROUGE-L: 0.006585
+[2025-11-29 20:50:02] INFO: [Train] Epoch 3/5 | Loss: 1.9654, BLEU: 0.000413 | t_epoch=204.7s, t_total=652.4s
+[2025-11-29 20:50:02] INFO: [Train] ROUGE-1: 0.008068, ROUGE-2: 0.000000, ROUGE-L: 0.008020
+[2025-11-29 20:53:25] INFO: [Train] Epoch 4/5 | Loss: 1.8650, BLEU: 0.001213 | t_epoch=202.6s, t_total=855.1s
+[2025-11-29 20:53:25] INFO: [Train] ROUGE-1: 0.011645, ROUGE-2: 0.000000, ROUGE-L: 0.011629
+[2025-11-29 20:56:43] INFO: [Train] Epoch 5/5 | Loss: 1.7841, BLEU: 0.001489 | t_epoch=198.2s, t_total=1053.3s
+[2025-11-29 20:56:43] INFO: [Train] ROUGE-1: 0.013357, ROUGE-2: 0.000026, ROUGE-L: 0.013313
+[2025-11-29 20:56:43] INFO: Checkpoint guardado: checkpoints\ckpt_1764467803733.pt
+[2025-11-29 20:56:43] INFO: [HS][trial=1764466750429] Finalizado BLEU=0.001489
+[2025-11-29 20:56:43] INFO: =====================================================
+[2025-11-29 20:56:43] INFO: [HS][trial=1764467803799] Iniciando evaluación HP: {'d_model': 1024, 'ffn_hidden': 512, 'num_heads': 8, 'drop_prob': 0.12781299283940528, 'num_layers': 2, 'lr': 0.0001, 'batch_size': 8, 'max_sequence_length': 200, 'epochs': 5}
+[2025-11-29 20:56:43] INFO: Iniciando entrenamiento con los siguientes hiperparámetros:
+[2025-11-29 20:56:43] INFO: {'d_model': 1024, 'ffn_hidden': 512, 'num_heads': 8, 'drop_prob': 0.12781299283940528, 'num_layers': 2, 'lr': 0.0001, 'batch_size': 8, 'max_sequence_length': 200, 'epochs': 5}
+[2025-11-29 21:01:27] INFO: [Train] Epoch 1/5 | Loss: 2.4176, BLEU: 0.000081 | t_epoch=283.0s, t_total=283.3s
+[2025-11-29 21:01:27] INFO: [Train] ROUGE-1: 0.003257, ROUGE-2: 0.000000, ROUGE-L: 0.003257
+[2025-11-29 21:06:09] INFO: [Train] Epoch 2/5 | Loss: 1.8520, BLEU: 0.001946 | t_epoch=282.3s, t_total=565.7s
+[2025-11-29 21:06:09] INFO: [Train] ROUGE-1: 0.014674, ROUGE-2: 0.000000, ROUGE-L: 0.014674
+[2025-11-29 21:10:51] INFO: [Train] Epoch 3/5 | Loss: 1.6157, BLEU: 0.002816 | t_epoch=281.7s, t_total=847.3s
+[2025-11-29 21:10:51] INFO: [Train] ROUGE-1: 0.018859, ROUGE-2: 0.000133, ROUGE-L: 0.018762
+[2025-11-29 21:15:33] INFO: [Train] Epoch 4/5 | Loss: 1.4753, BLEU: 0.003681 | t_epoch=282.8s, t_total=1130.1s
+[2025-11-29 21:15:33] INFO: [Train] ROUGE-1: 0.023366, ROUGE-2: 0.000310, ROUGE-L: 0.023118
+[2025-11-29 21:20:16] INFO: [Train] Epoch 5/5 | Loss: 1.3895, BLEU: 0.004290 | t_epoch=282.9s, t_total=1413.0s
+[2025-11-29 21:20:16] INFO: [Train] ROUGE-1: 0.025381, ROUGE-2: 0.000736, ROUGE-L: 0.025239
+[2025-11-29 21:20:17] INFO: Checkpoint guardado: checkpoints\ckpt_1764469216818.pt
+[2025-11-29 21:20:17] INFO: [HS][trial=1764467803799] Finalizado BLEU=0.004290
+[2025-11-29 21:20:17] INFO: =====================================================
+[2025-11-29 21:20:17] INFO: [HS][trial=1764469217237] Iniciando evaluación HP: {'d_model': 128, 'ffn_hidden': 256, 'num_heads': 4, 'drop_prob': 0.1358858344364268, 'num_layers': 2, 'lr': 0.01, 'batch_size': 16, 'max_sequence_length': 200, 'epochs': 1}
+[2025-11-29 21:20:17] INFO: Iniciando entrenamiento con los siguientes hiperparámetros:
+[2025-11-29 21:20:17] INFO: {'d_model': 128, 'ffn_hidden': 256, 'num_heads': 4, 'drop_prob': 0.1358858344364268, 'num_layers': 2, 'lr': 0.01, 'batch_size': 16, 'max_sequence_length': 200, 'epochs': 1}
+[2025-11-29 21:24:32] INFO: load_dataframeFromXLSX()=> Cargando archivo Excel desde data/data_preprocesada_sin_outliers_v4_biblia_part_0_1-1000.xlsx
+[2025-11-29 21:24:33] INFO: Traducción de Spanish a Quechua
+[2025-11-29 21:24:33] INFO: Numero de oraciones antes de filtrar por longitud y vocabulario: 10000
+[2025-11-29 21:24:33] INFO: Numero de oraciones válidas después de filtrar por longitud y vocabulario: 9633
+[2025-11-29 21:24:33] INFO: Iniciando programa...
+[2025-11-29 21:24:33] INFO: [HS] Inicializando Harmony Memory aleatoriamente
+[2025-11-29 21:24:33] INFO: [HS] Evaluando armonía inicial 1/12
+[2025-11-29 21:24:33] INFO: =====================================================
+[2025-11-29 21:24:33] INFO: [HS][trial=1764469473700] Iniciando evaluación HP: {'d_model': 64, 'ffn_hidden': 512, 'num_heads': 4, 'drop_prob': 0.1153434582880606, 'num_layers': 3, 'lr': 0.0001, 'batch_size': 2, 'max_sequence_length': 200, 'epochs': 5}
+[2025-11-29 21:24:33] INFO: Iniciando entrenamiento con los siguientes hiperparámetros:
+[2025-11-29 21:24:33] INFO: {'d_model': 64, 'ffn_hidden': 512, 'num_heads': 4, 'drop_prob': 0.1153434582880606, 'num_layers': 3, 'lr': 0.0001, 'batch_size': 2, 'max_sequence_length': 200, 'epochs': 5}
+[2025-11-29 21:28:19] INFO: [Train] Epoch 1/5 | Loss: 2.3737, BLEU: 0.000067 | t_epoch=221.5s, t_total=225.6s
+[2025-11-29 21:28:19] INFO: [Train] ROUGE-1: 0.003985, ROUGE-2: 0.000000, ROUGE-L: 0.003972
+[2025-11-29 21:31:51] INFO: [Train] Epoch 2/5 | Loss: 2.0951, BLEU: 0.000293 | t_epoch=212.1s, t_total=437.8s
+[2025-11-29 21:31:51] INFO: [Train] ROUGE-1: 0.006363, ROUGE-2: 0.000000, ROUGE-L: 0.006333
+[2025-11-29 22:19:35] INFO: [Train] Epoch 3/5 | Loss: 1.9638, BLEU: 0.000727 | t_epoch=2864.5s, t_total=3302.3s
+[2025-11-29 22:19:35] INFO: [Train] ROUGE-1: 0.008635, ROUGE-2: 0.000021, ROUGE-L: 0.008594
+[2025-11-29 22:22:58] INFO: [Train] Epoch 4/5 | Loss: 1.8653, BLEU: 0.001000 | t_epoch=202.9s, t_total=3505.2s
+[2025-11-29 22:22:58] INFO: [Train] ROUGE-1: 0.010297, ROUGE-2: 0.000024, ROUGE-L: 0.010289
+[2025-11-29 22:26:29] INFO: [Train] Epoch 5/5 | Loss: 1.7799, BLEU: 0.001384 | t_epoch=211.0s, t_total=3716.2s
+[2025-11-29 22:26:29] INFO: [Train] ROUGE-1: 0.012499, ROUGE-2: 0.000022, ROUGE-L: 0.012459
+[2025-11-29 22:26:30] INFO: Checkpoint guardado: checkpoints\ckpt_1764473189943.pt
+[2025-11-29 22:26:30] INFO: [HS][trial=1764469473700] Finalizado BLEU=0.001384
+[2025-11-29 22:26:30] INFO: [HS] Evaluando armonía inicial 2/12
+[2025-11-29 22:26:30] INFO: =====================================================
+[2025-11-29 22:26:30] INFO: [HS][trial=1764473190070] Iniciando evaluación HP: {'d_model': 1024, 'ffn_hidden': 512, 'num_heads': 8, 'drop_prob': 0.12781299283940528, 'num_layers': 2, 'lr': 0.0001, 'batch_size': 8, 'max_sequence_length': 200, 'epochs': 5}
+[2025-11-29 22:26:30] INFO: Iniciando entrenamiento con los siguientes hiperparámetros:
+[2025-11-29 22:26:30] INFO: {'d_model': 1024, 'ffn_hidden': 512, 'num_heads': 8, 'drop_prob': 0.12781299283940528, 'num_layers': 2, 'lr': 0.0001, 'batch_size': 8, 'max_sequence_length': 200, 'epochs': 5}
+[2025-11-29 22:31:11] INFO: [Train] Epoch 1/5 | Loss: 2.3977, BLEU: 0.000011 | t_epoch=280.7s, t_total=281.0s
+[2025-11-29 22:31:11] INFO: [Train] ROUGE-1: 0.004031, ROUGE-2: 0.000000, ROUGE-L: 0.004031
+[2025-11-29 22:35:51] INFO: [Train] Epoch 2/5 | Loss: 1.8865, BLEU: 0.001467 | t_epoch=280.8s, t_total=561.8s
+[2025-11-29 22:35:51] INFO: [Train] ROUGE-1: 0.012514, ROUGE-2: 0.000000, ROUGE-L: 0.012389
+[2025-11-29 22:40:33] INFO: [Train] Epoch 3/5 | Loss: 1.6795, BLEU: 0.002856 | t_epoch=281.4s, t_total=843.2s
+[2025-11-29 22:40:33] INFO: [Train] ROUGE-1: 0.019005, ROUGE-2: 0.000119, ROUGE-L: 0.018967
+[2025-11-29 22:45:14] INFO: [Train] Epoch 4/5 | Loss: 1.5314, BLEU: 0.003929 | t_epoch=280.8s, t_total=1124.0s
+[2025-11-29 22:45:14] INFO: [Train] ROUGE-1: 0.024447, ROUGE-2: 0.000000, ROUGE-L: 0.024309
+[2025-11-29 22:49:56] INFO: [Train] Epoch 5/5 | Loss: 1.4320, BLEU: 0.003872 | t_epoch=282.0s, t_total=1406.0s
+[2025-11-29 22:49:56] INFO: [Train] ROUGE-1: 0.024371, ROUGE-2: 0.000324, ROUGE-L: 0.024327
+[2025-11-29 22:49:56] INFO: Checkpoint guardado: checkpoints\ckpt_1764474596110.pt
+[2025-11-29 22:49:56] INFO: [HS][trial=1764473190070] Finalizado BLEU=0.003872
+[2025-11-29 22:49:56] INFO: [HS] Evaluando armonía inicial 3/12
+[2025-11-29 22:49:56] INFO: =====================================================
+[2025-11-29 22:49:56] INFO: [HS][trial=1764474596521] Iniciando evaluación HP: {'d_model': 128, 'ffn_hidden': 256, 'num_heads': 4, 'drop_prob': 0.1358858344364268, 'num_layers': 2, 'lr': 0.01, 'batch_size': 16, 'max_sequence_length': 200, 'epochs': 1}
+[2025-11-29 22:49:56] INFO: Iniciando entrenamiento con los siguientes hiperparámetros:
+[2025-11-29 22:49:56] INFO: {'d_model': 128, 'ffn_hidden': 256, 'num_heads': 4, 'drop_prob': 0.1358858344364268, 'num_layers': 2, 'lr': 0.01, 'batch_size': 16, 'max_sequence_length': 200, 'epochs': 1}
+[2025-11-29 22:50:30] INFO: [Train] Epoch 1/1 | Loss: 2.9090, BLEU: 0.000000 | t_epoch=33.8s, t_total=33.8s
+[2025-11-29 22:50:30] INFO: [Train] ROUGE-1: 0.000128, ROUGE-2: 0.000000, ROUGE-L: 0.000128
+[2025-11-29 22:50:30] INFO: Checkpoint guardado: checkpoints\ckpt_1764474630324.pt
+[2025-11-29 22:50:30] INFO: [HS][trial=1764474596521] Finalizado BLEU=0.000000
+[2025-11-29 22:50:30] INFO: [HS] Evaluando armonía inicial 4/12
+[2025-11-29 22:50:30] INFO: =====================================================
+[2025-11-29 22:50:30] INFO: [HS][trial=1764474630356] Iniciando evaluación HP: {'d_model': 256, 'ffn_hidden': 1024, 'num_heads': 4, 'drop_prob': 0.13580979784267483, 'num_layers': 2, 'lr': 0.01, 'batch_size': 4, 'max_sequence_length': 200, 'epochs': 1}
+[2025-11-29 22:50:30] INFO: Iniciando entrenamiento con los siguientes hiperparámetros:
+[2025-11-29 22:50:30] INFO: {'d_model': 256, 'ffn_hidden': 1024, 'num_heads': 4, 'drop_prob': 0.13580979784267483, 'num_layers': 2, 'lr': 0.01, 'batch_size': 4, 'max_sequence_length': 200, 'epochs': 1}
+[2025-11-29 22:52:12] INFO: [Train] Epoch 1/1 | Loss: 2.9049, BLEU: 0.000000 | t_epoch=101.7s, t_total=101.8s
+[2025-11-29 22:52:12] INFO: [Train] ROUGE-1: 0.000070, ROUGE-2: 0.000000, ROUGE-L: 0.000070
+[2025-11-29 22:52:12] INFO: Checkpoint guardado: checkpoints\ckpt_1764474732114.pt
+[2025-11-29 22:52:12] INFO: [HS][trial=1764474630356] Finalizado BLEU=0.000000
+[2025-11-29 22:52:12] INFO: [HS] Evaluando armonía inicial 5/12
+[2025-11-29 22:52:12] INFO: =====================================================
+[2025-11-29 22:52:12] INFO: [HS][trial=1764474732189] Iniciando evaluación HP: {'d_model': 256, 'ffn_hidden': 1024, 'num_heads': 8, 'drop_prob': 0.039798255789234495, 'num_layers': 2, 'lr': 0.001, 'batch_size': 8, 'max_sequence_length': 200, 'epochs': 1}
+[2025-11-29 22:52:12] INFO: Iniciando entrenamiento con los siguientes hiperparámetros:
+[2025-11-29 22:52:12] INFO: {'d_model': 256, 'ffn_hidden': 1024, 'num_heads': 8, 'drop_prob': 0.039798255789234495, 'num_layers': 2, 'lr': 0.001, 'batch_size': 8, 'max_sequence_length': 200, 'epochs': 1}
+[2025-11-29 22:53:26] INFO: [Train] Epoch 1/1 | Loss: 2.4070, BLEU: 0.000121 | t_epoch=74.5s, t_total=74.5s
+[2025-11-29 22:53:26] INFO: [Train] ROUGE-1: 0.002926, ROUGE-2: 0.000000, ROUGE-L: 0.002926
+[2025-11-29 22:53:26] INFO: Checkpoint guardado: checkpoints\ckpt_1764474806707.pt
+[2025-11-29 22:53:26] INFO: [HS][trial=1764474732189] Finalizado BLEU=0.000121
+[2025-11-29 22:53:26] INFO: [HS] Evaluando armonía inicial 6/12
+[2025-11-29 22:53:26] INFO: =====================================================
+[2025-11-29 22:53:26] INFO: [HS][trial=1764474806790] Iniciando evaluación HP: {'d_model': 1024, 'ffn_hidden': 512, 'num_heads': 4, 'drop_prob': 0.059735722720184875, 'num_layers': 4, 'lr': 0.01, 'batch_size': 16, 'max_sequence_length': 200, 'epochs': 5}
+[2025-11-29 22:53:26] INFO: Iniciando entrenamiento con los siguientes hiperparámetros:
+[2025-11-29 22:53:26] INFO: {'d_model': 1024, 'ffn_hidden': 512, 'num_heads': 4, 'drop_prob': 0.059735722720184875, 'num_layers': 4, 'lr': 0.01, 'batch_size': 16, 'max_sequence_length': 200, 'epochs': 5}
+[2025-11-29 23:00:57] INFO: [Train] Epoch 1/5 | Loss: 3.2944, BLEU: 0.000000 | t_epoch=449.9s, t_total=450.4s
+[2025-11-29 23:00:57] INFO: [Train] ROUGE-1: 0.000188, ROUGE-2: 0.000000, ROUGE-L: 0.000188
+[2025-11-29 23:08:29] INFO: [Train] Epoch 2/5 | Loss: 2.8918, BLEU: 0.000000 | t_epoch=452.6s, t_total=903.0s
+[2025-11-29 23:08:29] INFO: [Train] ROUGE-1: 0.000000, ROUGE-2: 0.000000, ROUGE-L: 0.000000
+[2025-11-29 23:16:02] INFO: [Train] Epoch 3/5 | Loss: 2.8848, BLEU: 0.000000 | t_epoch=452.9s, t_total=1356.0s
+[2025-11-29 23:16:02] INFO: [Train] ROUGE-1: 0.000000, ROUGE-2: 0.000000, ROUGE-L: 0.000000
+[2025-11-29 23:23:34] INFO: [Train] Epoch 4/5 | Loss: 2.8836, BLEU: 0.000000 | t_epoch=451.3s, t_total=1807.3s
+[2025-11-29 23:23:34] INFO: [Train] ROUGE-1: 0.000000, ROUGE-2: 0.000000, ROUGE-L: 0.000000
+[2025-11-29 23:31:06] INFO: [Train] Epoch 5/5 | Loss: 2.8834, BLEU: 0.000000 | t_epoch=452.0s, t_total=2259.3s
+[2025-11-29 23:31:06] INFO: [Train] ROUGE-1: 0.000000, ROUGE-2: 0.000000, ROUGE-L: 0.000000
+[2025-11-29 23:31:07] INFO: Checkpoint guardado: checkpoints\ckpt_1764477066117.pt
+[2025-11-29 23:31:07] INFO: [HS][trial=1764474806790] Finalizado BLEU=0.000000
+[2025-11-29 23:31:07] INFO: [HS] Evaluando armonía inicial 7/12
+[2025-11-29 23:31:07] INFO: =====================================================
+[2025-11-29 23:31:07] INFO: [HS][trial=1764477067154] Iniciando evaluación HP: {'d_model': 512, 'ffn_hidden': 512, 'num_heads': 4, 'drop_prob': 0.12710126722697893, 'num_layers': 4, 'lr': 0.0001, 'batch_size': 64, 'max_sequence_length': 200, 'epochs': 2}
+[2025-11-29 23:31:07] INFO: Iniciando entrenamiento con los siguientes hiperparámetros:
+[2025-11-29 23:31:07] INFO: {'d_model': 512, 'ffn_hidden': 512, 'num_heads': 4, 'drop_prob': 0.12710126722697893, 'num_layers': 4, 'lr': 0.0001, 'batch_size': 64, 'max_sequence_length': 200, 'epochs': 2}
+[2025-11-29 23:31:08] ERROR: OOM con hp={'d_model': 512, 'ffn_hidden': 512, 'num_heads': 4, 'drop_prob': 0.12710126722697893, 'num_layers': 4, 'lr': 0.0001, 'batch_size': 64, 'max_sequence_length': 200, 'epochs': 2}, penalizando fitness y continuando.
+[2025-11-29 23:31:09] INFO: [HS][trial=1764477067154] Finalizado BLEU=0.000000
+[2025-11-29 23:31:09] INFO: [HS] Evaluando armonía inicial 8/12
+[2025-11-29 23:31:09] INFO: =====================================================
+[2025-11-29 23:31:09] INFO: [HS][trial=1764477069576] Iniciando evaluación HP: {'d_model': 256, 'ffn_hidden': 256, 'num_heads': 8, 'drop_prob': 0.050537422918755924, 'num_layers': 3, 'lr': 0.0001, 'batch_size': 64, 'max_sequence_length': 200, 'epochs': 2}
+[2025-11-29 23:31:09] INFO: Iniciando entrenamiento con los siguientes hiperparámetros:
+[2025-11-29 23:31:09] INFO: {'d_model': 256, 'ffn_hidden': 256, 'num_heads': 8, 'drop_prob': 0.050537422918755924, 'num_layers': 3, 'lr': 0.0001, 'batch_size': 64, 'max_sequence_length': 200, 'epochs': 2}
+[2025-11-29 23:32:10] INFO: [Train] Epoch 1/2 | Loss: 2.9376, BLEU: 0.000000 | t_epoch=61.2s, t_total=61.3s
+[2025-11-29 23:32:10] INFO: [Train] ROUGE-1: 0.000964, ROUGE-2: 0.000000, ROUGE-L: 0.000964
+[2025-11-29 23:33:10] INFO: [Train] Epoch 2/2 | Loss: 2.5665, BLEU: 0.000000 | t_epoch=59.9s, t_total=121.2s
+[2025-11-29 23:33:10] INFO: [Train] ROUGE-1: 0.002225, ROUGE-2: 0.000000, ROUGE-L: 0.002225
+[2025-11-29 23:33:10] INFO: Checkpoint guardado: checkpoints\ckpt_1764477190729.pt
+[2025-11-29 23:33:10] INFO: [HS][trial=1764477069576] Finalizado BLEU=0.000000
+[2025-11-29 23:33:10] INFO: [HS] Evaluando armonía inicial 9/12
+[2025-11-29 23:33:10] INFO: =====================================================
+[2025-11-29 23:33:10] INFO: [HS][trial=1764477190812] Iniciando evaluación HP: {'d_model': 1024, 'ffn_hidden': 512, 'num_heads': 4, 'drop_prob': 0.02835928043671147, 'num_layers': 2, 'lr': 0.01, 'batch_size': 8, 'max_sequence_length': 200, 'epochs': 2}
+[2025-11-29 23:33:10] INFO: Iniciando entrenamiento con los siguientes hiperparámetros:
+[2025-11-29 23:33:10] INFO: {'d_model': 1024, 'ffn_hidden': 512, 'num_heads': 4, 'drop_prob': 0.02835928043671147, 'num_layers': 2, 'lr': 0.01, 'batch_size': 8, 'max_sequence_length': 200, 'epochs': 2}
+[2025-11-29 23:37:59] INFO: [Train] Epoch 1/2 | Loss: 3.0840, BLEU: 0.000000 | t_epoch=288.4s, t_total=288.7s
+[2025-11-29 23:37:59] INFO: [Train] ROUGE-1: 0.000000, ROUGE-2: 0.000000, ROUGE-L: 0.000000
+[2025-11-29 23:42:46] INFO: [Train] Epoch 2/2 | Loss: 2.8864, BLEU: 0.000000 | t_epoch=286.8s, t_total=575.5s
+[2025-11-29 23:42:46] INFO: [Train] ROUGE-1: 0.000000, ROUGE-2: 0.000000, ROUGE-L: 0.000000
+[2025-11-29 23:42:46] INFO: Checkpoint guardado: checkpoints\ckpt_1764477766327.pt
+[2025-11-29 23:42:46] INFO: [HS][trial=1764477190812] Finalizado BLEU=0.000000
+[2025-11-29 23:42:46] INFO: [HS] Evaluando armonía inicial 10/12
+[2025-11-29 23:42:46] INFO: =====================================================
+[2025-11-29 23:42:46] INFO: [HS][trial=1764477766749] Iniciando evaluación HP: {'d_model': 128, 'ffn_hidden': 1024, 'num_heads': 4, 'drop_prob': 0.0958201258864652, 'num_layers': 3, 'lr': 0.01, 'batch_size': 64, 'max_sequence_length': 200, 'epochs': 5}
+[2025-11-29 23:42:46] INFO: Iniciando entrenamiento con los siguientes hiperparámetros:
+[2025-11-29 23:42:46] INFO: {'d_model': 128, 'ffn_hidden': 1024, 'num_heads': 4, 'drop_prob': 0.0958201258864652, 'num_layers': 3, 'lr': 0.01, 'batch_size': 64, 'max_sequence_length': 200, 'epochs': 5}
+[2025-11-29 23:43:29] INFO: [Train] Epoch 1/5 | Loss: 2.9600, BLEU: 0.000000 | t_epoch=42.9s, t_total=42.9s
+[2025-11-29 23:43:29] INFO: [Train] ROUGE-1: 0.000000, ROUGE-2: 0.000000, ROUGE-L: 0.000000
+[2025-11-29 23:44:13] INFO: [Train] Epoch 2/5 | Loss: 2.8851, BLEU: 0.000000 | t_epoch=43.5s, t_total=86.4s
+[2025-11-29 23:44:13] INFO: [Train] ROUGE-1: 0.000000, ROUGE-2: 0.000000, ROUGE-L: 0.000000
+[2025-11-29 23:44:55] INFO: [Train] Epoch 3/5 | Loss: 2.8816, BLEU: 0.000000 | t_epoch=42.8s, t_total=129.2s
+[2025-11-29 23:44:55] INFO: [Train] ROUGE-1: 0.000000, ROUGE-2: 0.000000, ROUGE-L: 0.000000
+[2025-11-29 23:45:39] INFO: [Train] Epoch 4/5 | Loss: 2.8808, BLEU: 0.000000 | t_epoch=43.3s, t_total=172.5s
+[2025-11-29 23:45:39] INFO: [Train] ROUGE-1: 0.000000, ROUGE-2: 0.000000, ROUGE-L: 0.000000
+[2025-11-29 23:46:22] INFO: [Train] Epoch 5/5 | Loss: 2.8804, BLEU: 0.000000 | t_epoch=42.7s, t_total=215.3s
+[2025-11-29 23:46:22] INFO: [Train] ROUGE-1: 0.000000, ROUGE-2: 0.000000, ROUGE-L: 0.000000
+[2025-11-29 23:46:22] INFO: Checkpoint guardado: checkpoints\ckpt_1764477982014.pt
+[2025-11-29 23:46:22] INFO: [HS][trial=1764477766749] Finalizado BLEU=0.000000
+[2025-11-29 23:46:22] INFO: [HS] Evaluando armonía inicial 11/12
+[2025-11-29 23:46:22] INFO: =====================================================
+[2025-11-29 23:46:22] INFO: [HS][trial=1764477982073] Iniciando evaluación HP: {'d_model': 512, 'ffn_hidden': 256, 'num_heads': 4, 'drop_prob': 0.14879366591913254, 'num_layers': 3, 'lr': 0.001, 'batch_size': 16, 'max_sequence_length': 200, 'epochs': 1}
+[2025-11-29 23:46:22] INFO: Iniciando entrenamiento con los siguientes hiperparámetros:
+[2025-11-29 23:46:22] INFO: {'d_model': 512, 'ffn_hidden': 256, 'num_heads': 4, 'drop_prob': 0.14879366591913254, 'num_layers': 3, 'lr': 0.001, 'batch_size': 16, 'max_sequence_length': 200, 'epochs': 1}
+[2025-11-29 23:48:42] INFO: [Train] Epoch 1/1 | Loss: 2.9626, BLEU: 0.000000 | t_epoch=139.9s, t_total=140.0s
+[2025-11-29 23:48:42] INFO: [Train] ROUGE-1: 0.000545, ROUGE-2: 0.000000, ROUGE-L: 0.000545
+[2025-11-29 23:48:42] INFO: Checkpoint guardado: checkpoints\ckpt_1764478122106.pt
+[2025-11-29 23:48:42] INFO: [HS][trial=1764477982073] Finalizado BLEU=0.000000
+[2025-11-29 23:48:42] INFO: [HS] Evaluando armonía inicial 12/12
+[2025-11-29 23:48:42] INFO: =====================================================
+[2025-11-29 23:48:42] INFO: [HS][trial=1764478122283] Iniciando evaluación HP: {'d_model': 128, 'ffn_hidden': 1024, 'num_heads': 4, 'drop_prob': 0.0031513175998207185, 'num_layers': 3, 'lr': 0.01, 'batch_size': 8, 'max_sequence_length': 200, 'epochs': 5}
+[2025-11-29 23:48:42] INFO: Iniciando entrenamiento con los siguientes hiperparámetros:
+[2025-11-29 23:48:42] INFO: {'d_model': 128, 'ffn_hidden': 1024, 'num_heads': 4, 'drop_prob': 0.0031513175998207185, 'num_layers': 3, 'lr': 0.01, 'batch_size': 8, 'max_sequence_length': 200, 'epochs': 5}
+[2025-11-29 23:49:54] INFO: [Train] Epoch 1/5 | Loss: 2.8979, BLEU: 0.000000 | t_epoch=72.4s, t_total=72.4s
+[2025-11-29 23:49:54] INFO: [Train] ROUGE-1: 0.000000, ROUGE-2: 0.000000, ROUGE-L: 0.000000
+[2025-11-29 23:51:06] INFO: [Train] Epoch 2/5 | Loss: 2.8834, BLEU: 0.000000 | t_epoch=71.7s, t_total=144.1s
+[2025-11-29 23:51:06] INFO: [Train] ROUGE-1: 0.000000, ROUGE-2: 0.000000, ROUGE-L: 0.000000
+[2025-11-29 23:52:15] INFO: [Train] Epoch 3/5 | Loss: 2.8828, BLEU: 0.000000 | t_epoch=68.8s, t_total=212.9s
+[2025-11-29 23:52:15] INFO: [Train] ROUGE-1: 0.000000, ROUGE-2: 0.000000, ROUGE-L: 0.000000
+[2025-11-29 23:53:25] INFO: [Train] Epoch 4/5 | Loss: 2.8823, BLEU: 0.000000 | t_epoch=70.4s, t_total=283.3s
+[2025-11-29 23:53:25] INFO: [Train] ROUGE-1: 0.000000, ROUGE-2: 0.000000, ROUGE-L: 0.000000
+[2025-11-29 23:54:35] INFO: [Train] Epoch 5/5 | Loss: 2.8818, BLEU: 0.000000 | t_epoch=70.3s, t_total=353.6s
+[2025-11-29 23:54:35] INFO: [Train] ROUGE-1: 0.000000, ROUGE-2: 0.000000, ROUGE-L: 0.000000
+[2025-11-29 23:54:35] INFO: Checkpoint guardado: checkpoints\ckpt_1764478475931.pt
+[2025-11-29 23:54:35] INFO: [HS][trial=1764478122283] Finalizado BLEU=0.000000
+[2025-11-29 23:54:35] INFO: [HS][iter=0/6] Inicio iteración
+[2025-11-29 23:54:35] INFO: [HS] Generando valor para parámetro 'd_model'
+[2025-11-29 23:54:35] INFO: [HS] Generando valor para parámetro 'ffn_hidden'
+[2025-11-29 23:54:35] INFO: [HS] Generando valor para parámetro 'num_heads'
+[2025-11-29 23:54:35] INFO: [HS] Generando valor para parámetro 'drop_prob'
+[2025-11-29 23:54:35] INFO: [HS] Generando valor para parámetro 'num_layers'
+[2025-11-29 23:54:35] INFO: [HS] Generando valor para parámetro 'lr'
+[2025-11-29 23:54:35] INFO: [HS] Generando valor para parámetro 'batch_size'
+[2025-11-29 23:54:35] INFO: [HS] Generando valor para parámetro 'max_sequence_length'
+[2025-11-29 23:54:35] INFO: [HS] Generando valor para parámetro 'epochs'
+[2025-11-29 23:54:35] INFO: =====================================================
+[2025-11-29 23:54:35] INFO: [HS][trial=1764478475994] Iniciando evaluación HP: {'d_model': 64, 'ffn_hidden': 1024, 'num_heads': 4, 'drop_prob': 0.14879366591913254, 'num_layers': 3, 'lr': 0.0001, 'batch_size': 16, 'max_sequence_length': 200, 'epochs': 1}
+[2025-11-29 23:54:35] INFO: Iniciando entrenamiento con los siguientes hiperparámetros:
+[2025-11-29 23:54:35] INFO: {'d_model': 64, 'ffn_hidden': 1024, 'num_heads': 4, 'drop_prob': 0.14879366591913254, 'num_layers': 3, 'lr': 0.0001, 'batch_size': 16, 'max_sequence_length': 200, 'epochs': 1}
+[2025-11-29 23:55:17] INFO: [Train] Epoch 1/1 | Loss: 2.6368, BLEU: 0.000000 | t_epoch=41.0s, t_total=41.0s
+[2025-11-29 23:55:17] INFO: [Train] ROUGE-1: 0.002738, ROUGE-2: 0.000000, ROUGE-L: 0.002738
+[2025-11-29 23:55:17] INFO: Checkpoint guardado: checkpoints\ckpt_1764478517019.pt
+[2025-11-29 23:55:17] INFO: [HS][trial=1764478475994] Finalizado BLEU=0.000000
+[2025-11-29 23:55:17] INFO: [HS] Generando valor para parámetro 'd_model'
+[2025-11-29 23:55:17] INFO: [HS] Generando valor para parámetro 'ffn_hidden'
+[2025-11-29 23:55:17] INFO: [HS] Generando valor para parámetro 'num_heads'
+[2025-11-29 23:55:17] INFO: [HS] Generando valor para parámetro 'drop_prob'
+[2025-11-29 23:55:17] INFO: [HS] Generando valor para parámetro 'num_layers'
+[2025-11-29 23:55:17] INFO: [HS] Generando valor para parámetro 'lr'
+[2025-11-29 23:55:17] INFO: [HS] Generando valor para parámetro 'batch_size'
+[2025-11-29 23:55:17] INFO: [HS] Generando valor para parámetro 'max_sequence_length'
+[2025-11-29 23:55:17] INFO: [HS] Generando valor para parámetro 'epochs'
+[2025-11-29 23:55:17] INFO: =====================================================
+[2025-11-29 23:55:17] INFO: [HS][trial=1764478517065] Iniciando evaluación HP: {'d_model': 128, 'ffn_hidden': 512, 'num_heads': 8, 'drop_prob': 0.13580979784267483, 'num_layers': 2, 'lr': 0.0001, 'batch_size': 64, 'max_sequence_length': 200, 'epochs': 5}
+[2025-11-29 23:55:17] INFO: Iniciando entrenamiento con los siguientes hiperparámetros:
+[2025-11-29 23:55:17] INFO: {'d_model': 128, 'ffn_hidden': 512, 'num_heads': 8, 'drop_prob': 0.13580979784267483, 'num_layers': 2, 'lr': 0.0001, 'batch_size': 64, 'max_sequence_length': 200, 'epochs': 5}
+[2025-11-29 23:55:48] INFO: [Train] Epoch 1/5 | Loss: 2.9927, BLEU: 0.000000 | t_epoch=31.9s, t_total=31.9s
+[2025-11-29 23:55:48] INFO: [Train] ROUGE-1: 0.002333, ROUGE-2: 0.000000, ROUGE-L: 0.002333
+[2025-11-29 23:56:20] INFO: [Train] Epoch 2/5 | Loss: 2.6863, BLEU: 0.000000 | t_epoch=31.6s, t_total=63.5s
+[2025-11-29 23:56:20] INFO: [Train] ROUGE-1: 0.001981, ROUGE-2: 0.000000, ROUGE-L: 0.001981
+[2025-11-29 23:56:52] INFO: [Train] Epoch 3/5 | Loss: 2.4074, BLEU: 0.000000 | t_epoch=31.7s, t_total=95.2s
+[2025-11-29 23:56:52] INFO: [Train] ROUGE-1: 0.002875, ROUGE-2: 0.000000, ROUGE-L: 0.002875
+[2025-11-29 23:57:24] INFO: [Train] Epoch 4/5 | Loss: 2.3061, BLEU: 0.000000 | t_epoch=31.8s, t_total=126.9s
+[2025-11-29 23:57:24] INFO: [Train] ROUGE-1: 0.003492, ROUGE-2: 0.000000, ROUGE-L: 0.003492
+[2025-11-29 23:57:55] INFO: [Train] Epoch 5/5 | Loss: 2.2542, BLEU: 0.000060 | t_epoch=31.7s, t_total=158.6s
+[2025-11-29 23:57:55] INFO: [Train] ROUGE-1: 0.003096, ROUGE-2: 0.000000, ROUGE-L: 0.003096
+[2025-11-29 23:57:55] INFO: Checkpoint guardado: checkpoints\ckpt_1764478675713.pt
+[2025-11-29 23:57:55] INFO: [HS][trial=1764478517065] Finalizado BLEU=0.000060
+[2025-11-29 23:57:55] INFO: [HS] Generando valor para parámetro 'd_model'
+[2025-11-29 23:57:55] INFO: [HS] Generando valor para parámetro 'ffn_hidden'
+[2025-11-29 23:57:55] INFO: [HS] Generando valor para parámetro 'num_heads'
+[2025-11-29 23:57:55] INFO: [HS] Generando valor para parámetro 'drop_prob'
+[2025-11-29 23:57:55] INFO: [HS] Generando valor para parámetro 'num_layers'
+[2025-11-29 23:57:55] INFO: [HS] Generando valor para parámetro 'lr'
+[2025-11-29 23:57:55] INFO: [HS] Generando valor para parámetro 'batch_size'
+[2025-11-29 23:57:55] INFO: [HS] Generando valor para parámetro 'max_sequence_length'
+[2025-11-29 23:57:55] INFO: [HS] Generando valor para parámetro 'epochs'
+[2025-11-29 23:57:55] INFO: =====================================================
+[2025-11-29 23:57:55] INFO: [HS][trial=1764478675756] Iniciando evaluación HP: {'d_model': 512, 'ffn_hidden': 1024, 'num_heads': 8, 'drop_prob': 0.1153434582880606, 'num_layers': 2, 'lr': 0.0001, 'batch_size': 16, 'max_sequence_length': 200, 'epochs': 2}
+[2025-11-29 23:57:55] INFO: Iniciando entrenamiento con los siguientes hiperparámetros:
+[2025-11-29 23:57:55] INFO: {'d_model': 512, 'ffn_hidden': 1024, 'num_heads': 8, 'drop_prob': 0.1153434582880606, 'num_layers': 2, 'lr': 0.0001, 'batch_size': 16, 'max_sequence_length': 200, 'epochs': 2}
+[2025-11-29 23:59:53] INFO: [Train] Epoch 1/2 | Loss: 2.5430, BLEU: 0.000061 | t_epoch=117.9s, t_total=118.0s
+[2025-11-29 23:59:53] INFO: [Train] ROUGE-1: 0.004290, ROUGE-2: 0.000000, ROUGE-L: 0.004290
+[2025-11-30 00:01:51] INFO: [Train] Epoch 2/2 | Loss: 2.0960, BLEU: 0.000805 | t_epoch=117.2s, t_total=235.3s
+[2025-11-30 00:01:51] INFO: [Train] ROUGE-1: 0.007909, ROUGE-2: 0.000000, ROUGE-L: 0.007909
+[2025-11-30 00:01:51] INFO: Checkpoint guardado: checkpoints\ckpt_1764478911052.pt
+[2025-11-30 00:01:51] INFO: [HS][trial=1764478675756] Finalizado BLEU=0.000805
+[2025-11-30 00:01:51] INFO: [HS] Generando valor para parámetro 'd_model'
+[2025-11-30 00:01:51] INFO: [HS] Generando valor para parámetro 'ffn_hidden'
+[2025-11-30 00:01:51] INFO: [HS] Generando valor para parámetro 'num_heads'
+[2025-11-30 00:01:51] INFO: [HS] Generando valor para parámetro 'drop_prob'
+[2025-11-30 00:01:51] INFO: [HS] Generando valor para parámetro 'num_layers'
+[2025-11-30 00:01:51] INFO: [HS] Generando valor para parámetro 'lr'
+[2025-11-30 00:01:51] INFO: [HS] Generando valor para parámetro 'batch_size'
+[2025-11-30 00:01:51] INFO: [HS] Generando valor para parámetro 'max_sequence_length'
+[2025-11-30 00:01:51] INFO: [HS] Generando valor para parámetro 'epochs'
+[2025-11-30 00:01:51] INFO: =====================================================
+[2025-11-30 00:01:51] INFO: [HS][trial=1764478911234] Iniciando evaluación HP: {'d_model': 64, 'ffn_hidden': 1024, 'num_heads': 4, 'drop_prob': 0.050537422918755924, 'num_layers': 2, 'lr': 0.0001, 'batch_size': 64, 'max_sequence_length': 200, 'epochs': 1}
+[2025-11-30 00:01:51] INFO: Iniciando entrenamiento con los siguientes hiperparámetros:
+[2025-11-30 00:01:51] INFO: {'d_model': 64, 'ffn_hidden': 1024, 'num_heads': 4, 'drop_prob': 0.050537422918755924, 'num_layers': 2, 'lr': 0.0001, 'batch_size': 64, 'max_sequence_length': 200, 'epochs': 1}
+[2025-11-30 00:02:14] INFO: [Train] Epoch 1/1 | Loss: 3.0461, BLEU: 0.000000 | t_epoch=23.0s, t_total=23.0s
+[2025-11-30 00:02:14] INFO: [Train] ROUGE-1: 0.000552, ROUGE-2: 0.000000, ROUGE-L: 0.000552
+[2025-11-30 00:02:14] INFO: Checkpoint guardado: checkpoints\ckpt_1764478934252.pt
+[2025-11-30 00:02:14] INFO: [HS][trial=1764478911234] Finalizado BLEU=0.000000
+[2025-11-30 00:02:14] INFO: [HS] Generando valor para parámetro 'd_model'
+[2025-11-30 00:02:14] INFO: [HS] Generando valor para parámetro 'ffn_hidden'
+[2025-11-30 00:02:14] INFO: [HS] Generando valor para parámetro 'num_heads'
+[2025-11-30 00:02:14] INFO: [HS] Generando valor para parámetro 'drop_prob'
+[2025-11-30 00:02:14] INFO: [HS] Generando valor para parámetro 'num_layers'
+[2025-11-30 00:02:14] INFO: [HS] Generando valor para parámetro 'lr'
+[2025-11-30 00:02:14] INFO: [HS] Generando valor para parámetro 'batch_size'
+[2025-11-30 00:02:14] INFO: [HS] Generando valor para parámetro 'max_sequence_length'
+[2025-11-30 00:02:14] INFO: [HS] Generando valor para parámetro 'epochs'
+[2025-11-30 00:02:14] INFO: =====================================================
+[2025-11-30 00:02:14] INFO: [HS][trial=1764478934286] Iniciando evaluación HP: {'d_model': 1024, 'ffn_hidden': 1024, 'num_heads': 8, 'drop_prob': 0.12781299283940528, 'num_layers': 2, 'lr': 0.0001, 'batch_size': 64, 'max_sequence_length': 200, 'epochs': 5}
+[2025-11-30 00:02:14] INFO: Iniciando entrenamiento con los siguientes hiperparámetros:
+[2025-11-30 00:02:14] INFO: {'d_model': 1024, 'ffn_hidden': 1024, 'num_heads': 8, 'drop_prob': 0.12781299283940528, 'num_layers': 2, 'lr': 0.0001, 'batch_size': 64, 'max_sequence_length': 200, 'epochs': 5}
+[2025-11-30 00:02:16] ERROR: OOM con hp={'d_model': 1024, 'ffn_hidden': 1024, 'num_heads': 8, 'drop_prob': 0.12781299283940528, 'num_layers': 2, 'lr': 0.0001, 'batch_size': 64, 'max_sequence_length': 200, 'epochs': 5}, penalizando fitness y continuando.
+[2025-11-30 00:02:16] INFO: [HS][trial=1764478934286] Finalizado BLEU=0.000000
+[2025-11-30 00:02:16] INFO: [HS] Generando valor para parámetro 'd_model'
+[2025-11-30 00:02:16] INFO: [HS] Generando valor para parámetro 'ffn_hidden'
+[2025-11-30 00:02:16] INFO: [HS] Generando valor para parámetro 'num_heads'
+[2025-11-30 00:02:16] INFO: [HS] Generando valor para parámetro 'drop_prob'
+[2025-11-30 00:02:16] INFO: [HS] Generando valor para parámetro 'num_layers'
+[2025-11-30 00:02:16] INFO: [HS] Generando valor para parámetro 'lr'
+[2025-11-30 00:02:16] INFO: [HS] Generando valor para parámetro 'batch_size'
+[2025-11-30 00:02:16] INFO: [HS] Generando valor para parámetro 'max_sequence_length'
+[2025-11-30 00:02:16] INFO: [HS] Generando valor para parámetro 'epochs'
+[2025-11-30 00:02:16] INFO: =====================================================
+[2025-11-30 00:02:16] INFO: [HS][trial=1764478936500] Iniciando evaluación HP: {'d_model': 1024, 'ffn_hidden': 512, 'num_heads': 8, 'drop_prob': 0.15, 'num_layers': 2, 'lr': 0.01, 'batch_size': 8, 'max_sequence_length': 200, 'epochs': 1}
+[2025-11-30 00:02:16] INFO: Iniciando entrenamiento con los siguientes hiperparámetros:
+[2025-11-30 00:02:16] INFO: {'d_model': 1024, 'ffn_hidden': 512, 'num_heads': 8, 'drop_prob': 0.15, 'num_layers': 2, 'lr': 0.01, 'batch_size': 8, 'max_sequence_length': 200, 'epochs': 1}
+[2025-11-30 00:07:08] INFO: [Train] Epoch 1/1 | Loss: 3.0457, BLEU: 0.000000 | t_epoch=291.9s, t_total=292.5s
+[2025-11-30 00:07:08] INFO: [Train] ROUGE-1: 0.000000, ROUGE-2: 0.000000, ROUGE-L: 0.000000
+[2025-11-30 00:07:09] INFO: Checkpoint guardado: checkpoints\ckpt_1764479228988.pt
+[2025-11-30 00:07:09] INFO: [HS][trial=1764478936500] Finalizado BLEU=0.000000
+[2025-11-30 00:07:09] INFO: [HS] Generando valor para parámetro 'd_model'
+[2025-11-30 00:07:09] INFO: [HS] Generando valor para parámetro 'ffn_hidden'
+[2025-11-30 00:07:09] INFO: [HS] Generando valor para parámetro 'num_heads'
+[2025-11-30 00:07:09] INFO: [HS] Generando valor para parámetro 'drop_prob'
+[2025-11-30 00:07:09] INFO: [HS] Generando valor para parámetro 'num_layers'
+[2025-11-30 00:07:09] INFO: [HS] Generando valor para parámetro 'lr'
+[2025-11-30 00:07:09] INFO: [HS] Generando valor para parámetro 'batch_size'
+[2025-11-30 00:07:09] INFO: [HS] Generando valor para parámetro 'max_sequence_length'
+[2025-11-30 00:07:09] INFO: [HS] Generando valor para parámetro 'epochs'
+[2025-11-30 00:07:09] INFO: =====================================================
+[2025-11-30 00:07:09] INFO: [HS][trial=1764479229480] Iniciando evaluación HP: {'d_model': 512, 'ffn_hidden': 512, 'num_heads': 8, 'drop_prob': 0.0958201258864652, 'num_layers': 3, 'lr': 0.0001, 'batch_size': 32, 'max_sequence_length': 200, 'epochs': 5}
+[2025-11-30 00:07:09] INFO: Iniciando entrenamiento con los siguientes hiperparámetros:
+[2025-11-30 00:07:09] INFO: {'d_model': 512, 'ffn_hidden': 512, 'num_heads': 8, 'drop_prob': 0.0958201258864652, 'num_layers': 3, 'lr': 0.0001, 'batch_size': 32, 'max_sequence_length': 200, 'epochs': 5}
+[2025-11-30 00:09:14] INFO: [Train] Epoch 1/5 | Loss: 2.7970, BLEU: 0.000000 | t_epoch=125.1s, t_total=125.3s
+[2025-11-30 00:09:14] INFO: [Train] ROUGE-1: 0.002610, ROUGE-2: 0.000000, ROUGE-L: 0.002610
+[2025-11-30 00:11:18] INFO: [Train] Epoch 2/5 | Loss: 2.2650, BLEU: 0.000203 | t_epoch=123.3s, t_total=248.6s
+[2025-11-30 00:11:18] INFO: [Train] ROUGE-1: 0.003987, ROUGE-2: 0.000000, ROUGE-L: 0.003987
+[2025-11-30 00:13:21] INFO: [Train] Epoch 3/5 | Loss: 2.1059, BLEU: 0.000131 | t_epoch=123.3s, t_total=371.9s
+[2025-11-30 00:13:21] INFO: [Train] ROUGE-1: 0.004853, ROUGE-2: 0.000000, ROUGE-L: 0.004853
+[2025-11-30 00:15:25] INFO: [Train] Epoch 4/5 | Loss: 1.9427, BLEU: 0.000975 | t_epoch=124.2s, t_total=496.2s
+[2025-11-30 00:15:25] INFO: [Train] ROUGE-1: 0.009390, ROUGE-2: 0.000000, ROUGE-L: 0.009390
+[2025-11-30 00:19:55] INFO: [Train] Epoch 5/5 | Loss: 1.8048, BLEU: 0.002646 | t_epoch=269.6s, t_total=765.8s
+[2025-11-30 00:19:55] INFO: [Train] ROUGE-1: 0.019692, ROUGE-2: 0.000000, ROUGE-L: 0.019692
+[2025-11-30 00:19:55] INFO: Checkpoint guardado: checkpoints\ckpt_1764479995281.pt
+[2025-11-30 00:19:55] INFO: [HS][trial=1764479229480] Finalizado BLEU=0.002646
+[2025-11-30 00:19:55] INFO: [HS] Generando valor para parámetro 'd_model'
+[2025-11-30 00:19:55] INFO: [HS] Generando valor para parámetro 'ffn_hidden'
+[2025-11-30 00:19:55] INFO: [HS] Generando valor para parámetro 'num_heads'
+[2025-11-30 00:19:55] INFO: [HS] Generando valor para parámetro 'drop_prob'
+[2025-11-30 00:19:55] INFO: [HS] Generando valor para parámetro 'num_layers'
+[2025-11-30 00:19:55] INFO: [HS] Generando valor para parámetro 'lr'
+[2025-11-30 00:19:55] INFO: [HS] Generando valor para parámetro 'batch_size'
+[2025-11-30 00:19:55] INFO: [HS] Generando valor para parámetro 'max_sequence_length'
+[2025-11-30 00:19:55] INFO: [HS] Generando valor para parámetro 'epochs'
+[2025-11-30 00:19:55] INFO: =====================================================
+[2025-11-30 00:19:55] INFO: [HS][trial=1764479995477] Iniciando evaluación HP: {'d_model': 256, 'ffn_hidden': 512, 'num_heads': 8, 'drop_prob': 0.050537422918755924, 'num_layers': 3, 'lr': 0.01, 'batch_size': 2, 'max_sequence_length': 200, 'epochs': 1}
+[2025-11-30 00:19:55] INFO: Iniciando entrenamiento con los siguientes hiperparámetros:
+[2025-11-30 00:19:55] INFO: {'d_model': 256, 'ffn_hidden': 512, 'num_heads': 8, 'drop_prob': 0.050537422918755924, 'num_layers': 3, 'lr': 0.01, 'batch_size': 2, 'max_sequence_length': 200, 'epochs': 1}
+[2025-11-30 08:38:55] INFO: [Train] Epoch 1/1 | Loss: 2.9044, BLEU: 0.000000 | t_epoch=29939.9s, t_total=29940.0s
+[2025-11-30 08:38:55] INFO: [Train] ROUGE-1: 0.000016, ROUGE-2: 0.000000, ROUGE-L: 0.000016
+[2025-11-30 08:38:55] INFO: Checkpoint guardado: checkpoints\ckpt_1764509935444.pt
+[2025-11-30 08:38:55] INFO: [HS][trial=1764479995477] Finalizado BLEU=0.000000
+[2025-11-30 08:38:55] INFO: [HS] Generando valor para parámetro 'd_model'
+[2025-11-30 08:38:55] INFO: [HS] Generando valor para parámetro 'ffn_hidden'
+[2025-11-30 08:38:55] INFO: [HS] Generando valor para parámetro 'num_heads'
+[2025-11-30 08:38:55] INFO: [HS] Generando valor para parámetro 'drop_prob'
+[2025-11-30 08:38:55] INFO: [HS] Generando valor para parámetro 'num_layers'
+[2025-11-30 08:38:55] INFO: [HS] Generando valor para parámetro 'lr'
+[2025-11-30 08:38:55] INFO: [HS] Generando valor para parámetro 'batch_size'
+[2025-11-30 08:38:55] INFO: [HS] Generando valor para parámetro 'max_sequence_length'
+[2025-11-30 08:38:55] INFO: [HS] Generando valor para parámetro 'epochs'
+[2025-11-30 08:38:55] INFO: =====================================================
+[2025-11-30 08:38:55] INFO: [HS][trial=1764509935525] Iniciando evaluación HP: {'d_model': 256, 'ffn_hidden': 1024, 'num_heads': 4, 'drop_prob': 0.07334574835408762, 'num_layers': 2, 'lr': 0.01, 'batch_size': 64, 'max_sequence_length': 200, 'epochs': 2}
+[2025-11-30 08:38:55] INFO: Iniciando entrenamiento con los siguientes hiperparámetros:
+[2025-11-30 08:38:55] INFO: {'d_model': 256, 'ffn_hidden': 1024, 'num_heads': 4, 'drop_prob': 0.07334574835408762, 'num_layers': 2, 'lr': 0.01, 'batch_size': 64, 'max_sequence_length': 200, 'epochs': 2}
+[2025-11-30 08:39:42] INFO: [Train] Epoch 1/2 | Loss: 3.0333, BLEU: 0.000000 | t_epoch=47.0s, t_total=47.0s
+[2025-11-30 08:39:42] INFO: [Train] ROUGE-1: 0.000000, ROUGE-2: 0.000000, ROUGE-L: 0.000000
+[2025-11-30 08:40:29] INFO: [Train] Epoch 2/2 | Loss: 2.8957, BLEU: 0.000000 | t_epoch=47.0s, t_total=94.0s
+[2025-11-30 08:40:29] INFO: [Train] ROUGE-1: 0.000000, ROUGE-2: 0.000000, ROUGE-L: 0.000000
+[2025-11-30 08:40:29] INFO: Checkpoint guardado: checkpoints\ckpt_1764510029540.pt
+[2025-11-30 08:40:29] INFO: [HS][trial=1764509935525] Finalizado BLEU=0.000000
+[2025-11-30 08:40:29] INFO: [HS] Generando valor para parámetro 'd_model'
+[2025-11-30 08:40:29] INFO: [HS] Generando valor para parámetro 'ffn_hidden'
+[2025-11-30 08:40:29] INFO: [HS] Generando valor para parámetro 'num_heads'
+[2025-11-30 08:40:29] INFO: [HS] Generando valor para parámetro 'drop_prob'
+[2025-11-30 08:40:29] INFO: [HS] Generando valor para parámetro 'num_layers'
+[2025-11-30 08:40:29] INFO: [HS] Generando valor para parámetro 'lr'
+[2025-11-30 08:40:29] INFO: [HS] Generando valor para parámetro 'batch_size'
+[2025-11-30 08:40:29] INFO: [HS] Generando valor para parámetro 'max_sequence_length'
+[2025-11-30 08:40:29] INFO: [HS] Generando valor para parámetro 'epochs'
+[2025-11-30 08:40:29] INFO: =====================================================
+[2025-11-30 08:40:29] INFO: [HS][trial=1764510029616] Iniciando evaluación HP: {'d_model': 128, 'ffn_hidden': 1024, 'num_heads': 8, 'drop_prob': 0.1153434582880606, 'num_layers': 4, 'lr': 0.0001, 'batch_size': 64, 'max_sequence_length': 200, 'epochs': 2}
+[2025-11-30 08:40:29] INFO: Iniciando entrenamiento con los siguientes hiperparámetros:
+[2025-11-30 08:40:29] INFO: {'d_model': 128, 'ffn_hidden': 1024, 'num_heads': 8, 'drop_prob': 0.1153434582880606, 'num_layers': 4, 'lr': 0.0001, 'batch_size': 64, 'max_sequence_length': 200, 'epochs': 2}
+[2025-11-30 08:41:34] INFO: [Train] Epoch 1/2 | Loss: 2.9573, BLEU: 0.000000 | t_epoch=64.8s, t_total=64.9s
+[2025-11-30 08:41:34] INFO: [Train] ROUGE-1: 0.003013, ROUGE-2: 0.000000, ROUGE-L: 0.003013
+[2025-11-30 08:42:38] INFO: [Train] Epoch 2/2 | Loss: 2.4971, BLEU: 0.000000 | t_epoch=63.9s, t_total=128.7s
+[2025-11-30 08:42:38] INFO: [Train] ROUGE-1: 0.002389, ROUGE-2: 0.000000, ROUGE-L: 0.002389
+[2025-11-30 08:42:38] INFO: Checkpoint guardado: checkpoints\ckpt_1764510158346.pt
+[2025-11-30 08:42:38] INFO: [HS][trial=1764510029616] Finalizado BLEU=0.000000
+[2025-11-30 08:42:38] INFO: [HS] Generando valor para parámetro 'd_model'
+[2025-11-30 08:42:38] INFO: [HS] Generando valor para parámetro 'ffn_hidden'
+[2025-11-30 08:42:38] INFO: [HS] Generando valor para parámetro 'num_heads'
+[2025-11-30 08:42:38] INFO: [HS] Generando valor para parámetro 'drop_prob'
+[2025-11-30 08:42:38] INFO: [HS] Generando valor para parámetro 'num_layers'
+[2025-11-30 08:42:38] INFO: [HS] Generando valor para parámetro 'lr'
+[2025-11-30 08:42:38] INFO: [HS] Generando valor para parámetro 'batch_size'
+[2025-11-30 08:42:38] INFO: [HS] Generando valor para parámetro 'max_sequence_length'
+[2025-11-30 08:42:38] INFO: [HS] Generando valor para parámetro 'epochs'
+[2025-11-30 08:42:38] INFO: =====================================================
+[2025-11-30 08:42:38] INFO: [HS][trial=1764510158424] Iniciando evaluación HP: {'d_model': 1024, 'ffn_hidden': 1024, 'num_heads': 4, 'drop_prob': 0.12781299283940528, 'num_layers': 2, 'lr': 0.0001, 'batch_size': 2, 'max_sequence_length': 200, 'epochs': 2}
+[2025-11-30 08:42:38] INFO: Iniciando entrenamiento con los siguientes hiperparámetros:
+[2025-11-30 08:42:38] INFO: {'d_model': 1024, 'ffn_hidden': 1024, 'num_heads': 4, 'drop_prob': 0.12781299283940528, 'num_layers': 2, 'lr': 0.0001, 'batch_size': 2, 'max_sequence_length': 200, 'epochs': 2}
+[2025-11-30 08:57:20] INFO: [Train] Epoch 1/2 | Loss: 2.2087, BLEU: 0.000618 | t_epoch=881.7s, t_total=882.0s
+[2025-11-30 08:57:20] INFO: [Train] ROUGE-1: 0.006801, ROUGE-2: 0.000000, ROUGE-L: 0.006792
+[2025-11-30 09:17:21] INFO: [Train] Epoch 2/2 | Loss: 1.6996, BLEU: 0.002782 | t_epoch=1201.2s, t_total=2083.2s
+[2025-11-30 09:17:21] INFO: [Train] ROUGE-1: 0.018877, ROUGE-2: 0.000193, ROUGE-L: 0.018834
+[2025-11-30 09:17:22] INFO: Checkpoint guardado: checkpoints\ckpt_1764512241656.pt
+[2025-11-30 09:17:22] INFO: [HS][trial=1764510158424] Finalizado BLEU=0.002782
+[2025-11-30 09:17:22] INFO: [HS] Generando valor para parámetro 'd_model'
+[2025-11-30 09:17:22] INFO: [HS] Generando valor para parámetro 'ffn_hidden'
+[2025-11-30 09:17:22] INFO: [HS] Generando valor para parámetro 'num_heads'
+[2025-11-30 09:17:22] INFO: [HS] Generando valor para parámetro 'drop_prob'
+[2025-11-30 09:17:22] INFO: [HS] Generando valor para parámetro 'num_layers'
+[2025-11-30 09:17:22] INFO: [HS] Generando valor para parámetro 'lr'
+[2025-11-30 09:17:22] INFO: [HS] Generando valor para parámetro 'batch_size'
+[2025-11-30 09:17:22] INFO: [HS] Generando valor para parámetro 'max_sequence_length'
+[2025-11-30 09:17:22] INFO: [HS] Generando valor para parámetro 'epochs'
+[2025-11-30 09:17:22] INFO: =====================================================
+[2025-11-30 09:17:22] INFO: [HS][trial=1764512242212] Iniciando evaluación HP: {'d_model': 64, 'ffn_hidden': 512, 'num_heads': 4, 'drop_prob': 0.1153434582880606, 'num_layers': 4, 'lr': 0.0001, 'batch_size': 8, 'max_sequence_length': 200, 'epochs': 1}
+[2025-11-30 09:17:22] INFO: Iniciando entrenamiento con los siguientes hiperparámetros:
+[2025-11-30 09:17:22] INFO: {'d_model': 64, 'ffn_hidden': 512, 'num_heads': 4, 'drop_prob': 0.1153434582880606, 'num_layers': 4, 'lr': 0.0001, 'batch_size': 8, 'max_sequence_length': 200, 'epochs': 1}
+[2025-11-30 09:18:51] INFO: [Train] Epoch 1/1 | Loss: 2.5686, BLEU: 0.000029 | t_epoch=88.9s, t_total=89.0s
+[2025-11-30 09:18:51] INFO: [Train] ROUGE-1: 0.002633, ROUGE-2: 0.000000, ROUGE-L: 0.002633
+[2025-11-30 09:18:51] INFO: Checkpoint guardado: checkpoints\ckpt_1764512331163.pt
+[2025-11-30 09:18:51] INFO: [HS][trial=1764512242212] Finalizado BLEU=0.000029
+[2025-11-30 09:18:51] INFO: [HS][iter=0/6] Mejor BLEU=0.003872 hp={'d_model': 1024, 'ffn_hidden': 512, 'num_heads': 8, 'drop_prob': 0.12781299283940528, 'num_layers': 2, 'lr': 0.0001, 'batch_size': 8, 'max_sequence_length': 200, 'epochs': 5} | BLEU(mean)=0.000975
+[2025-11-30 09:18:51] INFO: [HS] Progreso total: 16.7% (1/6 iteraciones completadas)
+[2025-11-30 09:18:51] INFO: [HS][iter=1/6] Inicio iteración
+[2025-11-30 09:18:51] INFO: [HS] Generando valor para parámetro 'd_model'
+[2025-11-30 09:18:51] INFO: [HS] Generando valor para parámetro 'ffn_hidden'
+[2025-11-30 09:18:51] INFO: [HS] Generando valor para parámetro 'num_heads'
+[2025-11-30 09:18:51] INFO: [HS] Generando valor para parámetro 'drop_prob'
+[2025-11-30 09:18:51] INFO: [HS] Generando valor para parámetro 'num_layers'
+[2025-11-30 09:18:51] INFO: [HS] Generando valor para parámetro 'lr'
+[2025-11-30 09:18:51] INFO: [HS] Generando valor para parámetro 'batch_size'
+[2025-11-30 09:18:51] INFO: [HS] Generando valor para parámetro 'max_sequence_length'
+[2025-11-30 09:18:51] INFO: [HS] Generando valor para parámetro 'epochs'
+[2025-11-30 09:18:51] INFO: =====================================================
+[2025-11-30 09:18:51] INFO: [HS][trial=1764512331226] Iniciando evaluación HP: {'d_model': 1024, 'ffn_hidden': 1024, 'num_heads': 4, 'drop_prob': 0.13580979784267483, 'num_layers': 3, 'lr': 0.0001, 'batch_size': 8, 'max_sequence_length': 200, 'epochs': 2}
+[2025-11-30 09:18:51] INFO: Iniciando entrenamiento con los siguientes hiperparámetros:
+[2025-11-30 09:18:51] INFO: {'d_model': 1024, 'ffn_hidden': 1024, 'num_heads': 4, 'drop_prob': 0.13580979784267483, 'num_layers': 3, 'lr': 0.0001, 'batch_size': 8, 'max_sequence_length': 200, 'epochs': 2}
+[2025-11-30 09:26:41] INFO: [Train] Epoch 1/2 | Loss: 2.5347, BLEU: 0.000054 | t_epoch=469.5s, t_total=470.0s
+[2025-11-30 09:26:41] INFO: [Train] ROUGE-1: 0.002862, ROUGE-2: 0.000000, ROUGE-L: 0.002771
+[2025-11-30 09:34:12] INFO: [Train] Epoch 2/2 | Loss: 1.9350, BLEU: 0.000894 | t_epoch=451.7s, t_total=921.7s
+[2025-11-30 09:34:12] INFO: [Train] ROUGE-1: 0.008280, ROUGE-2: 0.000000, ROUGE-L: 0.008231
+[2025-11-30 09:34:13] INFO: Checkpoint guardado: checkpoints\ckpt_1764513252885.pt
+[2025-11-30 09:34:13] INFO: [HS][trial=1764512331226] Finalizado BLEU=0.000894
+[2025-11-30 09:34:13] INFO: [HS] Generando valor para parámetro 'd_model'
+[2025-11-30 09:34:13] INFO: [HS] Generando valor para parámetro 'ffn_hidden'
+[2025-11-30 09:34:13] INFO: [HS] Generando valor para parámetro 'num_heads'
+[2025-11-30 09:34:13] INFO: [HS] Generando valor para parámetro 'drop_prob'
+[2025-11-30 09:34:13] INFO: [HS] Generando valor para parámetro 'num_layers'
+[2025-11-30 09:34:13] INFO: [HS] Generando valor para parámetro 'lr'
+[2025-11-30 09:34:13] INFO: [HS] Generando valor para parámetro 'batch_size'
+[2025-11-30 09:34:13] INFO: [HS] Generando valor para parámetro 'max_sequence_length'
+[2025-11-30 09:34:13] INFO: [HS] Generando valor para parámetro 'epochs'
+[2025-11-30 09:34:13] INFO: =====================================================
+[2025-11-30 09:34:13] INFO: [HS][trial=1764513253515] Iniciando evaluación HP: {'d_model': 512, 'ffn_hidden': 1024, 'num_heads': 8, 'drop_prob': 0.13580979784267483, 'num_layers': 2, 'lr': 0.0001, 'batch_size': 4, 'max_sequence_length': 200, 'epochs': 2}
+[2025-11-30 09:34:13] INFO: Iniciando entrenamiento con los siguientes hiperparámetros:
+[2025-11-30 09:34:13] INFO: {'d_model': 512, 'ffn_hidden': 1024, 'num_heads': 8, 'drop_prob': 0.13580979784267483, 'num_layers': 2, 'lr': 0.0001, 'batch_size': 4, 'max_sequence_length': 200, 'epochs': 2}
+[2025-11-30 09:36:56] INFO: [Train] Epoch 1/2 | Loss: 2.2926, BLEU: 0.000148 | t_epoch=162.5s, t_total=162.6s
+[2025-11-30 09:36:56] INFO: [Train] ROUGE-1: 0.004059, ROUGE-2: 0.000000, ROUGE-L: 0.004059
+[2025-11-30 09:39:37] INFO: [Train] Epoch 2/2 | Loss: 1.8211, BLEU: 0.002062 | t_epoch=161.7s, t_total=324.3s
+[2025-11-30 09:39:37] INFO: [Train] ROUGE-1: 0.014936, ROUGE-2: 0.000000, ROUGE-L: 0.014834
+[2025-11-30 09:39:37] INFO: Checkpoint guardado: checkpoints\ckpt_1764513577804.pt
+[2025-11-30 09:39:37] INFO: [HS][trial=1764513253515] Finalizado BLEU=0.002062
+[2025-11-30 09:39:37] INFO: [HS] Generando valor para parámetro 'd_model'
+[2025-11-30 09:39:37] INFO: [HS] Generando valor para parámetro 'ffn_hidden'
+[2025-11-30 09:39:37] INFO: [HS] Generando valor para parámetro 'num_heads'
+[2025-11-30 09:39:37] INFO: [HS] Generando valor para parámetro 'drop_prob'
+[2025-11-30 09:39:37] INFO: [HS] Generando valor para parámetro 'num_layers'
+[2025-11-30 09:39:37] INFO: [HS] Generando valor para parámetro 'lr'
+[2025-11-30 09:39:37] INFO: [HS] Generando valor para parámetro 'batch_size'
+[2025-11-30 09:39:37] INFO: [HS] Generando valor para parámetro 'max_sequence_length'
+[2025-11-30 09:39:37] INFO: [HS] Generando valor para parámetro 'epochs'
+[2025-11-30 09:39:37] INFO: =====================================================
+[2025-11-30 09:39:37] INFO: [HS][trial=1764513577957] Iniciando evaluación HP: {'d_model': 256, 'ffn_hidden': 1024, 'num_heads': 8, 'drop_prob': 0.13580979784267483, 'num_layers': 3, 'lr': 0.0001, 'batch_size': 16, 'max_sequence_length': 200, 'epochs': 5}
+[2025-11-30 09:39:37] INFO: Iniciando entrenamiento con los siguientes hiperparámetros:
+[2025-11-30 09:39:37] INFO: {'d_model': 256, 'ffn_hidden': 1024, 'num_heads': 8, 'drop_prob': 0.13580979784267483, 'num_layers': 3, 'lr': 0.0001, 'batch_size': 16, 'max_sequence_length': 200, 'epochs': 5}
+[2025-11-30 09:41:06] INFO: [Train] Epoch 1/5 | Loss: 2.5762, BLEU: 0.000000 | t_epoch=88.7s, t_total=88.8s
+[2025-11-30 09:41:06] INFO: [Train] ROUGE-1: 0.003381, ROUGE-2: 0.000000, ROUGE-L: 0.003381
+[2025-11-30 09:42:34] INFO: [Train] Epoch 2/5 | Loss: 2.1801, BLEU: 0.000215 | t_epoch=87.8s, t_total=176.7s
+[2025-11-30 09:42:34] INFO: [Train] ROUGE-1: 0.005085, ROUGE-2: 0.000000, ROUGE-L: 0.005085
+[2025-11-30 09:44:03] INFO: [Train] Epoch 3/5 | Loss: 2.0242, BLEU: 0.000160 | t_epoch=88.8s, t_total=265.4s
+[2025-11-30 09:44:03] INFO: [Train] ROUGE-1: 0.004549, ROUGE-2: 0.000000, ROUGE-L: 0.004549
+[2025-11-30 09:45:35] INFO: [Train] Epoch 4/5 | Loss: 1.8848, BLEU: 0.001135 | t_epoch=92.2s, t_total=357.6s
+[2025-11-30 09:45:35] INFO: [Train] ROUGE-1: 0.010990, ROUGE-2: 0.000000, ROUGE-L: 0.010990
+[2025-11-30 09:47:06] INFO: [Train] Epoch 5/5 | Loss: 1.7749, BLEU: 0.001535 | t_epoch=90.5s, t_total=448.2s
+[2025-11-30 09:47:06] INFO: [Train] ROUGE-1: 0.012967, ROUGE-2: 0.000000, ROUGE-L: 0.012967
+[2025-11-30 09:47:06] INFO: Checkpoint guardado: checkpoints\ckpt_1764514026124.pt
+[2025-11-30 09:47:06] INFO: [HS][trial=1764513577957] Finalizado BLEU=0.001535
+[2025-11-30 09:47:06] INFO: [HS] Generando valor para parámetro 'd_model'
+[2025-11-30 09:47:06] INFO: [HS] Generando valor para parámetro 'ffn_hidden'
+[2025-11-30 09:47:06] INFO: [HS] Generando valor para parámetro 'num_heads'
+[2025-11-30 09:47:06] INFO: [HS] Generando valor para parámetro 'drop_prob'
+[2025-11-30 09:47:06] INFO: [HS] Generando valor para parámetro 'num_layers'
+[2025-11-30 09:47:06] INFO: [HS] Generando valor para parámetro 'lr'
+[2025-11-30 09:47:06] INFO: [HS] Generando valor para parámetro 'batch_size'
+[2025-11-30 09:47:06] INFO: [HS] Generando valor para parámetro 'max_sequence_length'
+[2025-11-30 09:47:06] INFO: [HS] Generando valor para parámetro 'epochs'
+[2025-11-30 09:47:06] INFO: =====================================================
+[2025-11-30 09:47:06] INFO: [HS][trial=1764514026263] Iniciando evaluación HP: {'d_model': 256, 'ffn_hidden': 1024, 'num_heads': 4, 'drop_prob': 0.15, 'num_layers': 2, 'lr': 0.0001, 'batch_size': 4, 'max_sequence_length': 200, 'epochs': 1}
+[2025-11-30 09:47:06] INFO: Iniciando entrenamiento con los siguientes hiperparámetros:
+[2025-11-30 09:47:06] INFO: {'d_model': 256, 'ffn_hidden': 1024, 'num_heads': 4, 'drop_prob': 0.15, 'num_layers': 2, 'lr': 0.0001, 'batch_size': 4, 'max_sequence_length': 200, 'epochs': 1}
+[2025-11-30 09:48:59] INFO: [Train] Epoch 1/1 | Loss: 2.3369, BLEU: 0.000157 | t_epoch=113.6s, t_total=113.6s
+[2025-11-30 09:48:59] INFO: [Train] ROUGE-1: 0.004303, ROUGE-2: 0.000000, ROUGE-L: 0.004303
+[2025-11-30 09:48:59] INFO: Checkpoint guardado: checkpoints\ckpt_1764514139907.pt
+[2025-11-30 09:48:59] INFO: [HS][trial=1764514026263] Finalizado BLEU=0.000157
+[2025-11-30 09:48:59] INFO: [HS] Generando valor para parámetro 'd_model'
+[2025-11-30 09:48:59] INFO: [HS] Generando valor para parámetro 'ffn_hidden'
+[2025-11-30 09:48:59] INFO: [HS] Generando valor para parámetro 'num_heads'
+[2025-11-30 09:48:59] INFO: [HS] Generando valor para parámetro 'drop_prob'
+[2025-11-30 09:48:59] INFO: [HS] Generando valor para parámetro 'num_layers'
+[2025-11-30 09:48:59] INFO: [HS] Generando valor para parámetro 'lr'
+[2025-11-30 09:48:59] INFO: [HS] Generando valor para parámetro 'batch_size'
+[2025-11-30 09:48:59] INFO: [HS] Generando valor para parámetro 'max_sequence_length'
+[2025-11-30 09:48:59] INFO: [HS] Generando valor para parámetro 'epochs'
+[2025-11-30 09:48:59] INFO: =====================================================
+[2025-11-30 09:48:59] INFO: [HS][trial=1764514139990] Iniciando evaluación HP: {'d_model': 256, 'ffn_hidden': 512, 'num_heads': 8, 'drop_prob': 0.0956218073630254, 'num_layers': 2, 'lr': 0.0001, 'batch_size': 2, 'max_sequence_length': 200, 'epochs': 1}
+[2025-11-30 09:48:59] INFO: Iniciando entrenamiento con los siguientes hiperparámetros:
+[2025-11-30 09:48:59] INFO: {'d_model': 256, 'ffn_hidden': 512, 'num_heads': 8, 'drop_prob': 0.0956218073630254, 'num_layers': 2, 'lr': 0.0001, 'batch_size': 2, 'max_sequence_length': 200, 'epochs': 1}
+[2025-11-30 09:52:28] INFO: [Train] Epoch 1/1 | Loss: 2.2487, BLEU: 0.000242 | t_epoch=208.2s, t_total=208.2s
+[2025-11-30 09:52:28] INFO: [Train] ROUGE-1: 0.004643, ROUGE-2: 0.000000, ROUGE-L: 0.004630
+[2025-11-30 09:52:28] INFO: Checkpoint guardado: checkpoints\ckpt_1764514348186.pt
+[2025-11-30 09:52:28] INFO: [HS][trial=1764514139990] Finalizado BLEU=0.000242
+[2025-11-30 09:52:28] INFO: [HS] Generando valor para parámetro 'd_model'
+[2025-11-30 09:52:28] INFO: [HS] Generando valor para parámetro 'ffn_hidden'
+[2025-11-30 09:52:28] INFO: [HS] Generando valor para parámetro 'num_heads'
+[2025-11-30 09:52:28] INFO: [HS] Generando valor para parámetro 'drop_prob'
+[2025-11-30 09:52:28] INFO: [HS] Generando valor para parámetro 'num_layers'
+[2025-11-30 09:52:28] INFO: [HS] Generando valor para parámetro 'lr'
+[2025-11-30 09:52:28] INFO: [HS] Generando valor para parámetro 'batch_size'
+[2025-11-30 09:52:28] INFO: [HS] Generando valor para parámetro 'max_sequence_length'
+[2025-11-30 09:52:28] INFO: [HS] Generando valor para parámetro 'epochs'
+[2025-11-30 09:52:28] INFO: =====================================================
+[2025-11-30 09:52:28] INFO: [HS][trial=1764514348265] Iniciando evaluación HP: {'d_model': 512, 'ffn_hidden': 1024, 'num_heads': 8, 'drop_prob': 0.0528784508650527, 'num_layers': 2, 'lr': 0.0001, 'batch_size': 16, 'max_sequence_length': 200, 'epochs': 2}
+[2025-11-30 09:52:28] INFO: Iniciando entrenamiento con los siguientes hiperparámetros:
+[2025-11-30 09:52:28] INFO: {'d_model': 512, 'ffn_hidden': 1024, 'num_heads': 8, 'drop_prob': 0.0528784508650527, 'num_layers': 2, 'lr': 0.0001, 'batch_size': 16, 'max_sequence_length': 200, 'epochs': 2}
+[2025-11-30 09:54:30] INFO: [Train] Epoch 1/2 | Loss: 2.5504, BLEU: 0.000022 | t_epoch=122.1s, t_total=122.3s
+[2025-11-30 09:54:30] INFO: [Train] ROUGE-1: 0.002802, ROUGE-2: 0.000000, ROUGE-L: 0.002802
+[2025-11-30 09:56:32] INFO: [Train] Epoch 2/2 | Loss: 2.1055, BLEU: 0.000359 | t_epoch=122.1s, t_total=244.4s
+[2025-11-30 09:56:32] INFO: [Train] ROUGE-1: 0.005587, ROUGE-2: 0.000000, ROUGE-L: 0.005587
+[2025-11-30 09:56:32] INFO: Checkpoint guardado: checkpoints\ckpt_1764514592626.pt
+[2025-11-30 09:56:32] INFO: [HS][trial=1764514348265] Finalizado BLEU=0.000359
+[2025-11-30 09:56:32] INFO: [HS] Generando valor para parámetro 'd_model'
+[2025-11-30 09:56:32] INFO: [HS] Generando valor para parámetro 'ffn_hidden'
+[2025-11-30 09:56:32] INFO: [HS] Generando valor para parámetro 'num_heads'
+[2025-11-30 09:56:32] INFO: [HS] Generando valor para parámetro 'drop_prob'
+[2025-11-30 09:56:32] INFO: [HS] Generando valor para parámetro 'num_layers'
+[2025-11-30 09:56:32] INFO: [HS] Generando valor para parámetro 'lr'
+[2025-11-30 09:56:32] INFO: [HS] Generando valor para parámetro 'batch_size'
+[2025-11-30 09:56:32] INFO: [HS] Generando valor para parámetro 'max_sequence_length'
+[2025-11-30 09:56:32] INFO: [HS] Generando valor para parámetro 'epochs'
+[2025-11-30 09:56:32] INFO: =====================================================
+[2025-11-30 09:56:32] INFO: [HS][trial=1764514592769] Iniciando evaluación HP: {'d_model': 512, 'ffn_hidden': 512, 'num_heads': 8, 'drop_prob': 0.1153434582880606, 'num_layers': 2, 'lr': 0.01, 'batch_size': 2, 'max_sequence_length': 200, 'epochs': 2}
+[2025-11-30 09:56:32] INFO: Iniciando entrenamiento con los siguientes hiperparámetros:
+[2025-11-30 09:56:32] INFO: {'d_model': 512, 'ffn_hidden': 512, 'num_heads': 8, 'drop_prob': 0.1153434582880606, 'num_layers': 2, 'lr': 0.01, 'batch_size': 2, 'max_sequence_length': 200, 'epochs': 2}
+[2025-11-30 10:00:20] INFO: [Train] Epoch 1/2 | Loss: 2.9185, BLEU: 0.000000 | t_epoch=227.6s, t_total=227.7s
+[2025-11-30 10:00:20] INFO: [Train] ROUGE-1: 0.000000, ROUGE-2: 0.000000, ROUGE-L: 0.000000
+[2025-11-30 10:04:10] INFO: [Train] Epoch 2/2 | Loss: 2.8940, BLEU: 0.000000 | t_epoch=229.9s, t_total=457.6s
+[2025-11-30 10:04:10] INFO: [Train] ROUGE-1: 0.000000, ROUGE-2: 0.000000, ROUGE-L: 0.000000
+[2025-11-30 10:04:10] INFO: Checkpoint guardado: checkpoints\ckpt_1764515050338.pt
+[2025-11-30 10:04:10] INFO: [HS][trial=1764514592769] Finalizado BLEU=0.000000
+[2025-11-30 10:04:10] INFO: [HS] Generando valor para parámetro 'd_model'
+[2025-11-30 10:04:10] INFO: [HS] Generando valor para parámetro 'ffn_hidden'
+[2025-11-30 10:04:10] INFO: [HS] Generando valor para parámetro 'num_heads'
+[2025-11-30 10:04:10] INFO: [HS] Generando valor para parámetro 'drop_prob'
+[2025-11-30 10:04:10] INFO: [HS] Generando valor para parámetro 'num_layers'
+[2025-11-30 10:04:10] INFO: [HS] Generando valor para parámetro 'lr'
+[2025-11-30 10:04:10] INFO: [HS] Generando valor para parámetro 'batch_size'
+[2025-11-30 10:04:10] INFO: [HS] Generando valor para parámetro 'max_sequence_length'
+[2025-11-30 10:04:10] INFO: [HS] Generando valor para parámetro 'epochs'
+[2025-11-30 10:04:10] INFO: =====================================================
+[2025-11-30 10:04:10] INFO: [HS][trial=1764515050467] Iniciando evaluación HP: {'d_model': 256, 'ffn_hidden': 512, 'num_heads': 4, 'drop_prob': 0.15, 'num_layers': 2, 'lr': 0.0001, 'batch_size': 32, 'max_sequence_length': 200, 'epochs': 1}
+[2025-11-30 10:04:10] INFO: Iniciando entrenamiento con los siguientes hiperparámetros:
+[2025-11-30 10:04:10] INFO: {'d_model': 256, 'ffn_hidden': 512, 'num_heads': 4, 'drop_prob': 0.15, 'num_layers': 2, 'lr': 0.0001, 'batch_size': 32, 'max_sequence_length': 200, 'epochs': 1}
+[2025-11-30 10:04:57] INFO: [Train] Epoch 1/1 | Loss: 2.8285, BLEU: 0.000000 | t_epoch=47.2s, t_total=47.2s
+[2025-11-30 10:04:57] INFO: [Train] ROUGE-1: 0.002514, ROUGE-2: 0.000000, ROUGE-L: 0.002514
+[2025-11-30 10:04:57] INFO: Checkpoint guardado: checkpoints\ckpt_1764515097666.pt
+[2025-11-30 10:04:57] INFO: [HS][trial=1764515050467] Finalizado BLEU=0.000000
+[2025-11-30 10:04:57] INFO: [HS] Generando valor para parámetro 'd_model'
+[2025-11-30 10:04:57] INFO: [HS] Generando valor para parámetro 'ffn_hidden'
+[2025-11-30 10:04:57] INFO: [HS] Generando valor para parámetro 'num_heads'
+[2025-11-30 10:04:57] INFO: [HS] Generando valor para parámetro 'drop_prob'
+[2025-11-30 10:04:57] INFO: [HS] Generando valor para parámetro 'num_layers'
+[2025-11-30 10:04:57] INFO: [HS] Generando valor para parámetro 'lr'
+[2025-11-30 10:04:57] INFO: [HS] Generando valor para parámetro 'batch_size'
+[2025-11-30 10:04:57] INFO: [HS] Generando valor para parámetro 'max_sequence_length'
+[2025-11-30 10:04:57] INFO: [HS] Generando valor para parámetro 'epochs'
+[2025-11-30 10:04:57] INFO: =====================================================
+[2025-11-30 10:04:57] INFO: [HS][trial=1764515097738] Iniciando evaluación HP: {'d_model': 512, 'ffn_hidden': 1024, 'num_heads': 8, 'drop_prob': 0.15, 'num_layers': 2, 'lr': 0.0001, 'batch_size': 8, 'max_sequence_length': 200, 'epochs': 5}
+[2025-11-30 10:04:57] INFO: Iniciando entrenamiento con los siguientes hiperparámetros:
+[2025-11-30 10:04:57] INFO: {'d_model': 512, 'ffn_hidden': 1024, 'num_heads': 8, 'drop_prob': 0.15, 'num_layers': 2, 'lr': 0.0001, 'batch_size': 8, 'max_sequence_length': 200, 'epochs': 5}
+[2025-11-30 10:07:17] INFO: [Train] Epoch 1/5 | Loss: 2.4050, BLEU: 0.000067 | t_epoch=139.7s, t_total=139.8s
+[2025-11-30 10:07:17] INFO: [Train] ROUGE-1: 0.004108, ROUGE-2: 0.000000, ROUGE-L: 0.004108
+[2025-11-30 10:09:36] INFO: [Train] Epoch 2/5 | Loss: 2.0000, BLEU: 0.000591 | t_epoch=139.4s, t_total=279.2s
+[2025-11-30 10:09:36] INFO: [Train] ROUGE-1: 0.007405, ROUGE-2: 0.000000, ROUGE-L: 0.007306
+[2025-11-30 10:11:55] INFO: [Train] Epoch 3/5 | Loss: 1.7804, BLEU: 0.002317 | t_epoch=139.0s, t_total=418.2s
+[2025-11-30 10:11:55] INFO: [Train] ROUGE-1: 0.015643, ROUGE-2: 0.000000, ROUGE-L: 0.015643
+[2025-11-30 10:14:13] INFO: [Train] Epoch 4/5 | Loss: 1.6204, BLEU: 0.003416 | t_epoch=137.9s, t_total=556.2s
+[2025-11-30 10:14:13] INFO: [Train] ROUGE-1: 0.022072, ROUGE-2: 0.000000, ROUGE-L: 0.021864
+[2025-11-30 10:16:30] INFO: [Train] Epoch 5/5 | Loss: 1.4993, BLEU: 0.003717 | t_epoch=137.1s, t_total=693.2s
+[2025-11-30 10:16:30] INFO: [Train] ROUGE-1: 0.022871, ROUGE-2: 0.000151, ROUGE-L: 0.022829
+[2025-11-30 10:16:31] INFO: Checkpoint guardado: checkpoints\ckpt_1764515790974.pt
+[2025-11-30 10:16:31] INFO: [HS][trial=1764515097738] Finalizado BLEU=0.003717
+[2025-11-30 10:16:31] INFO: [HS] Generando valor para parámetro 'd_model'
+[2025-11-30 10:16:31] INFO: [HS] Generando valor para parámetro 'ffn_hidden'
+[2025-11-30 10:16:31] INFO: [HS] Generando valor para parámetro 'num_heads'
+[2025-11-30 10:16:31] INFO: [HS] Generando valor para parámetro 'drop_prob'
+[2025-11-30 10:16:31] INFO: [HS] Generando valor para parámetro 'num_layers'
+[2025-11-30 10:16:31] INFO: [HS] Generando valor para parámetro 'lr'
+[2025-11-30 10:16:31] INFO: [HS] Generando valor para parámetro 'batch_size'
+[2025-11-30 10:16:31] INFO: [HS] Generando valor para parámetro 'max_sequence_length'
+[2025-11-30 10:16:31] INFO: [HS] Generando valor para parámetro 'epochs'
+[2025-11-30 10:16:31] INFO: =====================================================
+[2025-11-30 10:16:31] INFO: [HS][trial=1764515791127] Iniciando evaluación HP: {'d_model': 256, 'ffn_hidden': 1024, 'num_heads': 8, 'drop_prob': 0.09514440436173974, 'num_layers': 3, 'lr': 0.0001, 'batch_size': 4, 'max_sequence_length': 200, 'epochs': 2}
+[2025-11-30 10:16:31] INFO: Iniciando entrenamiento con los siguientes hiperparámetros:
+[2025-11-30 10:16:31] INFO: {'d_model': 256, 'ffn_hidden': 1024, 'num_heads': 8, 'drop_prob': 0.09514440436173974, 'num_layers': 3, 'lr': 0.0001, 'batch_size': 4, 'max_sequence_length': 200, 'epochs': 2}
+[2025-11-30 10:18:47] INFO: [Train] Epoch 1/2 | Loss: 2.2893, BLEU: 0.000173 | t_epoch=136.0s, t_total=136.0s
+[2025-11-30 10:18:47] INFO: [Train] ROUGE-1: 0.003981, ROUGE-2: 0.000000, ROUGE-L: 0.003981
+[2025-11-30 10:20:57] INFO: [Train] Epoch 2/2 | Loss: 1.8602, BLEU: 0.001799 | t_epoch=130.6s, t_total=266.6s
+[2025-11-30 10:20:57] INFO: [Train] ROUGE-1: 0.013514, ROUGE-2: 0.000000, ROUGE-L: 0.013514
+[2025-11-30 10:20:57] INFO: Checkpoint guardado: checkpoints\ckpt_1764516057761.pt
+[2025-11-30 10:20:57] INFO: [HS][trial=1764515791127] Finalizado BLEU=0.001799
+[2025-11-30 10:20:57] INFO: [HS] Generando valor para parámetro 'd_model'
+[2025-11-30 10:20:57] INFO: [HS] Generando valor para parámetro 'ffn_hidden'
+[2025-11-30 10:20:57] INFO: [HS] Generando valor para parámetro 'num_heads'
+[2025-11-30 10:20:57] INFO: [HS] Generando valor para parámetro 'drop_prob'
+[2025-11-30 10:20:57] INFO: [HS] Generando valor para parámetro 'num_layers'
+[2025-11-30 10:20:57] INFO: [HS] Generando valor para parámetro 'lr'
+[2025-11-30 10:20:57] INFO: [HS] Generando valor para parámetro 'batch_size'
+[2025-11-30 10:20:57] INFO: [HS] Generando valor para parámetro 'max_sequence_length'
+[2025-11-30 10:20:57] INFO: [HS] Generando valor para parámetro 'epochs'
+[2025-11-30 10:20:57] INFO: =====================================================
+[2025-11-30 10:20:57] INFO: [HS][trial=1764516057870] Iniciando evaluación HP: {'d_model': 64, 'ffn_hidden': 1024, 'num_heads': 8, 'drop_prob': 0.0958201258864652, 'num_layers': 2, 'lr': 0.0001, 'batch_size': 2, 'max_sequence_length': 200, 'epochs': 5}
+[2025-11-30 10:20:57] INFO: Iniciando entrenamiento con los siguientes hiperparámetros:
+[2025-11-30 10:20:57] INFO: {'d_model': 64, 'ffn_hidden': 1024, 'num_heads': 8, 'drop_prob': 0.0958201258864652, 'num_layers': 2, 'lr': 0.0001, 'batch_size': 2, 'max_sequence_length': 200, 'epochs': 5}
+[2025-11-30 10:23:46] INFO: [Train] Epoch 1/5 | Loss: 2.3373, BLEU: 0.000058 | t_epoch=168.2s, t_total=168.2s
+[2025-11-30 10:23:46] INFO: [Train] ROUGE-1: 0.003550, ROUGE-2: 0.000000, ROUGE-L: 0.003550
+[2025-11-30 10:26:26] INFO: [Train] Epoch 2/5 | Loss: 2.1068, BLEU: 0.000283 | t_epoch=160.6s, t_total=328.7s
+[2025-11-30 10:26:26] INFO: [Train] ROUGE-1: 0.005480, ROUGE-2: 0.000000, ROUGE-L: 0.005480
+[2025-11-30 10:29:09] INFO: [Train] Epoch 3/5 | Loss: 1.9892, BLEU: 0.000538 | t_epoch=162.4s, t_total=491.2s
+[2025-11-30 10:29:09] INFO: [Train] ROUGE-1: 0.007268, ROUGE-2: 0.000000, ROUGE-L: 0.007268
+[2025-11-30 10:31:57] INFO: [Train] Epoch 4/5 | Loss: 1.8939, BLEU: 0.001190 | t_epoch=168.2s, t_total=659.3s
+[2025-11-30 10:31:57] INFO: [Train] ROUGE-1: 0.011137, ROUGE-2: 0.000000, ROUGE-L: 0.011119
+[2025-11-30 10:34:46] INFO: [Train] Epoch 5/5 | Loss: 1.8120, BLEU: 0.001883 | t_epoch=168.9s, t_total=828.2s
+[2025-11-30 10:34:46] INFO: [Train] ROUGE-1: 0.014603, ROUGE-2: 0.000069, ROUGE-L: 0.014552
+[2025-11-30 10:34:46] INFO: Checkpoint guardado: checkpoints\ckpt_1764516886097.pt
+[2025-11-30 10:34:46] INFO: [HS][trial=1764516057870] Finalizado BLEU=0.001883
+[2025-11-30 10:34:46] INFO: [HS] Generando valor para parámetro 'd_model'
+[2025-11-30 10:34:46] INFO: [HS] Generando valor para parámetro 'ffn_hidden'
+[2025-11-30 10:34:46] INFO: [HS] Generando valor para parámetro 'num_heads'
+[2025-11-30 10:34:46] INFO: [HS] Generando valor para parámetro 'drop_prob'
+[2025-11-30 10:34:46] INFO: [HS] Generando valor para parámetro 'num_layers'
+[2025-11-30 10:34:46] INFO: [HS] Generando valor para parámetro 'lr'
+[2025-11-30 10:34:46] INFO: [HS] Generando valor para parámetro 'batch_size'
+[2025-11-30 10:34:46] INFO: [HS] Generando valor para parámetro 'max_sequence_length'
+[2025-11-30 10:34:46] INFO: [HS] Generando valor para parámetro 'epochs'
+[2025-11-30 10:34:46] INFO: =====================================================
+[2025-11-30 10:34:46] INFO: [HS][trial=1764516886133] Iniciando evaluación HP: {'d_model': 256, 'ffn_hidden': 1024, 'num_heads': 8, 'drop_prob': 0.0958201258864652, 'num_layers': 2, 'lr': 0.0001, 'batch_size': 4, 'max_sequence_length': 200, 'epochs': 5}
+[2025-11-30 10:34:46] INFO: Iniciando entrenamiento con los siguientes hiperparámetros:
+[2025-11-30 10:34:46] INFO: {'d_model': 256, 'ffn_hidden': 1024, 'num_heads': 8, 'drop_prob': 0.0958201258864652, 'num_layers': 2, 'lr': 0.0001, 'batch_size': 4, 'max_sequence_length': 200, 'epochs': 5}
+[2025-11-30 10:36:33] INFO: [Train] Epoch 1/5 | Loss: 2.3066, BLEU: 0.000114 | t_epoch=107.8s, t_total=107.8s
+[2025-11-30 10:36:33] INFO: [Train] ROUGE-1: 0.003860, ROUGE-2: 0.000000, ROUGE-L: 0.003860
+[2025-11-30 10:38:20] INFO: [Train] Epoch 2/5 | Loss: 1.8944, BLEU: 0.001305 | t_epoch=106.5s, t_total=214.3s
+[2025-11-30 10:38:20] INFO: [Train] ROUGE-1: 0.011225, ROUGE-2: 0.000000, ROUGE-L: 0.011160
+[2025-11-30 10:40:03] INFO: [Train] Epoch 3/5 | Loss: 1.6781, BLEU: 0.002294 | t_epoch=103.3s, t_total=317.6s
+[2025-11-30 10:40:03] INFO: [Train] ROUGE-1: 0.017102, ROUGE-2: 0.000079, ROUGE-L: 0.016998
+[2025-11-30 10:41:46] INFO: [Train] Epoch 4/5 | Loss: 1.5422, BLEU: 0.002983 | t_epoch=102.6s, t_total=420.2s
+[2025-11-30 10:41:46] INFO: [Train] ROUGE-1: 0.020764, ROUGE-2: 0.000132, ROUGE-L: 0.020696
+[2025-11-30 10:43:27] INFO: [Train] Epoch 5/5 | Loss: 1.4449, BLEU: 0.003145 | t_epoch=101.5s, t_total=521.8s
+[2025-11-30 10:43:27] INFO: [Train] ROUGE-1: 0.021789, ROUGE-2: 0.000424, ROUGE-L: 0.021704
+[2025-11-30 10:43:27] INFO: Checkpoint guardado: checkpoints\ckpt_1764517407906.pt
+[2025-11-30 10:43:27] INFO: [HS][trial=1764516886133] Finalizado BLEU=0.003145
+[2025-11-30 10:43:27] INFO: [HS][iter=1/6] Mejor BLEU=0.003872 hp={'d_model': 1024, 'ffn_hidden': 512, 'num_heads': 8, 'drop_prob': 0.12781299283940528, 'num_layers': 2, 'lr': 0.0001, 'batch_size': 8, 'max_sequence_length': 200, 'epochs': 5} | BLEU(mean)=0.002210
+[2025-11-30 10:43:27] INFO: [HS] Progreso total: 33.3% (2/6 iteraciones completadas)
+[2025-11-30 10:43:27] INFO: [HS][iter=2/6] Inicio iteración
+[2025-11-30 10:43:27] INFO: [HS] Generando valor para parámetro 'd_model'
+[2025-11-30 10:43:27] INFO: [HS] Generando valor para parámetro 'ffn_hidden'
+[2025-11-30 10:43:27] INFO: [HS] Generando valor para parámetro 'num_heads'
+[2025-11-30 10:43:27] INFO: [HS] Generando valor para parámetro 'drop_prob'
+[2025-11-30 10:43:27] INFO: [HS] Generando valor para parámetro 'num_layers'
+[2025-11-30 10:43:27] INFO: [HS] Generando valor para parámetro 'lr'
+[2025-11-30 10:43:27] INFO: [HS] Generando valor para parámetro 'batch_size'
+[2025-11-30 10:43:27] INFO: [HS] Generando valor para parámetro 'max_sequence_length'
+[2025-11-30 10:43:27] INFO: [HS] Generando valor para parámetro 'epochs'
+[2025-11-30 10:43:27] INFO: =====================================================
+[2025-11-30 10:43:27] INFO: [HS][trial=1764517407984] Iniciando evaluación HP: {'d_model': 256, 'ffn_hidden': 1024, 'num_heads': 8, 'drop_prob': 0.09514440436173974, 'num_layers': 3, 'lr': 0.0001, 'batch_size': 8, 'max_sequence_length': 200, 'epochs': 2}
+[2025-11-30 10:43:27] INFO: Iniciando entrenamiento con los siguientes hiperparámetros:
+[2025-11-30 10:43:27] INFO: {'d_model': 256, 'ffn_hidden': 1024, 'num_heads': 8, 'drop_prob': 0.09514440436173974, 'num_layers': 3, 'lr': 0.0001, 'batch_size': 8, 'max_sequence_length': 200, 'epochs': 2}
+[2025-11-30 10:45:11] INFO: [Train] Epoch 1/2 | Loss: 2.3908, BLEU: 0.000084 | t_epoch=103.4s, t_total=103.5s
+[2025-11-30 10:45:11] INFO: [Train] ROUGE-1: 0.003073, ROUGE-2: 0.000000, ROUGE-L: 0.003073
+[2025-11-30 10:46:52] INFO: [Train] Epoch 2/2 | Loss: 2.0349, BLEU: 0.000776 | t_epoch=100.9s, t_total=204.4s
+[2025-11-30 10:46:52] INFO: [Train] ROUGE-1: 0.008386, ROUGE-2: 0.000000, ROUGE-L: 0.008386
+[2025-11-30 10:46:52] INFO: Checkpoint guardado: checkpoints\ckpt_1764517612356.pt
+[2025-11-30 10:46:52] INFO: [HS][trial=1764517407984] Finalizado BLEU=0.000776
+[2025-11-30 10:46:52] INFO: [HS] Generando valor para parámetro 'd_model'
+[2025-11-30 10:46:52] INFO: [HS] Generando valor para parámetro 'ffn_hidden'
+[2025-11-30 10:46:52] INFO: [HS] Generando valor para parámetro 'num_heads'
+[2025-11-30 10:46:52] INFO: [HS] Generando valor para parámetro 'drop_prob'
+[2025-11-30 10:46:52] INFO: [HS] Generando valor para parámetro 'num_layers'
+[2025-11-30 10:46:52] INFO: [HS] Generando valor para parámetro 'lr'
+[2025-11-30 10:46:52] INFO: [HS] Generando valor para parámetro 'batch_size'
+[2025-11-30 10:46:52] INFO: [HS] Generando valor para parámetro 'max_sequence_length'
+[2025-11-30 10:46:52] INFO: [HS] Generando valor para parámetro 'epochs'
+[2025-11-30 10:46:52] INFO: =====================================================
+[2025-11-30 10:46:52] INFO: [HS][trial=1764517612466] Iniciando evaluación HP: {'d_model': 128, 'ffn_hidden': 1024, 'num_heads': 4, 'drop_prob': 0.0958201258864652, 'num_layers': 2, 'lr': 0.0001, 'batch_size': 4, 'max_sequence_length': 200, 'epochs': 5}
+[2025-11-30 10:46:52] INFO: Iniciando entrenamiento con los siguientes hiperparámetros:
+[2025-11-30 10:46:52] INFO: {'d_model': 128, 'ffn_hidden': 1024, 'num_heads': 4, 'drop_prob': 0.0958201258864652, 'num_layers': 2, 'lr': 0.0001, 'batch_size': 4, 'max_sequence_length': 200, 'epochs': 5}
+[2025-11-30 10:48:25] INFO: [Train] Epoch 1/5 | Loss: 2.3476, BLEU: 0.000151 | t_epoch=92.8s, t_total=92.8s
+[2025-11-30 10:48:25] INFO: [Train] ROUGE-1: 0.004180, ROUGE-2: 0.000000, ROUGE-L: 0.004180
+[2025-11-30 10:49:57] INFO: [Train] Epoch 2/5 | Loss: 2.0462, BLEU: 0.000431 | t_epoch=92.0s, t_total=184.8s
+[2025-11-30 10:49:57] INFO: [Train] ROUGE-1: 0.006528, ROUGE-2: 0.000000, ROUGE-L: 0.006528
+[2025-11-30 10:51:25] INFO: [Train] Epoch 3/5 | Loss: 1.8621, BLEU: 0.001571 | t_epoch=88.0s, t_total=272.9s
+[2025-11-30 10:51:25] INFO: [Train] ROUGE-1: 0.013336, ROUGE-2: 0.000021, ROUGE-L: 0.013314
+[2025-11-30 10:52:53] INFO: [Train] Epoch 4/5 | Loss: 1.7235, BLEU: 0.002353 | t_epoch=88.0s, t_total=360.8s
+[2025-11-30 10:52:53] INFO: [Train] ROUGE-1: 0.017038, ROUGE-2: 0.000026, ROUGE-L: 0.017016
+[2025-11-30 10:54:18] INFO: [Train] Epoch 5/5 | Loss: 1.6206, BLEU: 0.002999 | t_epoch=85.0s, t_total=445.8s
+[2025-11-30 10:54:18] INFO: [Train] ROUGE-1: 0.020185, ROUGE-2: 0.000018, ROUGE-L: 0.020164
+[2025-11-30 10:54:18] INFO: Checkpoint guardado: checkpoints\ckpt_1764518058265.pt
+[2025-11-30 10:54:18] INFO: [HS][trial=1764517612466] Finalizado BLEU=0.002999
+[2025-11-30 10:54:18] INFO: [HS] Generando valor para parámetro 'd_model'
+[2025-11-30 10:54:18] INFO: [HS] Generando valor para parámetro 'ffn_hidden'
+[2025-11-30 10:54:18] INFO: [HS] Generando valor para parámetro 'num_heads'
+[2025-11-30 10:54:18] INFO: [HS] Generando valor para parámetro 'drop_prob'
+[2025-11-30 10:54:18] INFO: [HS] Generando valor para parámetro 'num_layers'
+[2025-11-30 10:54:18] INFO: [HS] Generando valor para parámetro 'lr'
+[2025-11-30 10:54:18] INFO: [HS] Generando valor para parámetro 'batch_size'
+[2025-11-30 10:54:18] INFO: [HS] Generando valor para parámetro 'max_sequence_length'
+[2025-11-30 10:54:18] INFO: [HS] Generando valor para parámetro 'epochs'
+[2025-11-30 10:54:18] INFO: =====================================================
+[2025-11-30 10:54:18] INFO: [HS][trial=1764518058309] Iniciando evaluación HP: {'d_model': 256, 'ffn_hidden': 1024, 'num_heads': 8, 'drop_prob': 0.12781299283940528, 'num_layers': 3, 'lr': 0.0001, 'batch_size': 16, 'max_sequence_length': 200, 'epochs': 1}
+[2025-11-30 10:54:18] INFO: Iniciando entrenamiento con los siguientes hiperparámetros:
+[2025-11-30 10:54:18] INFO: {'d_model': 256, 'ffn_hidden': 1024, 'num_heads': 8, 'drop_prob': 0.12781299283940528, 'num_layers': 3, 'lr': 0.0001, 'batch_size': 16, 'max_sequence_length': 200, 'epochs': 1}
+[2025-11-30 12:50:43] INFO: [Train] Epoch 1/1 | Loss: 2.5649, BLEU: 0.000000 | t_epoch=6984.9s, t_total=6985.0s
+[2025-11-30 12:50:43] INFO: [Train] ROUGE-1: 0.003579, ROUGE-2: 0.000000, ROUGE-L: 0.003579
+[2025-11-30 12:50:43] INFO: Checkpoint guardado: checkpoints\ckpt_1764525043288.pt
+[2025-11-30 12:50:43] INFO: [HS][trial=1764518058309] Finalizado BLEU=0.000000
+[2025-11-30 12:50:43] INFO: [HS] Generando valor para parámetro 'd_model'
+[2025-11-30 12:50:43] INFO: [HS] Generando valor para parámetro 'ffn_hidden'
+[2025-11-30 12:50:43] INFO: [HS] Generando valor para parámetro 'num_heads'
+[2025-11-30 12:50:43] INFO: [HS] Generando valor para parámetro 'drop_prob'
+[2025-11-30 12:50:43] INFO: [HS] Generando valor para parámetro 'num_layers'
+[2025-11-30 12:50:43] INFO: [HS] Generando valor para parámetro 'lr'
+[2025-11-30 12:50:43] INFO: [HS] Generando valor para parámetro 'batch_size'
+[2025-11-30 12:50:43] INFO: [HS] Generando valor para parámetro 'max_sequence_length'
+[2025-11-30 12:50:43] INFO: [HS] Generando valor para parámetro 'epochs'
+[2025-11-30 12:50:43] INFO: =====================================================
+[2025-11-30 12:50:43] INFO: [HS][trial=1764525043392] Iniciando evaluación HP: {'d_model': 128, 'ffn_hidden': 1024, 'num_heads': 8, 'drop_prob': 0.12781299283940528, 'num_layers': 2, 'lr': 0.0001, 'batch_size': 8, 'max_sequence_length': 200, 'epochs': 2}
+[2025-11-30 12:50:43] INFO: Iniciando entrenamiento con los siguientes hiperparámetros:
+[2025-11-30 12:50:43] INFO: {'d_model': 128, 'ffn_hidden': 1024, 'num_heads': 8, 'drop_prob': 0.12781299283940528, 'num_layers': 2, 'lr': 0.0001, 'batch_size': 8, 'max_sequence_length': 200, 'epochs': 2}
+[2025-11-30 12:51:42] INFO: [Train] Epoch 1/2 | Loss: 2.4716, BLEU: 0.000059 | t_epoch=58.6s, t_total=58.7s
+[2025-11-30 12:51:42] INFO: [Train] ROUGE-1: 0.003215, ROUGE-2: 0.000000, ROUGE-L: 0.003215
+[2025-11-30 12:52:40] INFO: [Train] Epoch 2/2 | Loss: 2.1799, BLEU: 0.000231 | t_epoch=58.8s, t_total=117.5s
+[2025-11-30 12:52:40] INFO: [Train] ROUGE-1: 0.004161, ROUGE-2: 0.000000, ROUGE-L: 0.004161
+[2025-11-30 12:52:40] INFO: Checkpoint guardado: checkpoints\ckpt_1764525160883.pt
+[2025-11-30 12:52:40] INFO: [HS][trial=1764525043392] Finalizado BLEU=0.000231
+[2025-11-30 12:52:40] INFO: [HS] Generando valor para parámetro 'd_model'
+[2025-11-30 12:52:40] INFO: [HS] Generando valor para parámetro 'ffn_hidden'
+[2025-11-30 12:52:40] INFO: [HS] Generando valor para parámetro 'num_heads'
+[2025-11-30 12:52:40] INFO: [HS] Generando valor para parámetro 'drop_prob'
+[2025-11-30 12:52:40] INFO: [HS] Generando valor para parámetro 'num_layers'
+[2025-11-30 12:52:40] INFO: [HS] Generando valor para parámetro 'lr'
+[2025-11-30 12:52:40] INFO: [HS] Generando valor para parámetro 'batch_size'
+[2025-11-30 12:52:40] INFO: [HS] Generando valor para parámetro 'max_sequence_length'
+[2025-11-30 12:52:40] INFO: [HS] Generando valor para parámetro 'epochs'
+[2025-11-30 12:52:40] INFO: =====================================================
+[2025-11-30 12:52:40] INFO: [HS][trial=1764525160965] Iniciando evaluación HP: {'d_model': 1024, 'ffn_hidden': 1024, 'num_heads': 4, 'drop_prob': 0.13580979784267483, 'num_layers': 2, 'lr': 0.0001, 'batch_size': 4, 'max_sequence_length': 200, 'epochs': 5}
+[2025-11-30 12:52:40] INFO: Iniciando entrenamiento con los siguientes hiperparámetros:
+[2025-11-30 12:52:40] INFO: {'d_model': 1024, 'ffn_hidden': 1024, 'num_heads': 4, 'drop_prob': 0.13580979784267483, 'num_layers': 2, 'lr': 0.0001, 'batch_size': 4, 'max_sequence_length': 200, 'epochs': 5}
+[2025-11-30 12:58:25] INFO: [Train] Epoch 1/5 | Loss: 2.3472, BLEU: 0.000282 | t_epoch=343.9s, t_total=344.2s
+[2025-11-30 12:58:25] INFO: [Train] ROUGE-1: 0.005047, ROUGE-2: 0.000000, ROUGE-L: 0.005047
+[2025-11-30 13:04:14] INFO: [Train] Epoch 2/5 | Loss: 1.7991, BLEU: 0.001956 | t_epoch=349.1s, t_total=693.4s
+[2025-11-30 13:04:14] INFO: [Train] ROUGE-1: 0.013525, ROUGE-2: 0.000000, ROUGE-L: 0.013470
+[2025-11-30 13:10:01] INFO: [Train] Epoch 3/5 | Loss: 1.5295, BLEU: 0.003194 | t_epoch=347.4s, t_total=1040.8s
+[2025-11-30 13:10:01] INFO: [Train] ROUGE-1: 0.021672, ROUGE-2: 0.000019, ROUGE-L: 0.021583
+[2025-11-30 13:15:54] INFO: [Train] Epoch 4/5 | Loss: 1.3942, BLEU: 0.003664 | t_epoch=352.4s, t_total=1393.2s
+[2025-11-30 13:15:54] INFO: [Train] ROUGE-1: 0.024223, ROUGE-2: 0.000380, ROUGE-L: 0.024107
+[2025-11-30 13:21:46] INFO: [Train] Epoch 5/5 | Loss: 1.3151, BLEU: 0.004092 | t_epoch=352.6s, t_total=1745.8s
+[2025-11-30 13:21:46] INFO: [Train] ROUGE-1: 0.026177, ROUGE-2: 0.000488, ROUGE-L: 0.026077
+[2025-11-30 13:21:47] INFO: Checkpoint guardado: checkpoints\ckpt_1764526906801.pt
+[2025-11-30 13:21:47] INFO: [HS][trial=1764525160965] Finalizado BLEU=0.004092
+[2025-11-30 13:21:47] INFO: [HS] Generando valor para parámetro 'd_model'
+[2025-11-30 13:21:47] INFO: [HS] Generando valor para parámetro 'ffn_hidden'
+[2025-11-30 13:21:47] INFO: [HS] Generando valor para parámetro 'num_heads'
+[2025-11-30 13:21:47] INFO: [HS] Generando valor para parámetro 'drop_prob'
+[2025-11-30 13:21:47] INFO: [HS] Generando valor para parámetro 'num_layers'
+[2025-11-30 13:21:47] INFO: [HS] Generando valor para parámetro 'lr'
+[2025-11-30 13:21:47] INFO: [HS] Generando valor para parámetro 'batch_size'
+[2025-11-30 13:21:47] INFO: [HS] Generando valor para parámetro 'max_sequence_length'
+[2025-11-30 13:21:47] INFO: [HS] Generando valor para parámetro 'epochs'
+[2025-11-30 13:21:47] INFO: =====================================================
+[2025-11-30 13:21:47] INFO: [HS][trial=1764526907346] Iniciando evaluación HP: {'d_model': 1024, 'ffn_hidden': 512, 'num_heads': 8, 'drop_prob': 0.15, 'num_layers': 2, 'lr': 0.0001, 'batch_size': 2, 'max_sequence_length': 200, 'epochs': 5}
+[2025-11-30 13:21:47] INFO: Iniciando entrenamiento con los siguientes hiperparámetros:
+[2025-11-30 13:21:47] INFO: {'d_model': 1024, 'ffn_hidden': 512, 'num_heads': 8, 'drop_prob': 0.15, 'num_layers': 2, 'lr': 0.0001, 'batch_size': 2, 'max_sequence_length': 200, 'epochs': 5}
+[2025-11-30 13:27:59] INFO: [Train] Epoch 1/5 | Loss: 2.2679, BLEU: 0.000376 | t_epoch=372.4s, t_total=372.6s
+[2025-11-30 13:27:59] INFO: [Train] ROUGE-1: 0.005841, ROUGE-2: 0.000000, ROUGE-L: 0.005805
+[2025-11-30 13:34:10] INFO: [Train] Epoch 2/5 | Loss: 1.8567, BLEU: 0.002195 | t_epoch=370.8s, t_total=743.4s
+[2025-11-30 13:34:10] INFO: [Train] ROUGE-1: 0.016197, ROUGE-2: 0.000030, ROUGE-L: 0.016172
+[2025-11-30 13:40:21] INFO: [Train] Epoch 3/5 | Loss: 1.6449, BLEU: 0.003501 | t_epoch=370.7s, t_total=1114.1s
+[2025-11-30 13:40:21] INFO: [Train] ROUGE-1: 0.022914, ROUGE-2: 0.000078, ROUGE-L: 0.022854
+[2025-11-30 13:46:28] INFO: [Train] Epoch 4/5 | Loss: 1.5049, BLEU: 0.004021 | t_epoch=367.3s, t_total=1481.3s
+[2025-11-30 13:46:28] INFO: [Train] ROUGE-1: 0.025794, ROUGE-2: 0.000298, ROUGE-L: 0.025734
+[2025-11-30 13:52:36] INFO: [Train] Epoch 5/5 | Loss: 1.4169, BLEU: 0.004326 | t_epoch=368.0s, t_total=1849.3s
+[2025-11-30 13:52:36] INFO: [Train] ROUGE-1: 0.027245, ROUGE-2: 0.000369, ROUGE-L: 0.027118
+[2025-11-30 13:52:37] INFO: Checkpoint guardado: checkpoints\ckpt_1764528756691.pt
+[2025-11-30 13:52:37] INFO: [HS][trial=1764526907346] Finalizado BLEU=0.004326
+[2025-11-30 13:52:37] INFO: [HS] Generando valor para parámetro 'd_model'
+[2025-11-30 13:52:37] INFO: [HS] Generando valor para parámetro 'ffn_hidden'
+[2025-11-30 13:52:37] INFO: [HS] Generando valor para parámetro 'num_heads'
+[2025-11-30 13:52:37] INFO: [HS] Generando valor para parámetro 'drop_prob'
+[2025-11-30 13:52:37] INFO: [HS] Generando valor para parámetro 'num_layers'
+[2025-11-30 13:52:37] INFO: [HS] Generando valor para parámetro 'lr'
+[2025-11-30 13:52:37] INFO: [HS] Generando valor para parámetro 'batch_size'
+[2025-11-30 13:52:37] INFO: [HS] Generando valor para parámetro 'max_sequence_length'
+[2025-11-30 13:52:37] INFO: [HS] Generando valor para parámetro 'epochs'
+[2025-11-30 13:52:37] INFO: =====================================================
+[2025-11-30 13:52:37] INFO: [HS][trial=1764528757057] Iniciando evaluación HP: {'d_model': 512, 'ffn_hidden': 1024, 'num_heads': 8, 'drop_prob': 0.09514440436173974, 'num_layers': 2, 'lr': 0.0001, 'batch_size': 2, 'max_sequence_length': 200, 'epochs': 2}
+[2025-11-30 13:52:37] INFO: Iniciando entrenamiento con los siguientes hiperparámetros:
+[2025-11-30 13:52:37] INFO: {'d_model': 512, 'ffn_hidden': 1024, 'num_heads': 8, 'drop_prob': 0.09514440436173974, 'num_layers': 2, 'lr': 0.0001, 'batch_size': 2, 'max_sequence_length': 200, 'epochs': 2}
+[2025-11-30 13:56:04] INFO: [Train] Epoch 1/2 | Loss: 2.1916, BLEU: 0.000398 | t_epoch=207.2s, t_total=207.4s
+[2025-11-30 13:56:04] INFO: [Train] ROUGE-1: 0.006827, ROUGE-2: 0.000000, ROUGE-L: 0.006806
+[2025-11-30 13:59:37] INFO: [Train] Epoch 2/2 | Loss: 1.7245, BLEU: 0.003014 | t_epoch=213.5s, t_total=420.8s
+[2025-11-30 13:59:37] INFO: [Train] ROUGE-1: 0.020241, ROUGE-2: 0.000013, ROUGE-L: 0.020215
+[2025-11-30 13:59:38] INFO: Checkpoint guardado: checkpoints\ckpt_1764529177877.pt
+[2025-11-30 13:59:38] INFO: [HS][trial=1764528757057] Finalizado BLEU=0.003014
+[2025-11-30 13:59:38] INFO: [HS] Generando valor para parámetro 'd_model'
+[2025-11-30 13:59:38] INFO: [HS] Generando valor para parámetro 'ffn_hidden'
+[2025-11-30 13:59:38] INFO: [HS] Generando valor para parámetro 'num_heads'
+[2025-11-30 13:59:38] INFO: [HS] Generando valor para parámetro 'drop_prob'
+[2025-11-30 13:59:38] INFO: [HS] Generando valor para parámetro 'num_layers'
+[2025-11-30 13:59:38] INFO: [HS] Generando valor para parámetro 'lr'
+[2025-11-30 13:59:38] INFO: [HS] Generando valor para parámetro 'batch_size'
+[2025-11-30 13:59:38] INFO: [HS] Generando valor para parámetro 'max_sequence_length'
+[2025-11-30 13:59:38] INFO: [HS] Generando valor para parámetro 'epochs'
+[2025-11-30 13:59:38] INFO: =====================================================
+[2025-11-30 13:59:38] INFO: [HS][trial=1764529178025] Iniciando evaluación HP: {'d_model': 512, 'ffn_hidden': 1024, 'num_heads': 8, 'drop_prob': 0.09467747867240978, 'num_layers': 2, 'lr': 0.0001, 'batch_size': 16, 'max_sequence_length': 200, 'epochs': 5}
+[2025-11-30 13:59:38] INFO: Iniciando entrenamiento con los siguientes hiperparámetros:
+[2025-11-30 13:59:38] INFO: {'d_model': 512, 'ffn_hidden': 1024, 'num_heads': 8, 'drop_prob': 0.09467747867240978, 'num_layers': 2, 'lr': 0.0001, 'batch_size': 16, 'max_sequence_length': 200, 'epochs': 5}
+[2025-11-30 14:01:37] INFO: [Train] Epoch 1/5 | Loss: 2.5631, BLEU: 0.000132 | t_epoch=119.4s, t_total=119.5s
+[2025-11-30 14:01:37] INFO: [Train] ROUGE-1: 0.003304, ROUGE-2: 0.000000, ROUGE-L: 0.003304
+[2025-11-30 14:03:37] INFO: [Train] Epoch 2/5 | Loss: 2.0983, BLEU: 0.000212 | t_epoch=119.6s, t_total=239.0s
+[2025-11-30 14:03:37] INFO: [Train] ROUGE-1: 0.004591, ROUGE-2: 0.000000, ROUGE-L: 0.004591
+[2025-11-30 14:05:36] INFO: [Train] Epoch 3/5 | Loss: 1.8538, BLEU: 0.001924 | t_epoch=119.6s, t_total=358.6s
+[2025-11-30 14:05:36] INFO: [Train] ROUGE-1: 0.013281, ROUGE-2: 0.000000, ROUGE-L: 0.013281
+[2025-11-30 14:07:37] INFO: [Train] Epoch 4/5 | Loss: 1.6754, BLEU: 0.003037 | t_epoch=120.4s, t_total=479.0s
+[2025-11-30 14:07:37] INFO: [Train] ROUGE-1: 0.019566, ROUGE-2: 0.000000, ROUGE-L: 0.019566
+[2025-11-30 14:09:38] INFO: [Train] Epoch 5/5 | Loss: 1.5463, BLEU: 0.003256 | t_epoch=121.1s, t_total=600.1s
+[2025-11-30 14:09:38] INFO: [Train] ROUGE-1: 0.022087, ROUGE-2: 0.000000, ROUGE-L: 0.021995
+[2025-11-30 14:09:38] INFO: Checkpoint guardado: checkpoints\ckpt_1764529778099.pt
+[2025-11-30 14:09:38] INFO: [HS][trial=1764529178025] Finalizado BLEU=0.003256
+[2025-11-30 14:09:38] INFO: [HS] Generando valor para parámetro 'd_model'
+[2025-11-30 14:09:38] INFO: [HS] Generando valor para parámetro 'ffn_hidden'
+[2025-11-30 14:09:38] INFO: [HS] Generando valor para parámetro 'num_heads'
+[2025-11-30 14:09:38] INFO: [HS] Generando valor para parámetro 'drop_prob'
+[2025-11-30 14:09:38] INFO: [HS] Generando valor para parámetro 'num_layers'
+[2025-11-30 14:09:38] INFO: [HS] Generando valor para parámetro 'lr'
+[2025-11-30 14:09:38] INFO: [HS] Generando valor para parámetro 'batch_size'
+[2025-11-30 14:09:38] INFO: [HS] Generando valor para parámetro 'max_sequence_length'
+[2025-11-30 14:09:38] INFO: [HS] Generando valor para parámetro 'epochs'
+[2025-11-30 14:09:38] INFO: =====================================================
+[2025-11-30 14:09:38] INFO: [HS][trial=1764529778278] Iniciando evaluación HP: {'d_model': 1024, 'ffn_hidden': 512, 'num_heads': 8, 'drop_prob': 0.0958201258864652, 'num_layers': 2, 'lr': 0.0001, 'batch_size': 2, 'max_sequence_length': 200, 'epochs': 5}
+[2025-11-30 14:09:38] INFO: Iniciando entrenamiento con los siguientes hiperparámetros:
+[2025-11-30 14:09:38] INFO: {'d_model': 1024, 'ffn_hidden': 512, 'num_heads': 8, 'drop_prob': 0.0958201258864652, 'num_layers': 2, 'lr': 0.0001, 'batch_size': 2, 'max_sequence_length': 200, 'epochs': 5}
+[2025-11-30 14:16:19] INFO: [Train] Epoch 1/5 | Loss: 2.2510, BLEU: 0.000477 | t_epoch=400.5s, t_total=400.7s
+[2025-11-30 14:16:19] INFO: [Train] ROUGE-1: 0.006170, ROUGE-2: 0.000000, ROUGE-L: 0.006164
+[2025-11-30 14:22:22] INFO: [Train] Epoch 2/5 | Loss: 1.7825, BLEU: 0.002201 | t_epoch=363.3s, t_total=764.0s
+[2025-11-30 14:22:22] INFO: [Train] ROUGE-1: 0.016198, ROUGE-2: 0.000038, ROUGE-L: 0.016130
+[2025-11-30 14:28:23] INFO: [Train] Epoch 3/5 | Loss: 1.5446, BLEU: 0.003892 | t_epoch=361.5s, t_total=1125.5s
+[2025-11-30 14:28:23] INFO: [Train] ROUGE-1: 0.024566, ROUGE-2: 0.000259, ROUGE-L: 0.024450
+[2025-11-30 15:32:07] INFO: [Train] Epoch 4/5 | Loss: 1.4134, BLEU: 0.004944 | t_epoch=3824.1s, t_total=4949.6s
+[2025-11-30 15:32:07] INFO: [Train] ROUGE-1: 0.030033, ROUGE-2: 0.000728, ROUGE-L: 0.029812
+[2025-11-30 15:38:57] INFO: [Train] Epoch 5/5 | Loss: 1.3389, BLEU: 0.005300 | t_epoch=409.2s, t_total=5358.8s
+[2025-11-30 15:38:57] INFO: [Train] ROUGE-1: 0.031000, ROUGE-2: 0.001399, ROUGE-L: 0.030914
+[2025-11-30 15:38:57] INFO: Checkpoint guardado: checkpoints\ckpt_1764535137072.pt
+[2025-11-30 15:38:57] INFO: [HS][trial=1764529778278] Finalizado BLEU=0.005300
+[2025-11-30 15:38:57] INFO: [HS] Generando valor para parámetro 'd_model'
+[2025-11-30 15:38:57] INFO: [HS] Generando valor para parámetro 'ffn_hidden'
+[2025-11-30 15:38:57] INFO: [HS] Generando valor para parámetro 'num_heads'
+[2025-11-30 15:38:57] INFO: [HS] Generando valor para parámetro 'drop_prob'
+[2025-11-30 15:38:57] INFO: [HS] Generando valor para parámetro 'num_layers'
+[2025-11-30 15:38:57] INFO: [HS] Generando valor para parámetro 'lr'
+[2025-11-30 15:38:57] INFO: [HS] Generando valor para parámetro 'batch_size'
+[2025-11-30 15:38:57] INFO: [HS] Generando valor para parámetro 'max_sequence_length'
+[2025-11-30 15:38:57] INFO: [HS] Generando valor para parámetro 'epochs'
+[2025-11-30 15:38:57] INFO: =====================================================
+[2025-11-30 15:38:57] INFO: [HS][trial=1764535137472] Iniciando evaluación HP: {'d_model': 512, 'ffn_hidden': 1024, 'num_heads': 4, 'drop_prob': 0.0958201258864652, 'num_layers': 2, 'lr': 0.0001, 'batch_size': 8, 'max_sequence_length': 200, 'epochs': 5}
+[2025-11-30 15:38:57] INFO: Iniciando entrenamiento con los siguientes hiperparámetros:
+[2025-11-30 15:38:57] INFO: {'d_model': 512, 'ffn_hidden': 1024, 'num_heads': 4, 'drop_prob': 0.0958201258864652, 'num_layers': 2, 'lr': 0.0001, 'batch_size': 8, 'max_sequence_length': 200, 'epochs': 5}
+[2025-11-30 15:41:11] INFO: [Train] Epoch 1/5 | Loss: 2.3862, BLEU: 0.000033 | t_epoch=133.8s, t_total=133.9s
+[2025-11-30 15:41:11] INFO: [Train] ROUGE-1: 0.003391, ROUGE-2: 0.000000, ROUGE-L: 0.003391
+[2025-11-30 15:43:26] INFO: [Train] Epoch 2/5 | Loss: 1.9646, BLEU: 0.000830 | t_epoch=134.7s, t_total=268.6s
+[2025-11-30 15:43:26] INFO: [Train] ROUGE-1: 0.008820, ROUGE-2: 0.000000, ROUGE-L: 0.008820
+[2025-11-30 15:45:39] INFO: [Train] Epoch 3/5 | Loss: 1.7400, BLEU: 0.002414 | t_epoch=133.9s, t_total=402.5s
+[2025-11-30 15:45:39] INFO: [Train] ROUGE-1: 0.016619, ROUGE-2: 0.000000, ROUGE-L: 0.016544
+[2025-11-30 15:47:52] INFO: [Train] Epoch 4/5 | Loss: 1.5990, BLEU: 0.003308 | t_epoch=133.0s, t_total=535.5s
+[2025-11-30 15:47:52] INFO: [Train] ROUGE-1: 0.021738, ROUGE-2: 0.000138, ROUGE-L: 0.021625
+[2025-11-30 15:50:06] INFO: [Train] Epoch 5/5 | Loss: 1.4978, BLEU: 0.003716 | t_epoch=133.4s, t_total=668.9s
+[2025-11-30 15:50:06] INFO: [Train] ROUGE-1: 0.023466, ROUGE-2: 0.000151, ROUGE-L: 0.023271
+[2025-11-30 15:50:06] INFO: Checkpoint guardado: checkpoints\ckpt_1764535806406.pt
+[2025-11-30 15:50:06] INFO: [HS][trial=1764535137472] Finalizado BLEU=0.003716
+[2025-11-30 15:50:06] INFO: [HS] Generando valor para parámetro 'd_model'
+[2025-11-30 15:50:06] INFO: [HS] Generando valor para parámetro 'ffn_hidden'
+[2025-11-30 15:50:06] INFO: [HS] Generando valor para parámetro 'num_heads'
+[2025-11-30 15:50:06] INFO: [HS] Generando valor para parámetro 'drop_prob'
+[2025-11-30 15:50:06] INFO: [HS] Generando valor para parámetro 'num_layers'
+[2025-11-30 15:50:06] INFO: [HS] Generando valor para parámetro 'lr'
+[2025-11-30 15:50:06] INFO: [HS] Generando valor para parámetro 'batch_size'
+[2025-11-30 15:50:06] INFO: [HS] Generando valor para parámetro 'max_sequence_length'
+[2025-11-30 15:50:06] INFO: [HS] Generando valor para parámetro 'epochs'
+[2025-11-30 15:50:06] INFO: =====================================================
+[2025-11-30 15:50:06] INFO: [HS][trial=1764535806566] Iniciando evaluación HP: {'d_model': 1024, 'ffn_hidden': 1024, 'num_heads': 8, 'drop_prob': 0.12697558375218604, 'num_layers': 2, 'lr': 0.0001, 'batch_size': 4, 'max_sequence_length': 200, 'epochs': 5}
+[2025-11-30 15:50:06] INFO: Iniciando entrenamiento con los siguientes hiperparámetros:
+[2025-11-30 15:50:06] INFO: {'d_model': 1024, 'ffn_hidden': 1024, 'num_heads': 8, 'drop_prob': 0.12697558375218604, 'num_layers': 2, 'lr': 0.0001, 'batch_size': 4, 'max_sequence_length': 200, 'epochs': 5}
+[2025-11-30 15:55:57] INFO: [Train] Epoch 1/5 | Loss: 2.3277, BLEU: 0.000387 | t_epoch=350.6s, t_total=350.9s
+[2025-11-30 15:55:57] INFO: [Train] ROUGE-1: 0.005676, ROUGE-2: 0.000000, ROUGE-L: 0.005643
+[2025-11-30 16:01:44] INFO: [Train] Epoch 2/5 | Loss: 1.8015, BLEU: 0.002293 | t_epoch=346.6s, t_total=697.5s
+[2025-11-30 16:01:44] INFO: [Train] ROUGE-1: 0.016257, ROUGE-2: 0.000000, ROUGE-L: 0.016257
+[2025-11-30 16:07:28] INFO: [Train] Epoch 3/5 | Loss: 1.5307, BLEU: 0.003879 | t_epoch=344.0s, t_total=1041.5s
+[2025-11-30 16:07:28] INFO: [Train] ROUGE-1: 0.024899, ROUGE-2: 0.000221, ROUGE-L: 0.024873
+[2025-11-30 16:13:13] INFO: [Train] Epoch 4/5 | Loss: 1.3866, BLEU: 0.004498 | t_epoch=345.8s, t_total=1387.3s
+[2025-11-30 16:13:13] INFO: [Train] ROUGE-1: 0.027688, ROUGE-2: 0.000516, ROUGE-L: 0.027453
+[2025-11-30 16:19:02] INFO: [Train] Epoch 5/5 | Loss: 1.3055, BLEU: 0.005283 | t_epoch=348.6s, t_total=1735.9s
+[2025-11-30 16:19:02] INFO: [Train] ROUGE-1: 0.030743, ROUGE-2: 0.001073, ROUGE-L: 0.030658
+[2025-11-30 16:19:02] INFO: Checkpoint guardado: checkpoints\ckpt_1764537542485.pt
+[2025-11-30 16:19:02] INFO: [HS][trial=1764535806566] Finalizado BLEU=0.005283
+[2025-11-30 16:19:02] INFO: [HS] Generando valor para parámetro 'd_model'
+[2025-11-30 16:19:02] INFO: [HS] Generando valor para parámetro 'ffn_hidden'
+[2025-11-30 16:19:02] INFO: [HS] Generando valor para parámetro 'num_heads'
+[2025-11-30 16:19:02] INFO: [HS] Generando valor para parámetro 'drop_prob'
+[2025-11-30 16:19:02] INFO: [HS] Generando valor para parámetro 'num_layers'
+[2025-11-30 16:19:02] INFO: [HS] Generando valor para parámetro 'lr'
+[2025-11-30 16:19:02] INFO: [HS] Generando valor para parámetro 'batch_size'
+[2025-11-30 16:19:02] INFO: [HS] Generando valor para parámetro 'max_sequence_length'
+[2025-11-30 16:19:02] INFO: [HS] Generando valor para parámetro 'epochs'
+[2025-11-30 16:19:02] INFO: =====================================================
+[2025-11-30 16:19:02] INFO: [HS][trial=1764537542933] Iniciando evaluación HP: {'d_model': 128, 'ffn_hidden': 1024, 'num_heads': 8, 'drop_prob': 0.0958201258864652, 'num_layers': 3, 'lr': 0.0001, 'batch_size': 4, 'max_sequence_length': 200, 'epochs': 5}
+[2025-11-30 16:19:02] INFO: Iniciando entrenamiento con los siguientes hiperparámetros:
+[2025-11-30 16:19:02] INFO: {'d_model': 128, 'ffn_hidden': 1024, 'num_heads': 8, 'drop_prob': 0.0958201258864652, 'num_layers': 3, 'lr': 0.0001, 'batch_size': 4, 'max_sequence_length': 200, 'epochs': 5}
+[2025-11-30 16:20:54] INFO: [Train] Epoch 1/5 | Loss: 2.3362, BLEU: 0.000060 | t_epoch=111.7s, t_total=111.7s
+[2025-11-30 16:20:54] INFO: [Train] ROUGE-1: 0.003570, ROUGE-2: 0.000000, ROUGE-L: 0.003570
+[2025-11-30 16:22:55] INFO: [Train] Epoch 2/5 | Loss: 2.0088, BLEU: 0.000573 | t_epoch=121.3s, t_total=233.0s
+[2025-11-30 16:22:55] INFO: [Train] ROUGE-1: 0.007754, ROUGE-2: 0.000042, ROUGE-L: 0.007733
+[2025-11-30 16:24:50] INFO: [Train] Epoch 3/5 | Loss: 1.8154, BLEU: 0.001621 | t_epoch=114.9s, t_total=347.9s
+[2025-11-30 16:24:50] INFO: [Train] ROUGE-1: 0.012937, ROUGE-2: 0.000049, ROUGE-L: 0.012910
+[2025-11-30 16:26:41] INFO: [Train] Epoch 4/5 | Loss: 1.6787, BLEU: 0.002637 | t_epoch=110.7s, t_total=458.6s
+[2025-11-30 16:26:41] INFO: [Train] ROUGE-1: 0.018657, ROUGE-2: 0.000035, ROUGE-L: 0.018571
+[2025-11-30 16:28:29] INFO: [Train] Epoch 5/5 | Loss: 1.5784, BLEU: 0.003184 | t_epoch=107.6s, t_total=566.2s
+[2025-11-30 16:28:29] INFO: [Train] ROUGE-1: 0.021383, ROUGE-2: 0.000055, ROUGE-L: 0.021362
+[2025-11-30 16:28:29] INFO: Checkpoint guardado: checkpoints\ckpt_1764538109154.pt
+[2025-11-30 16:28:29] INFO: [HS][trial=1764537542933] Finalizado BLEU=0.003184
+[2025-11-30 16:28:29] INFO: [HS][iter=2/6] Mejor BLEU=0.005300 hp={'d_model': 1024, 'ffn_hidden': 512, 'num_heads': 8, 'drop_prob': 0.0958201258864652, 'num_layers': 2, 'lr': 0.0001, 'batch_size': 2, 'max_sequence_length': 200, 'epochs': 5} | BLEU(mean)=0.003825
+[2025-11-30 16:28:29] INFO: [HS] Progreso total: 50.0% (3/6 iteraciones completadas)
+[2025-11-30 16:28:29] INFO: [HS][iter=3/6] Inicio iteración
+[2025-11-30 16:28:29] INFO: [HS] Generando valor para parámetro 'd_model'
+[2025-11-30 16:28:29] INFO: [HS] Generando valor para parámetro 'ffn_hidden'
+[2025-11-30 16:28:29] INFO: [HS] Generando valor para parámetro 'num_heads'
+[2025-11-30 16:28:29] INFO: [HS] Generando valor para parámetro 'drop_prob'
+[2025-11-30 16:28:29] INFO: [HS] Generando valor para parámetro 'num_layers'
+[2025-11-30 16:28:29] INFO: [HS] Generando valor para parámetro 'lr'
+[2025-11-30 16:28:29] INFO: [HS] Generando valor para parámetro 'batch_size'
+[2025-11-30 16:28:29] INFO: [HS] Generando valor para parámetro 'max_sequence_length'
+[2025-11-30 16:28:29] INFO: [HS] Generando valor para parámetro 'epochs'
+[2025-11-30 16:28:29] INFO: =====================================================
+[2025-11-30 16:28:29] INFO: [HS][trial=1764538109213] Iniciando evaluación HP: {'d_model': 512, 'ffn_hidden': 1024, 'num_heads': 8, 'drop_prob': 0.13580979784267483, 'num_layers': 2, 'lr': 0.0001, 'batch_size': 4, 'max_sequence_length': 200, 'epochs': 5}
+[2025-11-30 16:28:29] INFO: Iniciando entrenamiento con los siguientes hiperparámetros:
+[2025-11-30 16:28:29] INFO: {'d_model': 512, 'ffn_hidden': 1024, 'num_heads': 8, 'drop_prob': 0.13580979784267483, 'num_layers': 2, 'lr': 0.0001, 'batch_size': 4, 'max_sequence_length': 200, 'epochs': 5}
+[2025-11-30 16:31:08] INFO: [Train] Epoch 1/5 | Loss: 2.3112, BLEU: 0.000142 | t_epoch=159.6s, t_total=159.7s
+[2025-11-30 16:31:08] INFO: [Train] ROUGE-1: 0.004634, ROUGE-2: 0.000000, ROUGE-L: 0.004606
+[2025-11-30 16:33:53] INFO: [Train] Epoch 2/5 | Loss: 1.8711, BLEU: 0.001547 | t_epoch=165.1s, t_total=324.7s
+[2025-11-30 16:33:53] INFO: [Train] ROUGE-1: 0.012540, ROUGE-2: 0.000049, ROUGE-L: 0.012540
+[2025-11-30 16:36:36] INFO: [Train] Epoch 3/5 | Loss: 1.6197, BLEU: 0.003527 | t_epoch=162.6s, t_total=487.3s
+[2025-11-30 16:36:36] INFO: [Train] ROUGE-1: 0.023375, ROUGE-2: 0.000108, ROUGE-L: 0.023206
+[2025-11-30 16:39:20] INFO: [Train] Epoch 4/5 | Loss: 1.4652, BLEU: 0.004321 | t_epoch=163.5s, t_total=650.9s
+[2025-11-30 16:39:20] INFO: [Train] ROUGE-1: 0.026623, ROUGE-2: 0.000476, ROUGE-L: 0.026437
+[2025-11-30 16:42:00] INFO: [Train] Epoch 5/5 | Loss: 1.3725, BLEU: 0.004778 | t_epoch=160.7s, t_total=811.5s
+[2025-11-30 16:42:00] INFO: [Train] ROUGE-1: 0.028098, ROUGE-2: 0.001087, ROUGE-L: 0.027985
+[2025-11-30 16:42:00] INFO: Checkpoint guardado: checkpoints\ckpt_1764538920739.pt
+[2025-11-30 16:42:00] INFO: [HS][trial=1764538109213] Finalizado BLEU=0.004778
+[2025-11-30 16:42:00] INFO: [HS] Generando valor para parámetro 'd_model'
+[2025-11-30 16:42:00] INFO: [HS] Generando valor para parámetro 'ffn_hidden'
+[2025-11-30 16:42:00] INFO: [HS] Generando valor para parámetro 'num_heads'
+[2025-11-30 16:42:00] INFO: [HS] Generando valor para parámetro 'drop_prob'
+[2025-11-30 16:42:00] INFO: [HS] Generando valor para parámetro 'num_layers'
+[2025-11-30 16:42:00] INFO: [HS] Generando valor para parámetro 'lr'
+[2025-11-30 16:42:00] INFO: [HS] Generando valor para parámetro 'batch_size'
+[2025-11-30 16:42:00] INFO: [HS] Generando valor para parámetro 'max_sequence_length'
+[2025-11-30 16:42:00] INFO: [HS] Generando valor para parámetro 'epochs'
+[2025-11-30 16:42:00] INFO: =====================================================
+[2025-11-30 16:42:00] INFO: [HS][trial=1764538920944] Iniciando evaluación HP: {'d_model': 512, 'ffn_hidden': 512, 'num_heads': 4, 'drop_prob': 0.15, 'num_layers': 2, 'lr': 0.0001, 'batch_size': 4, 'max_sequence_length': 200, 'epochs': 5}
+[2025-11-30 16:42:00] INFO: Iniciando entrenamiento con los siguientes hiperparámetros:
+[2025-11-30 16:42:00] INFO: {'d_model': 512, 'ffn_hidden': 512, 'num_heads': 4, 'drop_prob': 0.15, 'num_layers': 2, 'lr': 0.0001, 'batch_size': 4, 'max_sequence_length': 200, 'epochs': 5}
+[2025-11-30 16:44:28] INFO: [Train] Epoch 1/5 | Loss: 2.3297, BLEU: 0.000075 | t_epoch=147.2s, t_total=147.3s
+[2025-11-30 16:44:28] INFO: [Train] ROUGE-1: 0.003916, ROUGE-2: 0.000000, ROUGE-L: 0.003916
+[2025-11-30 16:46:45] INFO: [Train] Epoch 2/5 | Loss: 1.9360, BLEU: 0.001117 | t_epoch=137.1s, t_total=284.4s
+[2025-11-30 16:46:45] INFO: [Train] ROUGE-1: 0.010455, ROUGE-2: 0.000000, ROUGE-L: 0.010455
+[2025-11-30 16:49:02] INFO: [Train] Epoch 3/5 | Loss: 1.7483, BLEU: 0.002321 | t_epoch=137.1s, t_total=421.5s
+[2025-11-30 16:49:02] INFO: [Train] ROUGE-1: 0.016301, ROUGE-2: 0.000088, ROUGE-L: 0.016252
+[2025-11-30 16:51:22] INFO: [Train] Epoch 4/5 | Loss: 1.6045, BLEU: 0.002890 | t_epoch=140.3s, t_total=561.8s
+[2025-11-30 16:51:22] INFO: [Train] ROUGE-1: 0.019342, ROUGE-2: 0.000116, ROUGE-L: 0.019318
+[2025-11-30 16:53:50] INFO: [Train] Epoch 5/5 | Loss: 1.4974, BLEU: 0.003076 | t_epoch=147.7s, t_total=709.5s
+[2025-11-30 16:53:50] INFO: [Train] ROUGE-1: 0.020529, ROUGE-2: 0.000183, ROUGE-L: 0.020486
+[2025-11-30 16:53:50] INFO: Checkpoint guardado: checkpoints\ckpt_1764539630451.pt
+[2025-11-30 16:53:50] INFO: [HS][trial=1764538920944] Finalizado BLEU=0.003076
+[2025-11-30 16:53:50] INFO: [HS] Generando valor para parámetro 'd_model'
+[2025-11-30 16:53:50] INFO: [HS] Generando valor para parámetro 'ffn_hidden'
+[2025-11-30 16:53:50] INFO: [HS] Generando valor para parámetro 'num_heads'
+[2025-11-30 16:53:50] INFO: [HS] Generando valor para parámetro 'drop_prob'
+[2025-11-30 16:53:50] INFO: [HS] Generando valor para parámetro 'num_layers'
+[2025-11-30 16:53:50] INFO: [HS] Generando valor para parámetro 'lr'
+[2025-11-30 16:53:50] INFO: [HS] Generando valor para parámetro 'batch_size'
+[2025-11-30 16:53:50] INFO: [HS] Generando valor para parámetro 'max_sequence_length'
+[2025-11-30 16:53:50] INFO: [HS] Generando valor para parámetro 'epochs'
+[2025-11-30 16:53:50] INFO: =====================================================
+[2025-11-30 16:53:50] INFO: [HS][trial=1764539630643] Iniciando evaluación HP: {'d_model': 1024, 'ffn_hidden': 512, 'num_heads': 8, 'drop_prob': 0.15, 'num_layers': 2, 'lr': 0.0001, 'batch_size': 4, 'max_sequence_length': 200, 'epochs': 5}
+[2025-11-30 16:53:50] INFO: Iniciando entrenamiento con los siguientes hiperparámetros:
+[2025-11-30 16:53:50] INFO: {'d_model': 1024, 'ffn_hidden': 512, 'num_heads': 8, 'drop_prob': 0.15, 'num_layers': 2, 'lr': 0.0001, 'batch_size': 4, 'max_sequence_length': 200, 'epochs': 5}
+[2025-11-30 16:59:24] INFO: [Train] Epoch 1/5 | Loss: 2.3209, BLEU: 0.000252 | t_epoch=333.6s, t_total=334.0s
+[2025-11-30 16:59:24] INFO: [Train] ROUGE-1: 0.004892, ROUGE-2: 0.000000, ROUGE-L: 0.004892
+[2025-11-30 17:04:51] INFO: [Train] Epoch 2/5 | Loss: 1.8264, BLEU: 0.002015 | t_epoch=327.1s, t_total=661.1s
+[2025-11-30 17:04:51] INFO: [Train] ROUGE-1: 0.014774, ROUGE-2: 0.000000, ROUGE-L: 0.014727
+[2025-11-30 17:10:13] INFO: [Train] Epoch 3/5 | Loss: 1.5752, BLEU: 0.003394 | t_epoch=322.1s, t_total=983.3s
+[2025-11-30 17:10:13] INFO: [Train] ROUGE-1: 0.022791, ROUGE-2: 0.000311, ROUGE-L: 0.022607
+[2025-11-30 17:15:36] INFO: [Train] Epoch 4/5 | Loss: 1.4345, BLEU: 0.004649 | t_epoch=323.1s, t_total=1306.3s
+[2025-11-30 17:15:36] INFO: [Train] ROUGE-1: 0.027654, ROUGE-2: 0.000872, ROUGE-L: 0.027421
+[2025-11-30 17:20:59] INFO: [Train] Epoch 5/5 | Loss: 1.3497, BLEU: 0.005197 | t_epoch=322.4s, t_total=1628.7s
+[2025-11-30 17:20:59] INFO: [Train] ROUGE-1: 0.030532, ROUGE-2: 0.001693, ROUGE-L: 0.030332
+[2025-11-30 17:20:59] INFO: Checkpoint guardado: checkpoints\ckpt_1764541259354.pt
+[2025-11-30 17:20:59] INFO: [HS][trial=1764539630643] Finalizado BLEU=0.005197
+[2025-11-30 17:20:59] INFO: [HS] Generando valor para parámetro 'd_model'
+[2025-11-30 17:20:59] INFO: [HS] Generando valor para parámetro 'ffn_hidden'
+[2025-11-30 17:20:59] INFO: [HS] Generando valor para parámetro 'num_heads'
+[2025-11-30 17:20:59] INFO: [HS] Generando valor para parámetro 'drop_prob'
+[2025-11-30 17:20:59] INFO: [HS] Generando valor para parámetro 'num_layers'
+[2025-11-30 17:20:59] INFO: [HS] Generando valor para parámetro 'lr'
+[2025-11-30 17:20:59] INFO: [HS] Generando valor para parámetro 'batch_size'
+[2025-11-30 17:20:59] INFO: [HS] Generando valor para parámetro 'max_sequence_length'
+[2025-11-30 17:20:59] INFO: [HS] Generando valor para parámetro 'epochs'
+[2025-11-30 17:20:59] INFO: =====================================================
+[2025-11-30 17:20:59] INFO: [HS][trial=1764541259743] Iniciando evaluación HP: {'d_model': 1024, 'ffn_hidden': 1024, 'num_heads': 8, 'drop_prob': 0.13580979784267483, 'num_layers': 3, 'lr': 0.0001, 'batch_size': 8, 'max_sequence_length': 200, 'epochs': 2}
+[2025-11-30 17:20:59] INFO: Iniciando entrenamiento con los siguientes hiperparámetros:
+[2025-11-30 17:20:59] INFO: {'d_model': 1024, 'ffn_hidden': 1024, 'num_heads': 8, 'drop_prob': 0.13580979784267483, 'num_layers': 3, 'lr': 0.0001, 'batch_size': 8, 'max_sequence_length': 200, 'epochs': 2}
+[2025-11-30 17:28:37] INFO: [Train] Epoch 1/2 | Loss: 2.5204, BLEU: 0.000097 | t_epoch=457.5s, t_total=458.0s
+[2025-11-30 17:28:37] INFO: [Train] ROUGE-1: 0.002949, ROUGE-2: 0.000000, ROUGE-L: 0.002949
+[2025-11-30 17:36:08] INFO: [Train] Epoch 2/2 | Loss: 1.8209, BLEU: 0.001648 | t_epoch=451.1s, t_total=909.1s
+[2025-11-30 17:36:08] INFO: [Train] ROUGE-1: 0.013092, ROUGE-2: 0.000064, ROUGE-L: 0.013038
+[2025-11-30 17:36:09] INFO: Checkpoint guardado: checkpoints\ckpt_1764542168839.pt
+[2025-11-30 17:36:09] INFO: [HS][trial=1764541259743] Finalizado BLEU=0.001648
+[2025-11-30 17:36:09] INFO: [HS] Generando valor para parámetro 'd_model'
+[2025-11-30 17:36:09] INFO: [HS] Generando valor para parámetro 'ffn_hidden'
+[2025-11-30 17:36:09] INFO: [HS] Generando valor para parámetro 'num_heads'
+[2025-11-30 17:36:09] INFO: [HS] Generando valor para parámetro 'drop_prob'
+[2025-11-30 17:36:09] INFO: [HS] Generando valor para parámetro 'num_layers'
+[2025-11-30 17:36:09] INFO: [HS] Generando valor para parámetro 'lr'
+[2025-11-30 17:36:09] INFO: [HS] Generando valor para parámetro 'batch_size'
+[2025-11-30 17:36:09] INFO: [HS] Generando valor para parámetro 'max_sequence_length'
+[2025-11-30 17:36:09] INFO: [HS] Generando valor para parámetro 'epochs'
+[2025-11-30 17:36:09] INFO: =====================================================
+[2025-11-30 17:36:09] INFO: [HS][trial=1764542169467] Iniciando evaluación HP: {'d_model': 128, 'ffn_hidden': 1024, 'num_heads': 8, 'drop_prob': 0.15, 'num_layers': 2, 'lr': 0.0001, 'batch_size': 4, 'max_sequence_length': 200, 'epochs': 5}
+[2025-11-30 17:36:09] INFO: Iniciando entrenamiento con los siguientes hiperparámetros:
+[2025-11-30 17:36:09] INFO: {'d_model': 128, 'ffn_hidden': 1024, 'num_heads': 8, 'drop_prob': 0.15, 'num_layers': 2, 'lr': 0.0001, 'batch_size': 4, 'max_sequence_length': 200, 'epochs': 5}
+[2025-11-30 17:37:37] INFO: [Train] Epoch 1/5 | Loss: 2.3784, BLEU: 0.000058 | t_epoch=88.0s, t_total=88.0s
+[2025-11-30 17:37:37] INFO: [Train] ROUGE-1: 0.003276, ROUGE-2: 0.000000, ROUGE-L: 0.003224
+[2025-11-30 17:39:04] INFO: [Train] Epoch 2/5 | Loss: 2.1048, BLEU: 0.000220 | t_epoch=87.3s, t_total=175.3s
+[2025-11-30 17:39:04] INFO: [Train] ROUGE-1: 0.004945, ROUGE-2: 0.000000, ROUGE-L: 0.004945
+[2025-11-30 17:40:31] INFO: [Train] Epoch 3/5 | Loss: 1.9509, BLEU: 0.000384 | t_epoch=86.4s, t_total=261.7s
+[2025-11-30 17:40:31] INFO: [Train] ROUGE-1: 0.005687, ROUGE-2: 0.000042, ROUGE-L: 0.005665
+[2025-11-30 17:41:57] INFO: [Train] Epoch 4/5 | Loss: 1.8279, BLEU: 0.001405 | t_epoch=86.1s, t_total=347.8s
+[2025-11-30 17:41:57] INFO: [Train] ROUGE-1: 0.011899, ROUGE-2: 0.000000, ROUGE-L: 0.011875
+[2025-11-30 17:43:24] INFO: [Train] Epoch 5/5 | Loss: 1.7277, BLEU: 0.001847 | t_epoch=86.7s, t_total=434.6s
+[2025-11-30 17:43:24] INFO: [Train] ROUGE-1: 0.014921, ROUGE-2: 0.000143, ROUGE-L: 0.014856
+[2025-11-30 17:43:24] INFO: Checkpoint guardado: checkpoints\ckpt_1764542604024.pt
+[2025-11-30 17:43:24] INFO: [HS][trial=1764542169467] Finalizado BLEU=0.001847
+[2025-11-30 17:43:24] INFO: [HS] Generando valor para parámetro 'd_model'
+[2025-11-30 17:43:24] INFO: [HS] Generando valor para parámetro 'ffn_hidden'
+[2025-11-30 17:43:24] INFO: [HS] Generando valor para parámetro 'num_heads'
+[2025-11-30 17:43:24] INFO: [HS] Generando valor para parámetro 'drop_prob'
+[2025-11-30 17:43:24] INFO: [HS] Generando valor para parámetro 'num_layers'
+[2025-11-30 17:43:24] INFO: [HS] Generando valor para parámetro 'lr'
+[2025-11-30 17:43:24] INFO: [HS] Generando valor para parámetro 'batch_size'
+[2025-11-30 17:43:24] INFO: [HS] Generando valor para parámetro 'max_sequence_length'
+[2025-11-30 17:43:24] INFO: [HS] Generando valor para parámetro 'epochs'
+[2025-11-30 17:43:24] INFO: =====================================================
+[2025-11-30 17:43:24] INFO: [HS][trial=1764542604067] Iniciando evaluación HP: {'d_model': 512, 'ffn_hidden': 1024, 'num_heads': 8, 'drop_prob': 0.13580979784267483, 'num_layers': 2, 'lr': 0.0001, 'batch_size': 8, 'max_sequence_length': 200, 'epochs': 5}
+[2025-11-30 17:43:24] INFO: Iniciando entrenamiento con los siguientes hiperparámetros:
+[2025-11-30 17:43:24] INFO: {'d_model': 512, 'ffn_hidden': 1024, 'num_heads': 8, 'drop_prob': 0.13580979784267483, 'num_layers': 2, 'lr': 0.0001, 'batch_size': 8, 'max_sequence_length': 200, 'epochs': 5}
+[2025-11-30 17:45:40] INFO: [Train] Epoch 1/5 | Loss: 2.4007, BLEU: 0.000096 | t_epoch=136.1s, t_total=136.2s
+[2025-11-30 17:45:40] INFO: [Train] ROUGE-1: 0.003538, ROUGE-2: 0.000000, ROUGE-L: 0.003538
+[2025-11-30 17:47:55] INFO: [Train] Epoch 2/5 | Loss: 1.9897, BLEU: 0.000766 | t_epoch=134.8s, t_total=271.0s
+[2025-11-30 17:47:55] INFO: [Train] ROUGE-1: 0.008182, ROUGE-2: 0.000000, ROUGE-L: 0.008130
+[2025-11-30 17:50:11] INFO: [Train] Epoch 3/5 | Loss: 1.7588, BLEU: 0.001514 | t_epoch=136.5s, t_total=407.6s
+[2025-11-30 17:50:11] INFO: [Train] ROUGE-1: 0.012218, ROUGE-2: 0.000000, ROUGE-L: 0.012176
+[2025-11-30 17:52:28] INFO: [Train] Epoch 4/5 | Loss: 1.6063, BLEU: 0.002759 | t_epoch=137.1s, t_total=544.7s
+[2025-11-30 17:52:28] INFO: [Train] ROUGE-1: 0.019308, ROUGE-2: 0.000135, ROUGE-L: 0.019251
+[2025-11-30 17:54:45] INFO: [Train] Epoch 5/5 | Loss: 1.4975, BLEU: 0.003126 | t_epoch=136.8s, t_total=681.5s
+[2025-11-30 17:54:45] INFO: [Train] ROUGE-1: 0.021684, ROUGE-2: 0.000226, ROUGE-L: 0.021507
+[2025-11-30 17:54:45] INFO: Checkpoint guardado: checkpoints\ckpt_1764543285584.pt
+[2025-11-30 17:54:45] INFO: [HS][trial=1764542604067] Finalizado BLEU=0.003126
+[2025-11-30 17:54:45] INFO: [HS] Generando valor para parámetro 'd_model'
+[2025-11-30 17:54:45] INFO: [HS] Generando valor para parámetro 'ffn_hidden'
+[2025-11-30 17:54:45] INFO: [HS] Generando valor para parámetro 'num_heads'
+[2025-11-30 17:54:45] INFO: [HS] Generando valor para parámetro 'drop_prob'
+[2025-11-30 17:54:45] INFO: [HS] Generando valor para parámetro 'num_layers'
+[2025-11-30 17:54:45] INFO: [HS] Generando valor para parámetro 'lr'
+[2025-11-30 17:54:45] INFO: [HS] Generando valor para parámetro 'batch_size'
+[2025-11-30 17:54:45] INFO: [HS] Generando valor para parámetro 'max_sequence_length'
+[2025-11-30 17:54:45] INFO: [HS] Generando valor para parámetro 'epochs'
+[2025-11-30 17:54:45] INFO: =====================================================
+[2025-11-30 17:54:45] INFO: [HS][trial=1764543285740] Iniciando evaluación HP: {'d_model': 1024, 'ffn_hidden': 1024, 'num_heads': 8, 'drop_prob': 0.12697558375218604, 'num_layers': 3, 'lr': 0.0001, 'batch_size': 2, 'max_sequence_length': 200, 'epochs': 2}
+[2025-11-30 17:54:45] INFO: Iniciando entrenamiento con los siguientes hiperparámetros:
+[2025-11-30 17:54:45] INFO: {'d_model': 1024, 'ffn_hidden': 1024, 'num_heads': 8, 'drop_prob': 0.12697558375218604, 'num_layers': 3, 'lr': 0.0001, 'batch_size': 2, 'max_sequence_length': 200, 'epochs': 2}
+[2025-11-30 18:04:29] INFO: [Train] Epoch 1/2 | Loss: 2.3767, BLEU: 0.000130 | t_epoch=582.8s, t_total=583.3s
+[2025-11-30 18:04:29] INFO: [Train] ROUGE-1: 0.004221, ROUGE-2: 0.000010, ROUGE-L: 0.004171
+[2025-11-30 18:13:54] INFO: [Train] Epoch 2/2 | Loss: 1.9644, BLEU: 0.001200 | t_epoch=565.7s, t_total=1149.0s
+[2025-11-30 18:13:54] INFO: [Train] ROUGE-1: 0.010668, ROUGE-2: 0.000000, ROUGE-L: 0.010654
+[2025-11-30 18:13:55] INFO: Checkpoint guardado: checkpoints\ckpt_1764544434702.pt
+[2025-11-30 18:13:55] INFO: [HS][trial=1764543285740] Finalizado BLEU=0.001200
+[2025-11-30 18:13:55] INFO: [HS] Generando valor para parámetro 'd_model'
+[2025-11-30 18:13:55] INFO: [HS] Generando valor para parámetro 'ffn_hidden'
+[2025-11-30 18:13:55] INFO: [HS] Generando valor para parámetro 'num_heads'
+[2025-11-30 18:13:55] INFO: [HS] Generando valor para parámetro 'drop_prob'
+[2025-11-30 18:13:55] INFO: [HS] Generando valor para parámetro 'num_layers'
+[2025-11-30 18:13:55] INFO: [HS] Generando valor para parámetro 'lr'
+[2025-11-30 18:13:55] INFO: [HS] Generando valor para parámetro 'batch_size'
+[2025-11-30 18:13:55] INFO: [HS] Generando valor para parámetro 'max_sequence_length'
+[2025-11-30 18:13:55] INFO: [HS] Generando valor para parámetro 'epochs'
+[2025-11-30 18:13:55] INFO: =====================================================
+[2025-11-30 18:13:55] INFO: [HS][trial=1764544435349] Iniciando evaluación HP: {'d_model': 128, 'ffn_hidden': 512, 'num_heads': 8, 'drop_prob': 0.13217541246782794, 'num_layers': 2, 'lr': 0.0001, 'batch_size': 8, 'max_sequence_length': 200, 'epochs': 5}
+[2025-11-30 18:13:55] INFO: Iniciando entrenamiento con los siguientes hiperparámetros:
+[2025-11-30 18:13:55] INFO: {'d_model': 128, 'ffn_hidden': 512, 'num_heads': 8, 'drop_prob': 0.13217541246782794, 'num_layers': 2, 'lr': 0.0001, 'batch_size': 8, 'max_sequence_length': 200, 'epochs': 5}
+[2025-11-30 18:14:48] INFO: [Train] Epoch 1/5 | Loss: 2.5358, BLEU: 0.000018 | t_epoch=53.4s, t_total=53.4s
+[2025-11-30 18:14:48] INFO: [Train] ROUGE-1: 0.003261, ROUGE-2: 0.000000, ROUGE-L: 0.003214
+[2025-11-30 18:15:41] INFO: [Train] Epoch 2/5 | Loss: 2.2064, BLEU: 0.000107 | t_epoch=53.1s, t_total=106.5s
+[2025-11-30 18:15:41] INFO: [Train] ROUGE-1: 0.004376, ROUGE-2: 0.000000, ROUGE-L: 0.004376
+[2025-11-30 18:16:34] INFO: [Train] Epoch 3/5 | Loss: 2.1095, BLEU: 0.000135 | t_epoch=52.8s, t_total=159.3s
+[2025-11-30 18:16:34] INFO: [Train] ROUGE-1: 0.004447, ROUGE-2: 0.000000, ROUGE-L: 0.004410
+[2025-11-30 18:17:27] INFO: [Train] Epoch 4/5 | Loss: 2.0076, BLEU: 0.000658 | t_epoch=52.5s, t_total=211.8s
+[2025-11-30 18:17:27] INFO: [Train] ROUGE-1: 0.007712, ROUGE-2: 0.000000, ROUGE-L: 0.007712
+[2025-11-30 18:18:19] INFO: [Train] Epoch 5/5 | Loss: 1.9194, BLEU: 0.000822 | t_epoch=52.8s, t_total=264.6s
+[2025-11-30 18:18:19] INFO: [Train] ROUGE-1: 0.009195, ROUGE-2: 0.000000, ROUGE-L: 0.009195
+[2025-11-30 18:18:20] INFO: Checkpoint guardado: checkpoints\ckpt_1764544699968.pt
+[2025-11-30 18:18:20] INFO: [HS][trial=1764544435349] Finalizado BLEU=0.000822
+[2025-11-30 18:18:20] INFO: [HS] Generando valor para parámetro 'd_model'
+[2025-11-30 18:18:20] INFO: [HS] Generando valor para parámetro 'ffn_hidden'
+[2025-11-30 18:18:20] INFO: [HS] Generando valor para parámetro 'num_heads'
+[2025-11-30 18:18:20] INFO: [HS] Generando valor para parámetro 'drop_prob'
+[2025-11-30 18:18:20] INFO: [HS] Generando valor para parámetro 'num_layers'
+[2025-11-30 18:18:20] INFO: [HS] Generando valor para parámetro 'lr'
+[2025-11-30 18:18:20] INFO: [HS] Generando valor para parámetro 'batch_size'
+[2025-11-30 18:18:20] INFO: [HS] Generando valor para parámetro 'max_sequence_length'
+[2025-11-30 18:18:20] INFO: [HS] Generando valor para parámetro 'epochs'
+[2025-11-30 18:18:20] INFO: =====================================================
+[2025-11-30 18:18:20] INFO: [HS][trial=1764544700008] Iniciando evaluación HP: {'d_model': 256, 'ffn_hidden': 512, 'num_heads': 8, 'drop_prob': 0.103989545786351, 'num_layers': 2, 'lr': 0.0001, 'batch_size': 4, 'max_sequence_length': 200, 'epochs': 5}
+[2025-11-30 18:18:20] INFO: Iniciando entrenamiento con los siguientes hiperparámetros:
+[2025-11-30 18:18:20] INFO: {'d_model': 256, 'ffn_hidden': 512, 'num_heads': 8, 'drop_prob': 0.103989545786351, 'num_layers': 2, 'lr': 0.0001, 'batch_size': 4, 'max_sequence_length': 200, 'epochs': 5}
+[2025-11-30 19:14:44] INFO: [Train] Epoch 1/5 | Loss: 2.3368, BLEU: 0.000111 | t_epoch=3384.9s, t_total=3385.0s
+[2025-11-30 19:14:44] INFO: [Train] ROUGE-1: 0.004012, ROUGE-2: 0.000000, ROUGE-L: 0.004012
+[2025-11-30 19:16:20] INFO: [Train] Epoch 2/5 | Loss: 1.9438, BLEU: 0.000623 | t_epoch=95.7s, t_total=3480.6s
+[2025-11-30 19:16:20] INFO: [Train] ROUGE-1: 0.007023, ROUGE-2: 0.000000, ROUGE-L: 0.007023
+[2025-11-30 19:17:54] INFO: [Train] Epoch 3/5 | Loss: 1.7436, BLEU: 0.001473 | t_epoch=93.5s, t_total=3574.2s
+[2025-11-30 19:17:54] INFO: [Train] ROUGE-1: 0.012261, ROUGE-2: 0.000052, ROUGE-L: 0.012183
+[2025-11-30 19:19:27] INFO: [Train] Epoch 4/5 | Loss: 1.6020, BLEU: 0.002651 | t_epoch=93.1s, t_total=3667.3s
+[2025-11-30 19:19:27] INFO: [Train] ROUGE-1: 0.018665, ROUGE-2: 0.000000, ROUGE-L: 0.018632
+[2025-11-30 19:20:58] INFO: [Train] Epoch 5/5 | Loss: 1.5023, BLEU: 0.002869 | t_epoch=91.7s, t_total=3758.9s
+[2025-11-30 19:20:58] INFO: [Train] ROUGE-1: 0.020104, ROUGE-2: 0.000046, ROUGE-L: 0.019943
+[2025-11-30 19:20:58] INFO: Checkpoint guardado: checkpoints\ckpt_1764548458925.pt
+[2025-11-30 19:20:58] INFO: [HS][trial=1764544700008] Finalizado BLEU=0.002869
+[2025-11-30 19:20:58] INFO: [HS] Generando valor para parámetro 'd_model'
+[2025-11-30 19:20:58] INFO: [HS] Generando valor para parámetro 'ffn_hidden'
+[2025-11-30 19:20:58] INFO: [HS] Generando valor para parámetro 'num_heads'
+[2025-11-30 19:20:58] INFO: [HS] Generando valor para parámetro 'drop_prob'
+[2025-11-30 19:20:58] INFO: [HS] Generando valor para parámetro 'num_layers'
+[2025-11-30 19:20:58] INFO: [HS] Generando valor para parámetro 'lr'
+[2025-11-30 19:20:58] INFO: [HS] Generando valor para parámetro 'batch_size'
+[2025-11-30 19:20:58] INFO: [HS] Generando valor para parámetro 'max_sequence_length'
+[2025-11-30 19:20:58] INFO: [HS] Generando valor para parámetro 'epochs'
+[2025-11-30 19:20:58] INFO: =====================================================
+[2025-11-30 19:20:58] INFO: [HS][trial=1764548458983] Iniciando evaluación HP: {'d_model': 1024, 'ffn_hidden': 1024, 'num_heads': 8, 'drop_prob': 0.0958201258864652, 'num_layers': 2, 'lr': 0.0001, 'batch_size': 8, 'max_sequence_length': 200, 'epochs': 5}
+[2025-11-30 19:20:58] INFO: Iniciando entrenamiento con los siguientes hiperparámetros:
+[2025-11-30 19:20:58] INFO: {'d_model': 1024, 'ffn_hidden': 1024, 'num_heads': 8, 'drop_prob': 0.0958201258864652, 'num_layers': 2, 'lr': 0.0001, 'batch_size': 8, 'max_sequence_length': 200, 'epochs': 5}
+[2025-11-30 19:26:08] INFO: [Train] Epoch 1/5 | Loss: 2.4345, BLEU: 0.000112 | t_epoch=309.3s, t_total=309.6s
+[2025-11-30 19:26:08] INFO: [Train] ROUGE-1: 0.003614, ROUGE-2: 0.000000, ROUGE-L: 0.003614
+[2025-11-30 19:31:17] INFO: [Train] Epoch 2/5 | Loss: 1.8614, BLEU: 0.001969 | t_epoch=308.5s, t_total=618.1s
+[2025-11-30 19:31:17] INFO: [Train] ROUGE-1: 0.015032, ROUGE-2: 0.000000, ROUGE-L: 0.015032
+[2025-11-30 19:36:27] INFO: [Train] Epoch 3/5 | Loss: 1.6123, BLEU: 0.002320 | t_epoch=310.4s, t_total=928.5s
+[2025-11-30 19:36:27] INFO: [Train] ROUGE-1: 0.017188, ROUGE-2: 0.000138, ROUGE-L: 0.017109
+[2025-11-30 19:42:30] INFO: [Train] Epoch 4/5 | Loss: 1.4543, BLEU: 0.003983 | t_epoch=363.3s, t_total=1291.8s
+[2025-11-30 19:42:30] INFO: [Train] ROUGE-1: 0.025096, ROUGE-2: 0.000207, ROUGE-L: 0.024953
+[2025-11-30 19:48:54] INFO: [Train] Epoch 5/5 | Loss: 1.3544, BLEU: 0.004543 | t_epoch=383.9s, t_total=1675.7s
+[2025-11-30 19:48:54] INFO: [Train] ROUGE-1: 0.027954, ROUGE-2: 0.000981, ROUGE-L: 0.027848
+[2025-11-30 19:48:55] INFO: Checkpoint guardado: checkpoints\ckpt_1764550134675.pt
+[2025-11-30 19:48:55] INFO: [HS][trial=1764548458983] Finalizado BLEU=0.004543
+[2025-11-30 19:48:55] INFO: [HS] Generando valor para parámetro 'd_model'
+[2025-11-30 19:48:55] INFO: [HS] Generando valor para parámetro 'ffn_hidden'
+[2025-11-30 19:48:55] INFO: [HS] Generando valor para parámetro 'num_heads'
+[2025-11-30 19:48:55] INFO: [HS] Generando valor para parámetro 'drop_prob'
+[2025-11-30 19:48:55] INFO: [HS] Generando valor para parámetro 'num_layers'
+[2025-11-30 19:48:55] INFO: [HS] Generando valor para parámetro 'lr'
+[2025-11-30 19:48:55] INFO: [HS] Generando valor para parámetro 'batch_size'
+[2025-11-30 19:48:55] INFO: [HS] Generando valor para parámetro 'max_sequence_length'
+[2025-11-30 19:48:55] INFO: [HS] Generando valor para parámetro 'epochs'
+[2025-11-30 19:48:55] INFO: =====================================================
+[2025-11-30 19:48:55] INFO: [HS][trial=1764550135121] Iniciando evaluación HP: {'d_model': 1024, 'ffn_hidden': 512, 'num_heads': 8, 'drop_prob': 0.15, 'num_layers': 3, 'lr': 0.0001, 'batch_size': 8, 'max_sequence_length': 200, 'epochs': 5}
+[2025-11-30 19:48:55] INFO: Iniciando entrenamiento con los siguientes hiperparámetros:
+[2025-11-30 19:48:55] INFO: {'d_model': 1024, 'ffn_hidden': 512, 'num_heads': 8, 'drop_prob': 0.15, 'num_layers': 3, 'lr': 0.0001, 'batch_size': 8, 'max_sequence_length': 200, 'epochs': 5}
+[2025-11-30 19:57:29] INFO: [Train] Epoch 1/5 | Loss: 2.5218, BLEU: 0.000058 | t_epoch=514.2s, t_total=514.6s
+[2025-11-30 19:57:29] INFO: [Train] ROUGE-1: 0.003173, ROUGE-2: 0.000000, ROUGE-L: 0.003173
+[2025-11-30 20:36:40] INFO: [Train] Epoch 2/5 | Loss: 1.8778, BLEU: 0.001551 | t_epoch=2350.5s, t_total=2865.1s
+[2025-11-30 20:36:40] INFO: [Train] ROUGE-1: 0.012773, ROUGE-2: 0.000000, ROUGE-L: 0.012725

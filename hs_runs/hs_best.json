@@ -1,0 +1,184 @@
+{
+  "best_hp": {
+    "d_model": 512,
+    "ffn_hidden": 512,
+    "num_heads": 8,
+    "drop_prob": 0.07753112550551966,
+    "num_layers": 3,
+    "lr": 0.0001,
+    "batch_size": 2,
+    "max_sequence_length": 250,
+    "epochs": 5
+  },
+  "best_bleu": 0.006987506503903827,
+  "history": [
+    {
+      "hp": {
+        "d_model": 512,
+        "ffn_hidden": 512,
+        "num_heads": 8,
+        "drop_prob": 0.07753112550551966,
+        "num_layers": 3,
+        "lr": 0.0001,
+        "batch_size": 2,
+        "max_sequence_length": 250,
+        "epochs": 5
+      },
+      "bleu": 0.006987506503903827
+    },
+    {
+      "hp": {
+        "d_model": 256,
+        "ffn_hidden": 512,
+        "num_heads": 4,
+        "drop_prob": 0.0608369277607195,
+        "num_layers": 3,
+        "lr": 0.0005,
+        "batch_size": 4,
+        "max_sequence_length": 150,
+        "epochs": 5
+      },
+      "bleu": 0.006943917873199455
+    },
+    {
+      "hp": {
+        "d_model": 512,
+        "ffn_hidden": 512,
+        "num_heads": 8,
+        "drop_prob": 0.033867771406203645,
+        "num_layers": 3,
+        "lr": 0.0001,
+        "batch_size": 2,
+        "max_sequence_length": 250,
+        "epochs": 5
+      },
+      "bleu": 0.006834363496283493
+    },
+    {
+      "hp": {
+        "d_model": 256,
+        "ffn_hidden": 768,
+        "num_heads": 8,
+        "drop_prob": 0.0608369277607195,
+        "num_layers": 2,
+        "lr": 0.0005,
+        "batch_size": 4,
+        "max_sequence_length": 200,
+        "epochs": 5
+      },
+      "bleu": 0.006575881762590891
+    },
+    {
+      "hp": {
+        "d_model": 256,
+        "ffn_hidden": 512,
+        "num_heads": 8,
+        "drop_prob": 0.0608369277607195,
+        "num_layers": 3,
+        "lr": 0.0005,
+        "batch_size": 4,
+        "max_sequence_length": 300,
+        "epochs": 5
+      },
+      "bleu": 0.006197373703013816
+    },
+    {
+      "hp": {
+        "d_model": 256,
+        "ffn_hidden": 512,
+        "num_heads": 4,
+        "drop_prob": 0.09559848757086507,
+        "num_layers": 2,
+        "lr": 0.0005,
+        "batch_size": 2,
+        "max_sequence_length": 150,
+        "epochs": 5
+      },
+      "bleu": 0.0058393412190760685
+    },
+    {
+      "hp": {
+        "d_model": 512,
+        "ffn_hidden": 768,
+        "num_heads": 8,
+        "drop_prob": 0.09559848757086507,
+        "num_layers": 2,
+        "lr": 0.0001,
+        "batch_size": 2,
+        "max_sequence_length": 250,
+        "epochs": 5
+      },
+      "bleu": 0.005832022733982506
+    },
+    {
+      "hp": {
+        "d_model": 256,
+        "ffn_hidden": 768,
+        "num_heads": 8,
+        "drop_prob": 0.0699865058717305,
+        "num_layers": 3,
+        "lr": 0.0001,
+        "batch_size": 2,
+        "max_sequence_length": 150,
+        "epochs": 5
+      },
+      "bleu": 0.005803829682367071
+    },
+    {
+      "hp": {
+        "d_model": 128,
+        "ffn_hidden": 512,
+        "num_heads": 8,
+        "drop_prob": 0.0,
+        "num_layers": 3,
+        "lr": 0.0005,
+        "batch_size": 2,
+        "max_sequence_length": 250,
+        "epochs": 5
+      },
+      "bleu": 0.0054428840804584214
+    },
+    {
+      "hp": {
+        "d_model": 512,
+        "ffn_hidden": 512,
+        "num_heads": 8,
+        "drop_prob": 0.08014374311170579,
+        "num_layers": 2,
+        "lr": 0.0001,
+        "batch_size": 2,
+        "max_sequence_length": 300,
+        "epochs": 5
+      },
+      "bleu": 0.005433683878334855
+    },
+    {
+      "hp": {
+        "d_model": 512,
+        "ffn_hidden": 512,
+        "num_heads": 4,
+        "drop_prob": 0.0608369277607195,
+        "num_layers": 3,
+        "lr": 0.0001,
+        "batch_size": 2,
+        "max_sequence_length": 300,
+        "epochs": 5
+      },
+      "bleu": 0.0054072458275991305
+    },
+    {
+      "hp": {
+        "d_model": 512,
+        "ffn_hidden": 512,
+        "num_heads": 8,
+        "drop_prob": 0.09559848757086507,
+        "num_layers": 2,
+        "lr": 0.0001,
+        "batch_size": 2,
+        "max_sequence_length": 250,
+        "epochs": 5
+      },
+      "bleu": 0.005163755032649386
+    }
+  ]
+}

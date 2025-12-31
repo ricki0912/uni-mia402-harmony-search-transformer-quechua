@@ -1,0 +1,35 @@
+[2025-12-14 21:13:20] 2.3.1+cu121: Versión Torch:
+[2025-12-14 21:13:20] 12.1: Versión CUDA en Torch:
+[2025-12-14 21:13:21] True: CUDA disponible:
+[2025-12-14 21:13:23] NVIDIA GeForce GTX 1650: GPU detectada:
+[2025-12-14 21:13:23] INFO: load_dataframeFromXLSX()=> Cargando archivo Excel desde data/data_preprocesada_sin_outliers_v4_biblia_part_0_1-1000.xlsx
+[2025-12-14 21:13:23] INFO: Traducción de Spanish a Quechua
+[2025-12-14 21:13:24] INFO: Numero de oraciones antes de filtrar por longitud y vocabulario: 10000
+[2025-12-14 21:13:24] INFO: Numero de oraciones válidas después de filtrar por longitud y vocabulario: 9633
+[2025-12-14 21:13:24] INFO: Iniciando programa...
+[2025-12-14 21:13:24] INFO: =====================================================
+[2025-12-14 21:13:24] INFO: [HS][trial=1765764804149] Iniciando evaluación HP: {'d_model': 1024, 'ffn_hidden': 1024, 'num_heads': 8, 'drop_prob': 0.12781299283940528, 'num_layers': 2, 'lr': 0.0001, 'batch_size': 2, 'max_sequence_length': 200, 'epochs': 5}
+[2025-12-14 21:13:24] INFO: Iniciando entrenamiento con los siguientes hiperparámetros:
+[2025-12-14 21:13:24] INFO: {'d_model': 1024, 'ffn_hidden': 1024, 'num_heads': 8, 'drop_prob': 0.12781299283940528, 'num_layers': 2, 'lr': 0.0001, 'batch_size': 2, 'max_sequence_length': 200, 'epochs': 5}
+[2025-12-14 21:14:41] 2.3.1+cu121: Versión Torch:
+[2025-12-14 21:14:41] 12.1: Versión CUDA en Torch:
+[2025-12-14 21:14:42] True: CUDA disponible:
+[2025-12-14 21:14:43] NVIDIA GeForce GTX 1650: GPU detectada:
+[2025-12-14 21:14:43] INFO: load_dataframeFromXLSX()=> Cargando archivo Excel desde data/data_preprocesada_sin_outliers_v4_biblia_part_0_1-1000.xlsx
+[2025-12-14 21:14:43] INFO: Traducción de Spanish a Quechua
+[2025-12-14 21:14:43] INFO: Numero de oraciones antes de filtrar por longitud y vocabulario: 10000
+[2025-12-14 21:14:43] INFO: Numero de oraciones válidas después de filtrar por longitud y vocabulario: 9633
+[2025-12-14 21:14:43] INFO: Iniciando programa...
+[2025-12-14 21:15:31] 2.3.1+cu121: Versión Torch:
+[2025-12-14 21:15:31] 12.1: Versión CUDA en Torch:
+[2025-12-14 21:15:32] True: CUDA disponible:
+[2025-12-14 21:15:32] NVIDIA GeForce GTX 1650: GPU detectada:
+[2025-12-14 21:15:32] INFO: load_dataframeFromXLSX()=> Cargando archivo Excel desde data/data_preprocesada_sin_outliers_v4_biblia_part_0_1-1000.xlsx
+[2025-12-14 21:15:33] INFO: Traducción de Spanish a Quechua
+[2025-12-14 21:15:33] INFO: Numero de oraciones antes de filtrar por longitud y vocabulario: 10000
+[2025-12-14 21:15:33] INFO: Numero de oraciones válidas después de filtrar por longitud y vocabulario: 9633
+[2025-12-14 21:15:33] INFO: Iniciando programa...
+[2025-12-14 21:15:33] INFO: =====================================================
+[2025-12-14 21:15:33] INFO: [HS][trial=1765764933618] Iniciando evaluación HP: {'d_model': 64, 'ffn_hidden': 512, 'num_heads': 4, 'drop_prob': 0.1153434582880606, 'num_layers': 3, 'lr': 0.0001, 'batch_size': 2, 'max_sequence_length': 200, 'epochs': 5}
+[2025-12-14 21:15:33] INFO: Iniciando entrenamiento con los siguientes hiperparámetros:
+[2025-12-14 21:15:33] INFO: {'d_model': 64, 'ffn_hidden': 512, 'num_heads': 4, 'drop_prob': 0.1153434582880606, 'num_layers': 3, 'lr': 0.0001, 'batch_size': 2, 'max_sequence_length': 200, 'epochs': 5}

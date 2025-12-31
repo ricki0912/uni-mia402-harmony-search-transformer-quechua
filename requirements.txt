@@ -1,0 +1,9 @@
+pip install pandas
+pip install openpyxl
+pip install torch numpy
+pip install nltk
+pip install rouge-score
+pip install matplotlib
+pip install rouge_score
+pip install openpyxl
+# pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu121
