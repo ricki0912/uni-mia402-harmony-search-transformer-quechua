@@ -1,0 +1,23 @@
+[2026-01-01 15:01:14] 2.3.1+cu121: Versión Torch:
+[2026-01-01 15:01:14] 12.1: Versión CUDA en Torch:
+[2026-01-01 15:01:15] True: CUDA disponible:
+[2026-01-01 15:01:15] NVIDIA GeForce GTX 1650: GPU detectada:
+[2026-01-01 15:01:15] INFO: load_dataframeFromXLSX()=> Cargando archivo Excel desde data/data_preprocesada_sin_outliers_v4_biblia_part_0_1-1000.xlsx
+[2026-01-01 15:01:16] INFO: Traducción de Spanish a Quechua
+[2026-01-01 15:01:16] INFO: Numero de oraciones antes de filtrar por longitud y vocabulario: 10000
+[2026-01-01 15:01:16] INFO: Numero de oraciones válidas después de filtrar por longitud y vocabulario: 9633
+[2026-01-01 15:01:16] INFO: Iniciando programa...
+[2026-01-01 15:01:16] INFO: HS inicio HMS=12 HMCR=0.9 PAR=0.4 BW=1.0 NI=5 objetivo=max eval_count=0
+[2026-01-01 15:01:16] INFO: [InitHM] HM vacia. Inicializando de forma aleatoria
+[2026-01-01 15:01:16] INFO: =====================================================
+[2026-01-01 15:01:16] INFO: [HS][trial=1767297676744] Iniciando evaluación HP: {'d_model': 128, 'ffn_hidden': 512, 'num_heads': 4, 'drop_prob': 0.15379127771741416, 'num_layers': 3, 'lr': 0.0001, 'batch_size': 2, 'max_sequence_length': 300, 'epochs': 5}
+[2026-01-01 15:01:16] 2.3.1+cu121: Versión Torch:
+[2026-01-01 15:01:16] 12.1: Versión CUDA en Torch:
+[2026-01-01 15:01:16] True: CUDA disponible:
+[2026-01-01 15:01:16] NVIDIA GeForce GTX 1650: GPU detectada:
+[2026-01-01 15:01:16] INFO: load_dataframeFromXLSX()=> Cargando archivo Excel desde data/data_preprocesada_sin_outliers_v4_biblia_part_0_1-1000.xlsx
+[2026-01-01 15:01:17] INFO: Traducción de Spanish a Quechua
+[2026-01-01 15:01:17] INFO: Numero de oraciones antes de filtrar por longitud y vocabulario: 10000
+[2026-01-01 15:01:17] INFO: Numero de oraciones válidas después de filtrar por longitud y vocabulario: 9966
+[2026-01-01 15:01:17] INFO: Iniciando entrenamiento con los siguientes hiperparámetros:
+[2026-01-01 15:01:17] INFO: {'d_model': 128, 'ffn_hidden': 512, 'num_heads': 4, 'drop_prob': 0.15379127771741416, 'num_layers': 3, 'lr': 0.0001, 'batch_size': 2, 'max_sequence_length': 300, 'epochs': 5}
