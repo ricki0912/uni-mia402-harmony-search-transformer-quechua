@@ -322,6 +322,12 @@ def train_single_run(hp, artifacts, resume_from=None, checkpoint_dir="checkpoint
     num_layers = hp["num_layers"] #
     num_epochs = hp["epochs"]
     lr = hp["lr"]
+    #nuevos parametros
+    weight_decay = float(hp.get("weight_decay", 0.0))
+    label_smoothing = float(hp.get("label_smoothing", 0.0))
+    warmup_steps = int(hp.get("warmup_steps", 400))
+    grad_clip = float(hp.get("grad_clip", 1.0))
+
 
 
     
@@ -362,19 +368,37 @@ def train_single_run(hp, artifacts, resume_from=None, checkpoint_dir="checkpoint
 
     #dataset = TextDataset(source_language_sentences, target_language_sentences)
 
-    train_loader = DataLoader(dataset, batch_size)
+    train_loader = DataLoader(dataset, batch_size, shuffle=True)
     iterator = iter(train_loader)
 
     # Definir la función de pérdida y el optimizador
+    #criterian = nn.CrossEntropyLoss(ignore_index=target_to_index[PADDING_TOKEN],
+    #                                reduction='none')
     criterian = nn.CrossEntropyLoss(ignore_index=target_to_index[PADDING_TOKEN],
+                                    label_smoothing=label_smoothing,
                                     reduction='none')
+        
+
 
     # When computing the loss, we are ignoring cases when the label is the padding token
     for params in transformer.parameters():
         if params.dim() > 1:
             nn.init.xavier_uniform_(params)
 
-    optim = torch.optim.Adam(transformer.parameters(), lr=lr)
+    #optim = torch.optim.Adam(transformer.parameters(), lr=lr)
+    optim = torch.optim.AdamW(transformer.parameters(), lr=lr, weight_decay=weight_decay)
+    global_step = 0
+
+    def lr_lambda(step):
+        # warmup lineal hasta warmup_steps y luego constante
+        if warmup_steps <= 0:
+            return 1.0
+        if step < warmup_steps:
+            return max(1e-8, step / float(warmup_steps))
+        return 1.0
+
+    scheduler = torch.optim.lr_scheduler.LambdaLR(optim, lr_lambda=lr_lambda)
+
     device = torch.device('cuda') if torch.cuda.is_available() else torch.device('cpu')
 
     
@@ -438,10 +462,17 @@ def train_single_run(hp, artifacts, resume_from=None, checkpoint_dir="checkpoint
                 kn_predictions.view(-1, kn_vocab_size).to(device),
                 labels.view(-1).to(device)
             ).to(device)
-            valid_indicies = torch.where(labels.view(-1) == target_to_index[PADDING_TOKEN], False, True)
-            loss = loss.sum() / valid_indicies.sum()
+            #valid_indicies = torch.where(labels.view(-1) == target_to_index[PADDING_TOKEN], False, True)
+            #loss = loss.sum() / valid_indicies.sum()
+            mask = (labels.view(-1).to(device) != target_to_index[PADDING_TOKEN]).float()
+            loss = (loss * mask).sum() / mask.sum()
+
             loss.backward()
+            torch.nn.utils.clip_grad_norm_(transformer.parameters(), max_norm=grad_clip)
+
             optim.step()
+            scheduler.step()      # <-- IMPORTANTÍSIMO: después del step
+            global_step += 1
 
             total_loss += loss.item()
             #train_losses.append(loss.item())
