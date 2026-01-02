@@ -5,6 +5,7 @@ import re
 import unicodedata
 from pathlib import Path
 from model.transformer import Transformer # this is the transformer.py file
+import config
 import torch
 import numpy as np
 from torch.utils.data import Dataset, DataLoader
@@ -204,14 +205,17 @@ def build_training_artifacts(max_sequence_length: int = 200, dataset_path: str =
         Logger.print("No se detecta GPU CUDA.")
 
     df = load_dataframeFromXLSX(dataset_path)
-    df["es"] = df["es"].astype(str).apply(limpiar_texto_avanzado).apply(limpiar_texto)
-    df["qu"] = df["qu"].astype(str).apply(limpiar_texto_avanzado).apply(limpiar_texto)
-    df = df.dropna(subset=["es", "qu"], how="any")
+    src_col = getattr(config, "SOURCE_COLUMN", "es")
+    tgt_col = getattr(config, "TARGET_COLUMN", "qu")
 
-    source_language_array = df["es"].tolist()
-    targe_language_array = df["qu"].tolist()
-    name_source_lang = "Spanish"
-    name_target_lang = "Quechua"
+    df[src_col] = df[src_col].astype(str).apply(limpiar_texto_avanzado).apply(limpiar_texto)
+    df[tgt_col] = df[tgt_col].astype(str).apply(limpiar_texto_avanzado).apply(limpiar_texto)
+    df = df.dropna(subset=[src_col, tgt_col], how="any")
+
+    source_language_array = df[src_col].tolist()
+    targe_language_array = df[tgt_col].tolist()
+    name_source_lang = getattr(config, "SOURCE_LANG", "Spanish")
+    name_target_lang = getattr(config, "TARGET_LANG", "Quechua")
     Logger.print(f"Traduccion de {name_source_lang} a {name_target_lang}")
 
     START_TOKEN = "<BOS>"
@@ -219,11 +223,14 @@ def build_training_artifacts(max_sequence_length: int = 200, dataset_path: str =
     END_TOKEN = "<EOS>"
 
     corpus_texts = source_language_array + targe_language_array
+    sp_prefix = getattr(config, "SPM_PREFIX", f"data/spm_{src_col}_{tgt_col}")
+    sp_vocab_size = getattr(config, "SPM_VOCAB_SIZE", 2000)
+    sp_model_type = getattr(config, "SPM_MODEL_TYPE", "bpe")
     sp_model_path, _ = train_sentencepiece(
         corpus_texts=corpus_texts,
-        vocab_size=2000,
-        model_type="bpe",
-        prefix="data/spm_es_qu",
+        vocab_size=sp_vocab_size,
+        model_type=sp_model_type,
+        prefix=sp_prefix,
     )
     sp = load_sentencepiece(sp_model_path)
     pad_id = sp.pad_id() if sp.pad_id() >= 0 else 0
@@ -285,10 +292,10 @@ def train_single_run(hp, artifacts, resume_from=None, checkpoint_dir="checkpoint
     num_epochs = hp["epochs"]
     lr = hp["lr"]
     #nuevos parametros
-    weight_decay = float(hp["weight_decay"], 0.0)
-    label_smoothing = float(hp["label_smoothing"], 0.0)
-    warmup_steps = int(hp["warmup_steps"], 400)
-    grad_clip = float(hp["grad_clip"], 1.0)
+    weight_decay = float(hp.get("weight_decay", 0.0))
+    label_smoothing = float(hp.get("label_smoothing", 0.0))
+    warmup_steps = int(hp.get("warmup_steps", 400))
+    grad_clip = float(hp.get("grad_clip", 1.0))
 
 
 
