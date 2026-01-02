@@ -285,10 +285,10 @@ def train_single_run(hp, artifacts, resume_from=None, checkpoint_dir="checkpoint
     num_epochs = hp["epochs"]
     lr = hp["lr"]
     #nuevos parametros
-    weight_decay = float(hp.get("weight_decay", 0.0))
-    label_smoothing = float(hp.get("label_smoothing", 0.0))
-    warmup_steps = int(hp.get("warmup_steps", 400))
-    grad_clip = float(hp.get("grad_clip", 1.0))
+    weight_decay = float(hp["weight_decay"], 0.0)
+    label_smoothing = float(hp["label_smoothing"], 0.0)
+    warmup_steps = int(hp["warmup_steps"], 400)
+    grad_clip = float(hp["grad_clip"], 1.0)
 
 
 
