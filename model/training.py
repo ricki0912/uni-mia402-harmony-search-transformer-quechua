@@ -13,6 +13,7 @@ import matplotlib.pyplot as plt
 from nltk.translate.bleu_score import sentence_bleu, SmoothingFunction
 from rouge_score import rouge_scorer
 from utils.logger import Logger
+from utils.sp_tokenizer import load_sentencepiece, train_sentencepiece
 import time
 NEG_INFTY = -1e9
 
@@ -119,30 +120,61 @@ def is_valid_length(sentence, max_sequence_length):
 
 
 
-def create_masks_factory(max_sequence_length):
+def _encode_sentence(
+    sentence: str,
+    tokenizer,
+    max_sequence_length: int,
+    add_bos: bool,
+    add_eos: bool,
+    bos_id: int,
+    eos_id: int,
+    pad_id: int,
+):
+    ids = tokenizer.encode(sentence, out_type=int, add_bos=False, add_eos=False)
+    if add_bos:
+        ids = [bos_id] + ids
+    if add_eos:
+        ids = ids + [eos_id]
+    ids = ids[:max_sequence_length]
+    if len(ids) < max_sequence_length:
+        ids = ids + [pad_id] * (max_sequence_length - len(ids))
+    return ids
+
+
+def create_masks_factory(max_sequence_length, tokenizer, pad_id, bos_id, eos_id):
+    """
+    Crea mascaras usando longitudes de subwords (SentencePiece).
+    """
     def create_masks(eng_batch, kn_batch):
         num_sentences = len(eng_batch)
-        look_ahead_mask = torch.full([max_sequence_length, max_sequence_length] , True)
-        look_ahead_mask = torch.triu(look_ahead_mask, diagonal=1)
-        encoder_padding_mask = torch.full([num_sentences, max_sequence_length, max_sequence_length] , False)
-        decoder_padding_mask_self_attention = torch.full([num_sentences, max_sequence_length, max_sequence_length] , False)
-        decoder_padding_mask_cross_attention = torch.full([num_sentences, max_sequence_length, max_sequence_length] , False)
+        look_ahead_mask = torch.triu(torch.ones(max_sequence_length, max_sequence_length, dtype=torch.bool), diagonal=1)
+        encoder_padding_mask = torch.zeros((num_sentences, max_sequence_length, max_sequence_length), dtype=torch.bool)
+        decoder_padding_mask_self_attention = torch.zeros_like(encoder_padding_mask)
+        decoder_padding_mask_cross_attention = torch.zeros_like(encoder_padding_mask)
 
         for idx in range(num_sentences):
-            eng_sentence_length, kn_sentence_length = len(eng_batch[idx]), len(kn_batch[idx])
-            eng_chars_to_padding_mask = np.arange(eng_sentence_length + 1, max_sequence_length)
-            kn_chars_to_padding_mask = np.arange(kn_sentence_length + 1, max_sequence_length)
-            encoder_padding_mask[idx, :, eng_chars_to_padding_mask] = True
-            encoder_padding_mask[idx, eng_chars_to_padding_mask, :] = True
-            decoder_padding_mask_self_attention[idx, :, kn_chars_to_padding_mask] = True
-            decoder_padding_mask_self_attention[idx, kn_chars_to_padding_mask, :] = True
-            decoder_padding_mask_cross_attention[idx, :, eng_chars_to_padding_mask] = True
-            decoder_padding_mask_cross_attention[idx, kn_chars_to_padding_mask, :] = True
+            src_ids = tokenizer.encode(eng_batch[idx], out_type=int, add_bos=False, add_eos=False)
+            tgt_ids = tokenizer.encode(kn_batch[idx], out_type=int, add_bos=False, add_eos=False)
+            src_len = min(len(src_ids), max_sequence_length)
+            tgt_len = min(len(tgt_ids) + 2, max_sequence_length)  # +BOS +EOS en decoder
+
+            src_pad_positions = np.arange(src_len, max_sequence_length)
+            tgt_pad_positions = np.arange(tgt_len, max_sequence_length)
+
+            encoder_padding_mask[idx, :, src_pad_positions] = True
+            encoder_padding_mask[idx, src_pad_positions, :] = True
+
+            decoder_padding_mask_self_attention[idx, :, tgt_pad_positions] = True
+            decoder_padding_mask_self_attention[idx, tgt_pad_positions, :] = True
+
+            decoder_padding_mask_cross_attention[idx, :, src_pad_positions] = True
+            decoder_padding_mask_cross_attention[idx, tgt_pad_positions, :] = True
 
         encoder_self_attention_mask = torch.where(encoder_padding_mask, NEG_INFTY, 0)
-        decoder_self_attention_mask =  torch.where(look_ahead_mask + decoder_padding_mask_self_attention, NEG_INFTY, 0)
+        decoder_self_attention_mask = torch.where(look_ahead_mask | decoder_padding_mask_self_attention, NEG_INFTY, 0)
         decoder_cross_attention_mask = torch.where(decoder_padding_mask_cross_attention, NEG_INFTY, 0)
-        return encoder_self_attention_mask, decoder_self_attention_mask, decoder_cross_attention_mask    
+        return encoder_self_attention_mask, decoder_self_attention_mask, decoder_cross_attention_mask
+
     return create_masks
 
 class TextDataset(Dataset):
@@ -160,132 +192,60 @@ class TextDataset(Dataset):
     
 
 
-def build_training_artifacts(max_sequence_length: int = 200, dataset_path:str=None) -> dict:
-    Logger.print("Versión Torch:", torch.__version__)
-    Logger.print("Versión CUDA en Torch:", torch.version.cuda)
+
+
+def build_training_artifacts(max_sequence_length: int = 200, dataset_path: str = None) -> dict:
+    Logger.print("Version Torch:", torch.__version__)
+    Logger.print("Version CUDA en Torch:", torch.version.cuda)
     Logger.print("CUDA disponible:", torch.cuda.is_available())
     if torch.cuda.is_available():
         Logger.print("GPU detectada:", torch.cuda.get_device_name(0))
     else:
         Logger.print("No se detecta GPU CUDA.")
-    ##df=load_clean_dataframe()
-    df=load_dataframeFromXLSX(dataset_path)
 
-    #print(limpiar_texto_avanzado("asd © - () {}[a].. 1234 PËÉRRO. "))
-    df['es'] = df['es'].astype(str).apply(limpiar_texto_avanzado)
-    df['qu'] = df['qu'].astype(str).apply(limpiar_texto_avanzado)
+    df = load_dataframeFromXLSX(dataset_path)
+    df["es"] = df["es"].astype(str).apply(limpiar_texto_avanzado).apply(limpiar_texto)
+    df["qu"] = df["qu"].astype(str).apply(limpiar_texto_avanzado).apply(limpiar_texto)
+    df = df.dropna(subset=["es", "qu"], how="any")
 
+    source_language_array = df["es"].tolist()
+    targe_language_array = df["qu"].tolist()
+    name_source_lang = "Spanish"
+    name_target_lang = "Quechua"
+    Logger.print(f"Traduccion de {name_source_lang} a {name_target_lang}")
 
-    df['es'] = df['es'].apply(limpiar_texto)
-    df['qu'] = df['qu'].apply(limpiar_texto)
+    START_TOKEN = "<BOS>"
+    PADDING_TOKEN = "<PAD>"
+    END_TOKEN = "<EOS>"
 
-    df = df.dropna(subset=['es', 'qu'], how='any')
-    #print(df[['es', 'qu']].head())
+    corpus_texts = source_language_array + targe_language_array
+    sp_model_path, _ = train_sentencepiece(
+        corpus_texts=corpus_texts,
+        vocab_size=2000,
+        model_type="bpe",
+        prefix="data/spm_es_qu",
+    )
+    sp = load_sentencepiece(sp_model_path)
+    pad_id = sp.pad_id() if sp.pad_id() >= 0 else 0
+    unk_id = sp.unk_id() if sp.unk_id() >= 0 else 1
+    bos_id = sp.bos_id() if sp.bos_id() >= 0 else 2
+    eos_id = sp.eos_id() if sp.eos_id() >= 0 else 3
 
-
-    source_language_array = df['es'].tolist()
-    targe_language_array = df['qu'].tolist()
-    name_source_lang = 'Spanish'
-    name_target_lang = 'Quechua'
-    Logger.print("Traducción de {} a {}".format(name_source_lang, name_target_lang))
-
-    #print(f"{name_source_lang} Array:")
-    #print(source_language_array[:5])  # Mostrar los primeros 5 elementos del array
-
-    #print(f"{name_target_lang} Array:")
-    #print(targe_language_array[:5])  # Mostrar los primeros 100 caracteres del JSON
-
-
-    START_TOKEN = '<START>'
-    PADDING_TOKEN = '<PADDING>'
-    END_TOKEN = '<END>'
-
-
-
-    source_language_tokens = extract_unique_tokens(source_language_array)
-    target_language_tokens = extract_unique_tokens(targe_language_array)
-
-    source_language_tokens.insert(0,'Ll')
-    source_language_tokens.insert(0,'Ch')
-    source_language_tokens.insert(0,'ll')
-    source_language_tokens.insert(0,'ch')
-
-    target_language_tokens.insert(0, 'Ll')
-    target_language_tokens.insert(0, 'Ch')
-    target_language_tokens.insert(0, 'll')
-    target_language_tokens.insert(0, 'ch')
-
-
-    source_language_tokens.insert(0,START_TOKEN)
-    target_language_tokens.insert(0, START_TOKEN)
-
-
-    source_language_tokens.append(PADDING_TOKEN)
-    source_language_tokens.append(END_TOKEN)
-
-    target_language_tokens.append(PADDING_TOKEN)
-    target_language_tokens.append(END_TOKEN)
-
-    #print(f"{name_source_lang} Tokens:")
-    #print(source_language_tokens)
-
-    #print(f"\n{name_target_lang} Tokens:")
-    #print(target_language_tokens)
-
-    source_language_vocabulary = source_language_tokens
-    target_language_vocabulary = target_language_tokens
-
-    #print(f"{name_source_lang} Sentences:")
     source_language_sentences = source_language_array
-
-    #print(f"{name_target_lang} Sentences")
     target_language_sentences = targe_language_array
 
-    #print(source_language_sentences[:5])
-    #print(target_language_sentences[:5])
-
-    #print(len(source_language_sentences))
-    #print(len(target_language_sentences))
-
-
-
-    index_to_target = {k:v for k,v in enumerate(target_language_vocabulary)}
-    target_to_index = {v:k for k,v in enumerate(target_language_vocabulary)}
-    index_to_source = {k:v for k,v in enumerate(source_language_vocabulary)}
-    source_to_index = {v:k for k,v in enumerate(source_language_vocabulary)}
-
-    source_language_sentences[:10]
-
-    PERCENTILE = 97
-    #print( f"{PERCENTILE}th percentile length {name_source_lang}: {np.percentile([len(x) for x in target_language_sentences], PERCENTILE)}" )
-    #print( f"{PERCENTILE}th percentile length {name_target_lang}: {np.percentile([len(x) for x in source_language_sentences], PERCENTILE)}" )
-
-
-    #max_sequence_length = 200
-
-    valid_sentence_indicies = []
-    for index in range(len(target_language_sentences)):
-        kannada_sentence, english_sentence = target_language_sentences[index], source_language_sentences[index]
-        if is_valid_length(kannada_sentence, max_sequence_length) \
-        and is_valid_length(english_sentence, max_sequence_length) \
-        and is_valid_tokens(kannada_sentence, target_language_vocabulary):
-            valid_sentence_indicies.append(index)
-
-    #print(f"Number of sentences: {len(target_language_sentences)}")
-    #print(f"Number of valid sentences: {len(valid_sentence_indicies)}")
-    Logger.print("Numero de oraciones antes de filtrar por longitud y vocabulario: {}".format(len(target_language_sentences)))
-    Logger.print("Numero de oraciones válidas después de filtrar por longitud y vocabulario: {}".format(len(valid_sentence_indicies)))
-
-    target_language_sentences = [target_language_sentences[i] for i in valid_sentence_indicies]
-    source_language_sentences = [source_language_sentences[i] for i in valid_sentence_indicies]
-
-    #print(len(source_language_sentences))
-    #print(len(target_language_sentences))
+    target_language_vocabulary = None
+    source_to_index = {PADDING_TOKEN: pad_id, START_TOKEN: bos_id, END_TOKEN: eos_id, "<UNK>": unk_id}
+    target_to_index = source_to_index.copy()
+    index_to_target = {v: k for k, v in target_to_index.items()}
+    index_to_source = index_to_target
 
     dataset = TextDataset(source_language_sentences, target_language_sentences)
+    Logger.print(f"Oraciones cargadas: {len(source_language_sentences)} | Tokenizer SP: {sp_model_path}")
+
     return {
         "dataset": dataset,
-        "create_masks": create_masks_factory(max_sequence_length),
+        "create_masks": create_masks_factory(max_sequence_length, sp, pad_id, bos_id, eos_id),
         "index_to_target": index_to_target,
         "target_to_index": target_to_index,
         "index_to_source": index_to_source,
@@ -294,13 +254,17 @@ def build_training_artifacts(max_sequence_length: int = 200, dataset_path:str=No
         "END_TOKEN": END_TOKEN,
         "PADDING_TOKEN": PADDING_TOKEN,
         "max_sequence_length": max_sequence_length,
-        "vocab_size": len(index_to_target),
+        "vocab_size": sp.vocab_size(),
         "name_source_lang": name_source_lang,
         "name_target_lang": name_target_lang,
-        "target_language_vocabulary": target_language_vocabulary, 
+        "target_language_vocabulary": target_language_vocabulary,
+        "tokenizer": sp,
+        "pad_id": pad_id,
+        "bos_id": bos_id,
+        "eos_id": eos_id,
+        "unk_id": unk_id,
+        "sp_model_path": str(sp_model_path),
     }
-
-
 
 def train_single_run(hp, artifacts, resume_from=None, checkpoint_dir="checkpoints", checkpoint_every=5):
     start_time = time.time()
@@ -311,15 +275,13 @@ def train_single_run(hp, artifacts, resume_from=None, checkpoint_dir="checkpoint
     start_epoch = 0
 
     # Transformer Hyperparameters
-    d_model = hp["d_model"] #
-    batch_size = hp["batch_size"] #
-    ffn_hidden = hp["ffn_hidden"] #
-    num_heads = hp["num_heads"] #
-    drop_prob = hp["drop_prob"] #
-    num_layers = hp["num_layers"] #
+    d_model = hp["d_model"]
+    batch_size = hp["batch_size"]
+    ffn_hidden = hp["ffn_hidden"]
+    num_heads = hp["num_heads"]
+    drop_prob = hp["drop_prob"]
+    num_layers = hp["num_layers"]
     max_sequence_length = hp["max_sequence_length"]
-    #num_epochs = int(epochs)
-    num_layers = hp["num_layers"] #
     num_epochs = hp["epochs"]
     lr = hp["lr"]
     #nuevos parametros
@@ -331,17 +293,7 @@ def train_single_run(hp, artifacts, resume_from=None, checkpoint_dir="checkpoint
 
 
     
-    #d_model = 512 #
-    #batch_size = 30 #
-    #ffn_hidden = 2048 #
-    #num_heads = 8 #
-    #drop_prob = 0.1 #
-    #num_layers = 3 #
-    #max_sequence_length = 200 #
-    
-
-    #kn_vocab_size = len(target_language_vocabulary)
-    kn_vocab_size = len(artifacts["target_language_vocabulary"])
+    vocab_size = artifacts["vocab_size"]
     source_to_index = artifacts["source_to_index"]
     target_to_index = artifacts["target_to_index"]
     START_TOKEN = artifacts["START_TOKEN"]
@@ -349,22 +301,31 @@ def train_single_run(hp, artifacts, resume_from=None, checkpoint_dir="checkpoint
     PADDING_TOKEN = artifacts["PADDING_TOKEN"]
     dataset = artifacts["dataset"]
     create_masks = artifacts["create_masks"]
-    index_to_target = artifacts["index_to_target"]
+    tokenizer = artifacts["tokenizer"]
+    pad_id = artifacts["pad_id"]
+    bos_id = artifacts["bos_id"]
+    eos_id = artifacts["eos_id"]
     name_source_lang = artifacts["name_source_lang"]
     name_target_lang = artifacts["name_target_lang"]
 
-    transformer = Transformer(d_model,
-                            ffn_hidden,
-                            num_heads,
-                            drop_prob,
-                            num_layers,
-                            max_sequence_length,
-                            kn_vocab_size,
-                            source_to_index,
-                            target_to_index,
-                            START_TOKEN,
-                            END_TOKEN,
-                            PADDING_TOKEN)
+    transformer = Transformer(
+        d_model,
+        ffn_hidden,
+        num_heads,
+        drop_prob,
+        num_layers,
+        max_sequence_length,
+        vocab_size,
+        source_to_index,
+        target_to_index,
+        START_TOKEN,
+        END_TOKEN,
+        PADDING_TOKEN,
+        tokenizer=tokenizer,
+        pad_id=pad_id,
+        bos_id=bos_id,
+        eos_id=eos_id,
+    )
 
     #dataset = TextDataset(source_language_sentences, target_language_sentences)
 
@@ -372,11 +333,11 @@ def train_single_run(hp, artifacts, resume_from=None, checkpoint_dir="checkpoint
     iterator = iter(train_loader)
 
     # Definir la función de pérdida y el optimizador
-    #criterian = nn.CrossEntropyLoss(ignore_index=target_to_index[PADDING_TOKEN],
-    #                                reduction='none')
-    criterian = nn.CrossEntropyLoss(ignore_index=target_to_index[PADDING_TOKEN],
-                                    label_smoothing=label_smoothing,
-                                    reduction='none')
+    criterian = nn.CrossEntropyLoss(
+        ignore_index=target_to_index[PADDING_TOKEN],
+        label_smoothing=label_smoothing,
+        reduction="none",
+    )
         
 
 
@@ -433,6 +394,16 @@ def train_single_run(hp, artifacts, resume_from=None, checkpoint_dir="checkpoint
     transformer.to(device)
     total_loss = 0
 
+    def decode_tokens_to_text(token_ids):
+        filtered = []
+        for idx in token_ids:
+            if idx in (pad_id, bos_id):
+                continue
+            if idx == eos_id:
+                break
+            filtered.append(int(idx))
+        return tokenizer.decode_ids(filtered)
+
     for epoch in range(start_epoch, num_epochs):
         epoch_start = time.time()
         print(f"Epoch {epoch}")
@@ -459,7 +430,7 @@ def train_single_run(hp, artifacts, resume_from=None, checkpoint_dir="checkpoint
                                         dec_end_token=True)
             labels = transformer.decoder.sentence_embedding.batch_tokenize(kn_batch, start_token=False, end_token=True)
             loss = criterian(
-                kn_predictions.view(-1, kn_vocab_size).to(device),
+                kn_predictions.view(-1, vocab_size).to(device),
                 labels.view(-1).to(device)
             ).to(device)
             #valid_indicies = torch.where(labels.view(-1) == target_to_index[PADDING_TOKEN], False, True)
@@ -478,16 +449,12 @@ def train_single_run(hp, artifacts, resume_from=None, checkpoint_dir="checkpoint
             #train_losses.append(loss.item())
 
             #codigo agregado
-            # Calcular BLEU y ROUGE para la predicción actual
-            kn_sentence_predicted = torch.argmax(kn_predictions[0], axis=1)
-            predicted_sentence = ""
-            for idx in kn_sentence_predicted:
-                if idx == target_to_index[END_TOKEN]:
-                    break
-                predicted_sentence += index_to_target[idx.item()]
+            # Calcular BLEU y ROUGE para la prediccion actual
+            kn_sentence_predicted = torch.argmax(kn_predictions[0], axis=1).tolist()
+            predicted_sentence = decode_tokens_to_text(kn_sentence_predicted)
 
             reference_sentence = kn_batch[0]
-            bleu_score = sentence_bleu([reference_sentence.split()], predicted_sentence.split(),smoothing_function=smoothing )
+            bleu_score = sentence_bleu([reference_sentence.split()], predicted_sentence.split(), smoothing_function=smoothing)
             total_bleu_score += bleu_score
 
             rouge_scores = scorer.score(reference_sentence, predicted_sentence)
@@ -500,39 +467,9 @@ def train_single_run(hp, artifacts, resume_from=None, checkpoint_dir="checkpoint
                 print(f"Iteration {batch_num} : {loss.item()}")
                 print(f"{name_source_lang}: {eng_batch[0]}")
                 print(f"{name_target_lang} Translation: {kn_batch[0]}")
-                kn_sentence_predicted = torch.argmax(kn_predictions[0], axis=1)
-                predicted_sentence = ""
-                for idx in kn_sentence_predicted:
-                    if idx == target_to_index[END_TOKEN]:
-                      break
-                predicted_sentence += index_to_target[idx.item()]
+                kn_sentence_predicted = torch.argmax(kn_predictions[0], axis=1).tolist()
+                predicted_sentence = decode_tokens_to_text(kn_sentence_predicted)
                 print(f"{name_target_lang} Prediction: {predicted_sentence}")
-
-
-                #transformer.eval()
-                #kn_sentence = ("",)
-                #eng_sentence = ("Jesusqa chay runakunatam mikuchirqa pichqa tantallawan hinaspa iskay challwallawan.",)
-                #eng_sentence = ("Los pollitos están piando por falta de comida.",)
-                #for word_counter in range(max_sequence_length):
-                #    encoder_self_attention_mask, decoder_self_attention_mask, decoder_cross_attention_mask= create_masks(eng_sentence, kn_sentence)
-                #    predictions = transformer(eng_sentence,
-                #                              kn_sentence,
-                #                              encoder_self_attention_mask.to(device),
-                #                              decoder_self_attention_mask.to(device),
-                #                              decoder_cross_attention_mask.to(device),
-                #                              enc_start_token=False,
-                #                              enc_end_token=False,
-                #                              dec_start_token=True,
-                #                              dec_end_token=False)
-                #    next_token_prob_distribution = predictions[0][word_counter] # not actual probs
-                #    next_token_index = torch.argmax(next_token_prob_distribution).item()
-                #    next_token = index_to_target[next_token_index]
-                #    kn_sentence = (kn_sentence[0] + next_token, )
-                #    if next_token == END_TOKEN:
-                #      break
-
-                #print(f"Evaluation translation (Los gatos  van a cazar gorriones por falta de comida.) : {kn_sentence}")
-                #print("-------------------------------------------")
 
         # Promedio de las métricas de la época
         avg_loss = total_loss / len(train_loader)

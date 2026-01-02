@@ -6,4 +6,5 @@ pip install rouge-score
 pip install matplotlib
 pip install rouge_score
 pip install openpyxl
+pip install sentencepiece
 # pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu121

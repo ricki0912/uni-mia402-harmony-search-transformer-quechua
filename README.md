@@ -54,6 +54,11 @@ Ajusta `SEARCH_SPACE` segun recursos (GPU/CPU). Para evitar OOM: `batch_size <= 
 ## Logs
 `utils/logger.py` escribe en `logs/log_YYYYMMDD.txt` y por consola.
 
+## Tokenizacion
+- Se usa SentencePiece (BPE) entrenado una sola vez con todo el corpus (ES+QU); guarda `data/spm_es_qu.model` y `.vocab`.
+- El tokenizador se genera automaticamente si no existen esos archivos y luego se reutiliza en HS/GA y en entrenamiento manual.
+- Tokens especiales fijos: `<PAD>`, `<BOS>`, `<EOS>`, `<UNK>`.
+
 ## Diagramas
 - Arquitectura: `docs/aquitectura.png`
   ![Diagrama de arquitectura](docs/aquitectura.png)

@@ -1,0 +1,30 @@
+# Byte-compiled / cache
+__pycache__/
+*.py[cod]
+*.so
+
+# Virtual envs
+.venv/
+venv/
+env/
+
+# OS / IDE
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+
+# Logs / checkpoints / runs
+logs/
+checkpoints/
+hs_runs/
+
+# Data and models (keep small samples elsewhere)
+data/*.xlsx
+data/*.csv
+data/*.txt
+data/spm_es_qu.model
+data/spm_es_qu.vocab
+
+# Notebooks checkpoints
+.ipynb_checkpoints/
