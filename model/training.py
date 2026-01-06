@@ -284,7 +284,8 @@ def train_single_run(hp, artifacts, resume_from=None, checkpoint_dir="checkpoint
     # Transformer Hyperparameters
     d_model = hp["d_model"]
     batch_size = hp["batch_size"]
-    ffn_hidden = hp["ffn_hidden"]
+    ffn_factor = hp["ffn_factor"] 
+    ffn_hidden = d_model * ffn_factor ##ffn_hidden = hp["ffn_hidden"]
     num_heads = hp["num_heads"]
     drop_prob = hp["drop_prob"]
     num_layers = hp["num_layers"]

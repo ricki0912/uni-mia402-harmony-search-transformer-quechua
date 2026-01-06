@@ -85,7 +85,7 @@ def main():
         HMCR=0.90,      # prob. de tomar valores desde la memoria
         PAR=0.40,       # prob. de ajustar el pitch (vecindad)
         BW=1.0,         # amplitud del ajuste (ya internalizada por _pitch_adjust)
-        NI=5,           # iteraciones de mejora sobre la HM
+        NI=10,           # iteraciones de mejora sobre la HM
         seed=123,
         resume_state_path=OUT_DIR / "state_hs.json"
     )

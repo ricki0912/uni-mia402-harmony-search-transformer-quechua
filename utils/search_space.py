@@ -1,4 +1,5 @@
 
+"""
 HS_SEARCH_SPACE = {
     # Capacidad (ampliado pero razonable en 6GB)
     "d_model": {"type": "choice", "values": [256, 320, 384, 448, 512,768, 1024], "bw": 1},
@@ -24,6 +25,35 @@ HS_SEARCH_SPACE = {
 
     # Entrenamiento
     "epochs": {"type": "choice", "values": [5], "bw": 1},
+}"""
+
+HS_SEARCH_SPACE = {
+    # Capacidad CONTROLADA
+    "d_model": {"type": "choice", "values": [256, 320, 384, 448, 512], "bw": 1},
+    "ffn_factor": {"type": "choice", "values": [4, 8], "bw": 1},  # ffn_hidden = factor * d_model
+    "num_heads": {"type": "choice", "values": [2, 4, 8], "bw": 1},
+    "num_layers": {"type": "choice", "values": [2, 3, 4], "bw": 1},
+
+    # Regularización 
+    "drop_prob": {"type": "float_range", "low": 0.08, "high": 0.25, "bw": 0.02},
+    "label_smoothing": {"type": "choice", "values": [0.05, 0.10, 0.15], "bw": 1},
+    "weight_decay": {"type": "choice", "values": [0.005, 0.01, 0.02], "bw": 1},
+
+    # Optimización 
+    "lr": {"type": "choice", "values": [5e-5, 1e-4, 2e-4, 3e-4], "bw": 1},
+    "warmup_steps": {"type": "choice", "values": [200, 400, 800, 1200], "bw": 1},
+    "grad_clip": {"type": "choice", "values": [0.5, 1.0, 2.0], "bw": 1},
+
+    # Datos/batch 
+    "batch_size": {"type": "choice", "values": [2, 4, 8,16], "bw": 1},
+    "grad_accum_steps": {"type": "choice", "values": [2, 4, 8], "bw": 1},
+
+    # Secuencia (no tan larga para evitar memorizar + OOM)
+    "max_sequence_length": {"type": "choice", "values": [128, 160, 192, 224, 256], "bw": 1},
+
+    # HS proxy
+    "epochs": {"type": "choice", "values": [5, 8], "bw": 1},
 }
+
 GA_SEARCH_SPACE = HS_SEARCH_SPACE
 
