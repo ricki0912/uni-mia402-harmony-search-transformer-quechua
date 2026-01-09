@@ -472,12 +472,12 @@ def train_single_run(hp, artifacts, resume_from=None, checkpoint_dir="checkpoint
 
             #DUDA
             if batch_num % 1000 == 0:
-                print(f"Iteration {batch_num} : {loss.item()}")
-                print(f"{name_source_lang}: {eng_batch[0]}")
-                print(f"{name_target_lang} Translation: {kn_batch[0]}")
+                Logger.print(f"Iteration {batch_num} : {loss.item()}")
+                Logger.print(f"{name_source_lang}: {eng_batch[0]}")
+                Logger.print(f"{name_target_lang} Translation: {kn_batch[0]}")
                 kn_sentence_predicted = torch.argmax(kn_predictions[0], axis=1).tolist()
                 predicted_sentence = decode_tokens_to_text(kn_sentence_predicted)
-                print(f"{name_target_lang} Prediction: {predicted_sentence}")
+                Logger.print(f"{name_target_lang} Prediction: {predicted_sentence}")
 
         # Promedio de las métricas de la época
         avg_loss = total_loss / len(train_loader)

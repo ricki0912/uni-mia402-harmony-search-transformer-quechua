@@ -17,7 +17,7 @@ Thumbs.db
 # Logs / checkpoints / runs
 logs/
 checkpoints/
-hs_runs/
+hs_runs*/
 
 # Data and models (keep small samples elsewhere)
 data/*.xlsx

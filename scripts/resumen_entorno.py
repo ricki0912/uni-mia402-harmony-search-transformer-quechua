@@ -4,13 +4,13 @@ import platform
 from pathlib import Path
 import torch
 
-# Asegurar que el repositorio raíz esté en sys.path
+# Asegurar que el repositorio raiz esté en sys.path
 ROOT = Path(__file__).resolve().parent.parent
 if str(ROOT) not in sys.path:
     sys.path.append(str(ROOT))
 
 import config
-from utils.search_space import HS_SEARCH_SPACE, GA_SEARCH_SPACE
+from utils.search_space import HS_SEARCH_SPACE
 
 
 def summarize_space(name, space):
@@ -42,22 +42,12 @@ def main():
             "HMS": 12,
             "HMCR": 0.95,
             "PAR": 0.30,
-            "BW": "por parámetro (bw en search_space)",
+            "BW": "por parametro (bw en search_space)",
             "NI": 6,
             "resume_state": str(config.OUT_DIR / "state_hs.json"),
         },
-        "ga_params": {
-            "population_size": 24,
-            "generations": 10,
-            "tournament_k": 3,
-            "crossover_rate": 0.9,
-            "mutation_rate": 0.15,
-            "elitism": 1,
-            "resume_state": str(config.OUT_DIR / "state_ga.json"),
-        },
         "search_spaces": [
             summarize_space("HS_SEARCH_SPACE", HS_SEARCH_SPACE),
-            summarize_space("GA_SEARCH_SPACE", GA_SEARCH_SPACE),
         ],
     }
     pprint(info)

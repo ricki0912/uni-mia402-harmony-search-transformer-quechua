@@ -9,11 +9,22 @@ from utils.search_space import HS_SEARCH_SPACE
 from model.training import build_training_artifacts, train_single_run
 import config
 
+# Configuracion via config.py (dirs y parametros HS)
 OUT_DIR = config.OUT_DIR
-DATASET_QUECHUA_PATH=config.DATASET_QUECHUA_PATH
+DATASET_QUECHUA_PATH = config.DATASET_QUECHUA_PATH
+LOG_DIR = getattr(config, "LOG_DIR", Path("logs"))
+STATE_PATH = getattr(config, "HS_STATE_PATH", OUT_DIR / "state_hs.json")
+HS_PARAMS = getattr(
+    config,
+    "HS_PARAMS",
+    {"HMS": 12, "HMCR": 0.90, "PAR": 0.40, "BW": 1.0, "NI": 5, "seed": 123},
+)
+SEARCH_SPACE = getattr(config, "SEARCH_SPACE", HS_SEARCH_SPACE)
+
+# Inicializa logger con el directorio configurado
+Logger(log_dir=LOG_DIR)
 
 ARTIFACTS = build_training_artifacts(max_sequence_length=200, dataset_path=DATASET_QUECHUA_PATH)
-SEARCH_SPACE = HS_SEARCH_SPACE
 
 def fitness_fn(hp: dict) -> float:
     Logger.print("=====================================================")
@@ -81,13 +92,14 @@ def main():
     hs = HarmonySearch(
         search_space=SEARCH_SPACE,
         fitness_fn=fitness_fn,
-        HMS=12,         # tamaño de memoria
-        HMCR=0.90,      # prob. de tomar valores desde la memoria
-        PAR=0.40,       # prob. de ajustar el pitch (vecindad)
-        BW=1.0,         # amplitud del ajuste (ya internalizada por _pitch_adjust)
-        NI=10,           # iteraciones de mejora sobre la HM
-        seed=123,
-        resume_state_path=OUT_DIR / "state_hs.json"
+        HMS=HS_PARAMS.get("HMS", 12),         # tamaño de memoria
+        HMCR=HS_PARAMS.get("HMCR", 0.90),     # prob. de tomar valores desde la memoria
+        PAR=HS_PARAMS.get("PAR", 0.40),       # prob. de ajustar el pitch (vecindad)
+        BW=HS_PARAMS.get("BW", 1.0),          # amplitud del ajuste (ya internalizada por _pitch_adjust)
+        NI=HS_PARAMS.get("NI", 5),            # iteraciones de mejora sobre la HM
+        seed=HS_PARAMS.get("seed", 123),
+        resume_state_path=STATE_PATH,
+        log_path=LOG_DIR / "hs_search.log",
     )
 
     best_hp, best_bleu, history = hs.run()

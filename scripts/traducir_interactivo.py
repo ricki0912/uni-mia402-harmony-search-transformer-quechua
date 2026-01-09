@@ -69,7 +69,7 @@ def _build_model(ckpt: dict, tokenizer, pad_id: int, bos_id: int, eos_id: int, u
 
     model = Transformer(
         hp["d_model"],
-        hp["ffn_hidden"],
+        2048,
         hp["num_heads"],
         hp["drop_prob"],
         hp["num_layers"],

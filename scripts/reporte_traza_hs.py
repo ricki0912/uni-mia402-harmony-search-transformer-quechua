@@ -429,27 +429,30 @@ def build_tree_html(trace: dict) -> str:
 
 def build_payload(trace: dict, trace_path: Path) -> dict:
     meta = trace.get("run_meta", {})
-    best_hp = trace["final"]["best_hp"]
-    best_fitness = trace["final"]["best_fitness"]
-    best_init = max(trace["init_hm"], key=lambda x: x["fitness"])["fitness"]
-    worst_final = trace["iterations"][-1]["after_worst"]
+    init_hm = trace.get("init_hm", []) or []
+    iterations = trace.get("iterations", []) or []
+    final = trace.get("final", {}) or {}
+    best_hp = final.get("best_hp", {})
+    best_fitness = float(final.get("best_fitness", 0.0))
+    best_init = max(init_hm, key=lambda x: x.get("fitness", 0.0)).get("fitness", 0.0) if init_hm else 0.0
+    worst_final = iterations[-1]["after_worst"] if iterations else 0.0
 
     evals, replacements, hm_iter_hm, hm_iter_rand = gather_evals(trace)
     hm_usage_stats = hm_usage(trace)
     clamps = clamp_events(trace)
     pitch = pitch_stats(trace)
 
-    iter_idx = [it["iter_idx"] for it in trace["iterations"]]
-    after_best = [it["after_best"] for it in trace["iterations"]]
-    after_worst = [it["after_worst"] for it in trace["iterations"]]
-    before_best = [it["before_best"] for it in trace["iterations"]]
-    before_worst = [it["before_worst"] for it in trace["iterations"]]
+    iter_idx = [it.get("iter_idx") for it in iterations]
+    after_best = [it.get("after_best", 0.0) for it in iterations]
+    after_worst = [it.get("after_worst", 0.0) for it in iterations]
+    before_best = [it.get("before_best", 0.0) for it in iterations]
+    before_worst = [it.get("before_worst", 0.0) for it in iterations]
     delta_best = [a - b for a, b in zip(after_best, before_best)]
     eval_cum = list(range(1, len(after_best) + 1))
 
-    fitness_all = [item["fitness"] for item in trace["init_hm"]] + [e["fitness"] for e in evals]
+    fitness_all = [item.get("fitness", 0.0) for item in init_hm] + [e["fitness"] for e in evals]
     param_values = hist_values(trace)
-    replace_per_iter = [sum(1 for im in it["improvisations"] if im["replace"]) for it in trace["iterations"]]
+    replace_per_iter = [sum(1 for im in it.get("improvisations", []) if im.get("replace")) for it in iterations]
 
     clamp_param = Counter()
     for ev in clamps:
@@ -460,9 +463,11 @@ def build_payload(trace: dict, trace_path: Path) -> dict:
 
     insights = [
         f"Mejor fitness {best_fitness:.6f} (best after_best final).",
-        f"Mejora de {best_init:.6f} a {best_fitness:.6f} ({((best_fitness-best_init)/best_init*100):.2f}% si best_init>0).",
-        f"Reemplazos totales: {len(replacements)} / {len(evals)} evals (rate {(len(replacements)/len(evals))*100:.2f}%).",
-        f"Pitch aplicado {pitch['count_applied']} de {pitch['total']} parámetros.",
+        f"Mejora de {best_init:.6f} a {best_fitness:.6f} ({((best_fitness-best_init)/best_init*100):.2f}% si best_init>0)."
+        if best_init > 0
+        else "Mejora no calculable porque best_init es 0 o HM inicial vacia.",
+        f"Reemplazos totales: {len(replacements)} / {len(evals)} evals (rate {(len(replacements)/len(evals)*100 if evals else 0):.2f}%).",
+        f"Pitch aplicado {pitch['count_applied']} de {pitch['total']} parametros.",
         f"Clamps: {len(clamps)} eventos.",
         f"Uso HM vs rand (params): {hm_usage_stats['HM']} HM vs {hm_usage_stats['rand']} rand.",
     ]
@@ -482,7 +487,7 @@ def build_payload(trace: dict, trace_path: Path) -> dict:
         },
         "meta_raw": meta,
         "trace_raw": trace,
-        "best": {"best_hp": best_hp, "best_fitness": best_fitness, "eval_count_total": trace["final"]["eval_count_total"]},
+        "best": {"best_hp": best_hp, "best_fitness": best_fitness, "eval_count_total": final.get("eval_count_total")},
         "kpis": {
             "best_final": best_fitness,
             "best_init": best_init,
@@ -504,12 +509,12 @@ def build_payload(trace: dict, trace_path: Path) -> dict:
             "eval_cum": eval_cum,
         },
         "evals": evals,
-        "tables": {"evals": evals, "top": top, "worst": worst, "init_hm": trace["init_hm"]},
+        "tables": {"evals": evals, "top": top, "worst": worst, "init_hm": init_hm},
         "distrib": {"fitness_all": fitness_all, "box_iter": box_iter(trace), "param_values": param_values},
         "diagnostics": {
             "hm_usage": {"HM": hm_usage_stats["HM"], "rand": hm_usage_stats["rand"]},
             "hm_iter": {"HM": hm_iter_hm, "rand": hm_iter_rand},
-            "hm_param": {"HM": dict(hm_usage_stats["per_param_hm"]), "rand": dict(hm_usage_stats["per_param_rand"])},
+            "hm_param": {"HM": dict(hm_usage_stats["per_param_hm"]), "rand": dict(hm_usage_stats["per_param_rand"])} ,
             "pitch": pitch,
             "clamps": clamps,
             "clamp_param": dict(clamp_param),
@@ -519,7 +524,6 @@ def build_payload(trace: dict, trace_path: Path) -> dict:
     }
     payload["tree_html"] = build_tree_html(trace)
     return payload
-
 
 def main():
     parser = argparse.ArgumentParser(description="Genera un dashboard HTML a partir de un trace de Harmony Search.")

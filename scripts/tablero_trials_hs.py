@@ -47,14 +47,6 @@ def render(trials):
         </div>
       </div>
     </div>
-    <div class="col-lg-6">
-      <div class="card shadow-sm">
-        <div class="card-body">
-          <h6 class="card-title">BLEU GA a lo largo del tiempo</h6>
-          <canvas id="bleuOverTimeGA"></canvas>
-        </div>
-      </div>
-    </div>
   </div>
   <div class="row g-2 mb-3">
     <div class="col-12">
@@ -131,7 +123,7 @@ def render(trials):
   <script>
     const trials = __DATA__;
     let lossChart, bleuChart, rougeChart;
-    let bleuTimeChart, timeByAlgoChart;
+    let bleuTimeChartHS;
 
     const tbody = document.querySelector('#tbl tbody');
     const summaryRow = document.getElementById('summaryRow');
@@ -288,19 +280,14 @@ def render(trials):
 
     function renderSummary() {
       const total = trials.length;
-      const ga = trials.filter(t => (t.algo || '').toLowerCase() === 'ga').length;
-      const hs = trials.filter(t => (t.algo || '').toLowerCase() !== 'ga').length;
       const bestBleu = (arr) => {
         if (!arr.length) return 0;
         return Math.max(...arr.map(t => (t.metrics?.final_metrics?.bleu ?? t.metrics?.bleu ?? 0) || 0));
       };
-      const bestAll = bestBleu(trials);
-      const bestGA = bestBleu(trials.filter(t => (t.algo || '').toLowerCase() === 'ga'));
-      const bestHS = bestBleu(trials.filter(t => (t.algo || '').toLowerCase() !== 'ga'));
+      const bestHS = bestBleu(trials);
       const oomCount = trials.filter(t => t.metrics?.oom).length;
       const sumTime = (arr) => arr.reduce((acc, t) => acc + (t.metrics?.stats?.training_time_minutes || 0), 0);
-      const timeGA = sumTime(trials.filter(t => (t.algo || '').toLowerCase() === 'ga'));
-      const timeHS = sumTime(trials.filter(t => (t.algo || '').toLowerCase() !== 'ga'));
+      const timeHS = sumTime(trials);
 
       summaryRow.innerHTML = `
         <div class="col-sm-6 col-lg-3">
@@ -308,16 +295,16 @@ def render(trials):
             <div class="card-body">
               <h6 class="card-title mb-1">Total trials</h6>
               <div class="fs-5 fw-bold">${total}</div>
-              <small>HS: ${hs} · GA: ${ga}</small>
+              <small>Solo Harmony Search</small>
             </div>
           </div>
         </div>
         <div class="col-sm-6 col-lg-3">
           <div class="card shadow-sm">
             <div class="card-body">
-              <h6 class="card-title mb-1">Mejor BLEU (global)</h6>
-              <div class="fs-5 fw-bold">${bestAll.toFixed(6)}</div>
-              <small>HS: ${bestHS.toFixed(6)} · GA: ${bestGA.toFixed(6)}</small>
+              <h6 class="card-title mb-1">Mejor BLEU</h6>
+              <div class="fs-5 fw-bold">${bestHS.toFixed(6)}</div>
+              <small>Mejor BLEU registrado</small>
             </div>
           </div>
         </div>
@@ -334,18 +321,18 @@ def render(trials):
           <div class="card shadow-sm">
             <div class="card-body">
               <h6 class="card-title mb-1">Tiempo entrenado (min)</h6>
-              <div class="fs-5 fw-bold">${(timeGA + timeHS).toFixed(1)}</div>
-              <small>HS: ${timeHS.toFixed(1)} · GA: ${timeGA.toFixed(1)}</small>
+              <div class="fs-5 fw-bold">${timeHS.toFixed(1)}</div>
+              <small>Minutos totales reportados</small>
             </div>
           </div>
         </div>
       `;
 
-      renderCharts(timeHS, timeGA);
+      renderCharts();
     }
 
-    function renderCharts(timeHS, timeGA) {
-      // BLEU vs trial_id (ordenados) separado para HS y GA
+    function renderCharts() {
+      // BLEU vs trial_id (ordenados) para HS
       const extractId = (t, idx) => {
         if (t.trial_id) return t.trial_id;
         const m = (t.path || "").match(/(\d{10,})/);
@@ -353,16 +340,13 @@ def render(trials):
         return idx + 1; // fallback
       };
       const hsSeq = [];
-      const gaSeq = [];
       trials.forEach((t, idx) => {
         const bleu = t.metrics?.final_metrics?.bleu ?? t.metrics?.bleu ?? 0;
         const algo = (t.algo || 'HS').toUpperCase();
         const id = extractId(t, idx);
         if (algo === 'HS') hsSeq.push({ id, bleu });
-        else gaSeq.push({ id, bleu });
       });
       hsSeq.sort((a,b) => a.id - b.id);
-      gaSeq.sort((a,b) => a.id - b.id);
 
       const makeLine = (canvasId, arr, label, color) => {
         const ctx = document.getElementById(canvasId);
@@ -388,11 +372,8 @@ def render(trials):
 
       if (bleuTimeChartHS) bleuTimeChartHS.destroy();
       bleuTimeChartHS = makeLine('bleuOverTimeHS', hsSeq, 'HS BLEU', '#428bca');
-
-      if (bleuTimeChartGA) bleuTimeChartGA.destroy();
-      bleuTimeChartGA = makeLine('bleuOverTimeGA', gaSeq, 'GA BLEU', '#f0ad4e');
     }
-renderSummary();
+    renderSummary();
     buildHpFilters();
     renderTable();
   </script>

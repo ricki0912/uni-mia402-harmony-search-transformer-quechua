@@ -55,5 +55,4 @@ HS_SEARCH_SPACE = {
     "epochs": {"type": "choice", "values": [5, 8], "bw": 1},
 }
 
-GA_SEARCH_SPACE = HS_SEARCH_SPACE
 

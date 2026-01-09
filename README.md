@@ -1,6 +1,6 @@
 # HS Transformer Quechua (UNI MIA-402)
 
-Proyecto de la asignatura UNI MIA-402: optimizacion de un Transformer de traduccion espanol-quechua usando Harmony Search (y variante GA). Incluye reanudacion por checkpoints, manejo de OOM en el orquestador y dashboards HTML para explorar los trials.
+Proyecto de la asignatura UNI MIA-402: optimizacion de un Transformer de traduccion espanol-quechua usando Harmony Search. Incluye reanudacion por checkpoints, manejo de OOM en el orquestador y dashboards HTML para explorar los trials.
 
 ## Requisitos rapidos
 - Python 3.10 (sugerido conda): `conda create -n hs_transformer_quechua python=3.10 -y; conda activate hs_transformer_quechua`
@@ -9,7 +9,6 @@ Proyecto de la asignatura UNI MIA-402: optimizacion de un Transformer de traducc
 
 ## Estructura clave
 - `main.py`: lanza la busqueda Harmony Search.
-- `ga_orchestrator.py`: busqueda alternativa con Algoritmo Genetico (GA) con reanudacion.
 - `search_orchestrator.py`: define `SEARCH_SPACE`, `fitness_fn` y orquestacion HS.
 - `utils/harmony_search.py`: implementacion HS con estado en `hs_runs/state_hs.json`.
 - `model/training.py`: prepara datos y entrena el Transformer con checkpoints.
@@ -25,17 +24,12 @@ Proyecto de la asignatura UNI MIA-402: optimizacion de un Transformer de traducc
    python main.py
    ```
    Genera `trial_*.json` y `hs_best.json` en `hs_runs/`.
-4) Ejecutar busqueda GA:
-   ```bash
-   python ga_orchestrator.py
-   ```
-   Genera `trial_ga_*.json` y `ga_best.json`; reanuda desde `hs_runs/state_ga.json` si existe.
-5) Dashboard de resultados (trials):
+4) Dashboard de resultados (trials):
    ```bash
    python scripts/tablero_trials_hs.py
    # abrir hs_runs/dashboard.html en el navegador
    ```
-6) Dashboard de trazas HS:
+5) Dashboard de trazas HS:
    ```bash
    python scripts/reporte_traza_hs.py
    # abre el HTML generado en hs_runs/
@@ -56,7 +50,7 @@ Ajusta `SEARCH_SPACE` segun recursos (GPU/CPU). Para evitar OOM: `batch_size <= 
 
 ## Tokenizacion
 - Se usa SentencePiece (BPE) entrenado una sola vez con todo el corpus (ES+QU); guarda `data/spm_es_qu.model` y `.vocab`.
-- El tokenizador se genera automaticamente si no existen esos archivos y luego se reutiliza en HS/GA y en entrenamiento manual.
+- El tokenizador se genera automaticamente si no existen esos archivos y luego se reutiliza en HS y en entrenamiento manual.
 - Tokens especiales fijos: `<PAD>`, `<BOS>`, `<EOS>`, `<UNK>`.
 
 ## Diagramas
@@ -74,7 +68,7 @@ Ajusta `SEARCH_SPACE` segun recursos (GPU/CPU). Para evitar OOM: `batch_size <= 
 3) Guardar en `hs_runs/` el mejor trial (`hs_best.json`) y estado (`state_hs.json`) para reanudar.
 
 ## Scripts y uso
-- `scripts/resumen_entorno.py`: imprime info de entorno, rutas de dataset/salidas y espacios de busqueda HS/GA.
+- `scripts/resumen_entorno.py`: imprime info de entorno, rutas de dataset/salidas y espacio de busqueda HS.
   ```bash
   python scripts/resumen_entorno.py
   ```
@@ -95,7 +89,7 @@ Ajusta `SEARCH_SPACE` segun recursos (GPU/CPU). Para evitar OOM: `batch_size <= 
   python scripts/graficar_entrenos_manual.py
   python scripts/graficar_entrenos_manual.py --file hs_runs/manual_train_123.json
   ```
-- `scripts/tablero_trials_hs.py`: dashboard para trials HS/GA (`trial_*.json`).
+- `scripts/tablero_trials_hs.py`: dashboard para trials HS (`trial_*.json`).
   ```bash
   python scripts/tablero_trials_hs.py
   # abre hs_runs/dashboard.html
