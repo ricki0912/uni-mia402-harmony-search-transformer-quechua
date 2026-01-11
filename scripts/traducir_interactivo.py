@@ -59,6 +59,16 @@ def _build_model(ckpt: dict, tokenizer, pad_id: int, bos_id: int, eos_id: int, u
     hp = ckpt.get("hp", {})
     vocab_size = ckpt.get("artifacts_meta", {}).get("vocab_size", tokenizer.vocab_size())
     max_len = hp.get("max_sequence_length", ckpt.get("artifacts_meta", {}).get("max_sequence_length", 200))
+    d_model = hp.get("d_model")
+    if d_model is None:
+        raise KeyError("El checkpoint no contiene 'd_model' en hp.")
+    ffn_hidden = hp.get("ffn_hidden")
+    if ffn_hidden is None:
+        ffn_factor = hp.get("ffn_factor")
+        if ffn_factor is not None:
+            ffn_hidden = int(d_model * ffn_factor)
+        else:
+            raise KeyError("El checkpoint no contiene 'ffn_hidden' ni 'ffn_factor'; no se puede reconstruir el modelo.")
 
     source_to_index = {
         PADDING_TOKEN: pad_id,
@@ -68,8 +78,8 @@ def _build_model(ckpt: dict, tokenizer, pad_id: int, bos_id: int, eos_id: int, u
     }
 
     model = Transformer(
-        hp["d_model"],
-        2048,
+        d_model,
+        ffn_hidden,
         hp["num_heads"],
         hp["drop_prob"],
         hp["num_layers"],
